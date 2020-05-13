@@ -6,6 +6,7 @@ import ProductDashboard from './components/product-dashboard/ProductDashboard'
 import ProductDetails from './components/products/ProductDetails';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import Checkout from './components/checkout/Checkout';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route path='/products/:id' component={ProductDetails} />
                     <Route path='/signin' component={SignIn} />
                     <Route path='/signup' component={SignUp} />
+                    <Route path='/checkout' component={Checkout} />
                 </Switch>
             </div>
         </BrowserRouter>

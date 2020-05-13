@@ -2,10 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const Cart = (props) => {
-    console.log(props);
-    const { items } = props;
-    
+const Cart = (props) => {    
     return (
         <ul className="right">
             <li><NavLink to='/' className='btn btn-floating pink lighten-1'>

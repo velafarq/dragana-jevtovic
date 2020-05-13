@@ -9,7 +9,13 @@ const initState = {
 const cart_reducer = (state = initState, action) => {
     switch(action.type) {
         case 'ADD_ITEM': 
-            console.log('created project', action.item)
+            console.log('created project', action.item);
+            break;
+        case 'SUBMIT_ORDER':
+            console.log('submitted order', action.data);
+            break;
+        default: 
+            return state;
     }
     return state;
 }
