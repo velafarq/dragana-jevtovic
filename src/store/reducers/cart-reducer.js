@@ -12,12 +12,14 @@ const cart_reducer = (state = initState, action) => {
             console.log('created project', action.item);
             break;
         case 'SUBMIT_ORDER':
-            console.log('submitted order', action.data);
-            break;
+            console.log(action.data);
+            return state;
+        case 'SUBMIT_ORDER_FAILED':
+            console.log('create project err', action.err);
+            return state;
         default: 
             return state;
     }
-    return state;
 }
 
 export default cart_reducer;

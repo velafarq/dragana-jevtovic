@@ -8,6 +8,16 @@ export const addItem = (item) => {
 
 export const submitOrder = (data) => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
-        dispatch({ type: 'SUBMIT_ORDER', data});
+        const firestore = getFirestore();
+        firestore.collection('orders').add({ 
+            items: data, 
+            user_email: 'vela.mrdjen@gmail.com', 
+            user_id: '12345',
+            created_at: new Date()
+        }).then(() => {
+            dispatch({ type: 'SUBMIT_ORDER', data});
+        }).catch((error) => {
+            dispatch({ type: 'SUBMIT_ORDER_FAILED', error});
+        })
     }
 }
