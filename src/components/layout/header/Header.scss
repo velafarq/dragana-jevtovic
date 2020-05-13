@@ -5,4 +5,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    .nav-items {
+        display: flex;
+        color: white;
+        li {
+            padding: 0 5px;
+        }
+    }
 }
