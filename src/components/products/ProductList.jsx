@@ -1,13 +1,13 @@
 import React from 'react';
 import ProductSummary from './ProductSummary';
 
-const ProductList = () => {
+const ProductList = ({ products }) => {
     return (
         <div className="product-list section">
-            <ProductSummary />
-            <ProductSummary />
-            <ProductSummary />
-            <ProductSummary />
+            { products && products.map(product => 
+                <ProductSummary product={product} key={product.id} />
+            )}
+         
 
         </div>
     )
