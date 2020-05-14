@@ -23,3 +23,25 @@ export const signOut = () => {
         });
     }
 }
+
+export const signUp = (newUser) => {
+    return (dispatch, getState, { getFirestore }) => {
+        const firestore = getFirestore();
+
+        firebase.auth().createUserWithEmailAndPassword(
+            newUser.email,
+            newUser.password
+        ).then((data) => {
+            return firestore.collection('users').doc(data.user.uid).set({
+                firstName: newUser.first_name,
+                lastName: newUser.last_name,
+                email: newUser.email,
+                initials: newUser.first_name[0] + newUser.last_name[0]
+            }).then(() => {
+                dispatch({ type: 'SIGNUP_SUCCESS' });
+            })
+        }).catch((error) => {
+            dispatch({ type: 'SIGNUP_ERROR', error });
+        })
+    }
+}
