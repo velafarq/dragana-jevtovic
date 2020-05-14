@@ -1,7 +1,9 @@
 import React from 'react';
 import './Header.scss';
 import logo from './logo.png';
-const Header = () => {
+import { connect } from 'react-redux';
+
+const Header = (props) => {
     return (
         <div className="header-container">
             <img src={logo} alt=""/>
@@ -14,4 +16,10 @@ const Header = () => {
     )
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+
+    }
+}
+export default connect(mapStateToProps)(Header);
