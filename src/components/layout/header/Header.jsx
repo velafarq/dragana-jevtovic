@@ -6,7 +6,6 @@ import SignedInLinks from '../SignedInLinks';
 import SignedOutLinks from '../SignedOutLinks';
 const Header = (props) => {
     const { auth } = props;
-    console.log(auth)
     return (
         <div className="header-container">
             { auth.uid ? <SignedInLinks/> : <SignedOutLinks /> }
