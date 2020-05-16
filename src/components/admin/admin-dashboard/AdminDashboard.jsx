@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import ProductCreator from '../product-creator/ProductCreator';
 
 const AdminDashboard = (props) => {
     const { auth } = props;
+    const [drawer, setDrawer] = useState(false);
+
+   const toggleDrawer = (e) => {
+        e.preventDefault();
+        setDrawer(!drawer);
+    }
     return (
         <React.Fragment>
-            { auth.isAdmin ? 
-                <ProductCreator /> : 
-                <Redirect to='/signin' /> }
+            { auth.isAdmin ?
+                <div className="admin-container">
+                    <button onClick={(e) => toggleDrawer(e)}>Create new product</button>
+                    <div className={drawer ? 'drawer active' : 'drawer'}>
+                        <ProductCreator />
+                    </div>
+                </div> : 
+                <Redirect to='/signin' /> 
+            }
         </React.Fragment>
     )
 }

@@ -446,3 +446,21 @@ form {
         font-weight: 600;
     }
 }
+
+.drawer {
+    width: 650px;
+    background-color: #ffffff;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -650px;
+    z-index: 101;
+    transition: all 0.5s ease-out;
+    border-left: 1px solid #e2e2e2;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.active {
+    right: 0;
+}

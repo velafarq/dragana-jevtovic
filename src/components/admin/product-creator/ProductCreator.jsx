@@ -96,6 +96,7 @@ const ProductCreator = (props) => {
 
     return (
         <form>
+            <h2>Create New Product</h2>
             <div className="form-input">
                 <label htmlFor="name">Name</label>
                 <input type="text" value={product.name} onChange={(event) => handleChange(event, 'name')} id='name' />
