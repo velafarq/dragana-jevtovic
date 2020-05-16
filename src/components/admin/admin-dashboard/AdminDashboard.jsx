@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import ProductCreator from '../product-creator/ProductCreator';
 
 const AdminDashboard = (props) => {
     const { auth } = props;
     return (
         <React.Fragment>
-            { auth.isAdmin ? <div>in admin dashboard</div> : <Redirect to='/signin' /> }
+            { auth.isAdmin ? 
+                <ProductCreator /> : 
+                <Redirect to='/signin' /> }
         </React.Fragment>
     )
 }
