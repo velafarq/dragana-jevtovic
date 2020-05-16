@@ -45,3 +45,8 @@ export const signUp = (newUser) => {
         })
     }
 }
+
+export const isAdmin = (payload) => dispatch => {
+    dispatch({ type: 'IS_ADMIN', payload });
+    dispatch({ type: 'LOAD_COMPLETE' });
+}

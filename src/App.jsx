@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import ProductDashboard from './components/product-dashboard/ProductDashboard'
@@ -8,10 +8,24 @@ import SignUp from './components/auth/SignUp';
 import Checkout from './components/checkout/Checkout';
 import Header from './components/layout/header/Header';
 import { connect } from 'react-redux';
+import { isAdminWhiteList } from './helpers';
+import { isAdmin } from './store/actions/auth-actions';
+import AdminDashboard from './components/admin/admin-dashboard/AdminDashboard';
 
 function App(props) {
-    const { auth } = props;
-    if (auth.isLoaded) {
+    const { fbAuth, isAdmin, localAuth } = props;
+
+    useEffect(() => {
+        if (fbAuth.isLoaded) {
+            if (fbAuth.uid && isAdminWhiteList(fbAuth.uid)) {
+                isAdmin(true);
+            } else {
+                isAdmin(false);
+            }
+        }
+    }, [fbAuth, isAdmin]);
+
+    if (fbAuth.isLoaded && localAuth.isLoaded) {
         return (
             <BrowserRouter>
                 <div className="App">
@@ -23,6 +37,7 @@ function App(props) {
                         <Route path='/signin' component={SignIn} />
                         <Route path='/signup' component={SignUp} />
                         <Route path='/checkout' component={Checkout} />
+                        <Route path='/admin' component={AdminDashboard} />
                     </Switch>
                 </div>
             </BrowserRouter>
@@ -33,8 +48,15 @@ function App(props) {
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        fbAuth: state.firebase.auth,
+        localAuth: state.auth
     }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+    return {
+        isAdmin: payload => dispatch(isAdmin(payload))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,5 +1,7 @@
 const initState = {
-    auth_error: null
+    authError: null,
+    isAdmin: false,
+    isLoaded: false
 };
 
 const auth_reducer = (state = initState, action) => {
@@ -8,13 +10,13 @@ const auth_reducer = (state = initState, action) => {
             console.log('login error');
             return {
                 ...state,
-                auth_error: 'Login failed'
+                authError: 'Login failed'
             }
         case 'LOGIN_SUCCESS':
             console.log('login success');
             return {
                 ...state,
-                auth_error: null
+                authError: null
             }
         case 'SIGNOUT_SUCCESS':
             console.log('signed out');
@@ -23,13 +25,24 @@ const auth_reducer = (state = initState, action) => {
             console.log('signed up');
             return {
                 ...state,
-                auth_error: null
+                authError: null
             }
         case 'SIGNUP_ERROR':
             console.log('signup error');
             return {
                 ...state,
-                auth_error: action.error.message
+                authError: action.error.message
+            }
+        case 'IS_ADMIN':
+            console.log('is admin');
+            return {
+                ...state,
+                isAdmin: action.payload
+            };
+        case 'LOAD_COMPLETE':
+            return {
+                ...state,
+                isLoaded: true
             }
         default:
             return state;
