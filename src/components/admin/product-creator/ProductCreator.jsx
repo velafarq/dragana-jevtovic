@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { createProduct } from '../../../store/actions/admin-actions';
 
-const ProductCreator = () => {
+const ProductCreator = (props) => {
+    const { submit } = props;
+
     const baseProduct = {
         design: '',
         description: '',
@@ -19,6 +23,32 @@ const ProductCreator = () => {
         gbp: 0,
         zar: 0 
     });
+
+    const designOptions = [
+        { value:'', label: ''},
+        { value:'blue_guinea', label: 'Blue Guinea Fowl'},
+        { value:'royal_african', label: 'Royal African'},
+        { value:'brown_feather', label: 'Brown Feather'},
+        { value:'oceans_feather', label: 'Oceans Feather'},
+        { value:'custom', label: 'Custom'}
+    ];
+
+    const typeOptions = [
+        { value:'', label: ''},
+        { value:'plates', label: 'Plates'},
+        { value:'bowls', label: 'Bowls'},
+        { value:'teapots', label: 'Teapots'},
+        { value:'cups_saucers', label: 'Cups & Saucers'},
+        { value:'mugs', label: 'Mugs'},
+        { value:'large_servers', label: 'Large Servers'},
+        { value:'condiments', label: 'Condiments'}
+    ];
+
+    const displayOptions = (options) => {
+        return options.map((option, idx) => (
+            <option key={idx} value={option.value}>{option.label}</option>
+        ))
+    };
 
     const handleChange = (event, key) => {
         setProduct({...product, [key]: event.target.value});
@@ -60,7 +90,7 @@ const ProductCreator = () => {
     const save = (event) => {
         event.preventDefault();
         const payload = {...product, images, price};
-        console.log(payload);
+        submit(payload);
     }
 
     return (
@@ -75,11 +105,15 @@ const ProductCreator = () => {
             </div>
             <div className="form-input">
                 <label htmlFor="design">Design</label>
-                <input type="text" value={product.design} onChange={(event) => handleChange(event, 'design')} id='design' />
+                <select id="design" value={product.design} onChange={(event) => handleChange(event, 'design')} >
+                    {displayOptions(designOptions)}
+                </select>
             </div>
             <div className="form-input">
                 <label htmlFor="type">Type</label>
-                <input type="text" value={product.type} onChange={(event) => handleChange(event, 'type')} id='type' />
+                <select id="type" value={product.type} onChange={(event) => handleChange(event, 'type')} >
+                    {displayOptions(typeOptions)}
+                </select>
             </div>
             <div className="form-input">
                 <label htmlFor="dimensions">Dimensions</label>
@@ -117,4 +151,10 @@ const ProductCreator = () => {
     );
 }
 
-export default ProductCreator;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        submit: (payload) => dispatch(createProduct(payload))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProductCreator);

@@ -1,6 +1,6 @@
 export const createProduct = payload => {
     return (dispatch, getState, { getFirestore}) => {
-        const firestore = getFirestore;
+        const firestore = getFirestore();
 
         firestore.collection('products').add(payload)
             .then(() => {
