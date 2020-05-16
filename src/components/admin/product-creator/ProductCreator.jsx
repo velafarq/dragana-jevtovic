@@ -4,7 +4,7 @@ import { createProduct } from '../../../store/actions/admin-actions';
 import './ProductCreator.scss';
 
 const ProductCreator = (props) => {
-    const { submit } = props;
+    const { submit, toggleDrawer } = props;
 
     const baseProduct = {
         design: '',
@@ -86,12 +86,14 @@ const ProductCreator = (props) => {
 
     const cancel = (event) => {
         event.preventDefault();
+        toggleDrawer(event);
     }
 
     const save = (event) => {
         event.preventDefault();
         const payload = {...product, images, price};
         submit(payload);
+        toggleDrawer(event);
     }
 
     return (

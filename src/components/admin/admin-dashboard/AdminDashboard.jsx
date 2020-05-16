@@ -17,7 +17,7 @@ const AdminDashboard = (props) => {
                 <div className="admin-container">
                     <button onClick={(e) => toggleDrawer(e)}>Create new product</button>
                     <div className={drawer ? 'drawer active' : 'drawer'}>
-                        <ProductCreator />
+                        <ProductCreator toggleDrawer={toggleDrawer} />
                     </div>
                 </div> : 
                 <Redirect to='/signin' /> 
