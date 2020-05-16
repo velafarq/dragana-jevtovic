@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createProduct } from '../../../store/actions/admin-actions';
+import './ProductCreator.scss';
 
 const ProductCreator = (props) => {
     const { submit } = props;
@@ -121,16 +122,23 @@ const ProductCreator = (props) => {
             </div>
 
             { images.length && images.map((image, idx) => (
-                <div key={idx} className="form-input">
-                    <label htmlFor={'image-url' + idx}>Image URL</label>
-                    <input type="text" value={image.url} onChange={(event) => handleImageChange(event, 'url', idx)} id={'image-url' + idx} />
-                    <label htmlFor={'image-alt' + idx}>Image alt text</label>
-                    <input type="text" value={image.alt} onChange={(event) => handleImageChange(event, 'alt', idx)} id={'image-alt' + idx} />
-                    <label htmlFor={'image-primary' + idx}>Is primary</label>
-                    <input type="checkbox" checked={image.primary} value={image.primary} onChange={(event) => handlePrimaryImageChange(event, idx)} id={'image-primary' + idx} />
+                <div key={idx} className="image-inputs">
+                    <h3>Image Details</h3>
+                    <div className="form-input">
+                        <label htmlFor={'image-url' + idx}>Image URL</label>
+                        <input type="text" value={image.url} onChange={(event) => handleImageChange(event, 'url', idx)} id={'image-url' + idx} />
+                    </div>
+                    <div className="form-input">
+                        <label htmlFor={'image-alt' + idx}>Image alt text</label>
+                        <input type="text" value={image.alt} onChange={(event) => handleImageChange(event, 'alt', idx)} id={'image-alt' + idx} />
+                    </div>
+                    <div className="form-input check">
+                        <label htmlFor={'image-primary' + idx}>Is primary</label>
+                        <input type="checkbox" checked={image.primary} value={image.primary} onChange={(event) => handlePrimaryImageChange(event, idx)} id={'image-primary' + idx} />
+                    </div>
                 </div>
             ))}
-            <button onClick={(event) => addImage(event)}>Add image</button>
+            <button className="add-img" onClick={(event) => addImage(event)}>Add image</button>
             <div className="form-input">
                 <label htmlFor="usd">Price - USD</label>
                 <input type="number" value={price.usd} onChange={(event) => handlePriceChange(event, 'usd')} id='usd' />
@@ -144,8 +152,8 @@ const ProductCreator = (props) => {
                 <input type="number" value={price.zar} onChange={(event) => handlePriceChange(event, 'zar')} id='zar' />
             </div>
             <div className="actions">
-                <button onClick={(event) => cancel(event)}>CANCEL</button>
-                <button onClick={(event) => save(event)}>SAVE</button>
+                <button onClick={(event) => cancel(event)}>Cancel</button>
+                <button onClick={(event) => save(event)}>Save</button>
             </div>
         </form>
     );
