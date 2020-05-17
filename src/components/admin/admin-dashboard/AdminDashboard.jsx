@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import ProductCreator from '../product-creator/ProductCreator';
+import AdminProducts from '../admin-products/AdminProducts';
 
 const AdminDashboard = (props) => {
     const { auth } = props;
@@ -16,6 +17,7 @@ const AdminDashboard = (props) => {
             { auth.isAdmin ?
                 <div className="admin-container">
                     <button onClick={(e) => toggleDrawer(e)}>Create new product</button>
+                    <AdminProducts />
                     <div className={drawer ? 'drawer active' : 'drawer'}>
                         <ProductCreator toggleDrawer={toggleDrawer} />
                     </div>
