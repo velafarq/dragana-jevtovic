@@ -33,6 +33,7 @@ const AdminProducts = () => {
     
     const filter = (category, value) => {
         let filtered = allProducts;
+
         if (category === 'design') {
             setDesignFilter(value);
             if (value) {
@@ -57,7 +58,6 @@ const AdminProducts = () => {
             }
         } else if (category === 'search') {
             setSearchWord(value);
-
             if (value) {
                 filtered = filterString(filtered, value);
             }
@@ -75,10 +75,6 @@ const AdminProducts = () => {
         return data.filter(p => p[key] === filter);
     }
 
-    const filterDesign = (data, filter) => {
-        return data.filter(p => p.design === filter);
-    }
-
     const filterString = (data, filter) => {
         return data.filter(p => {
             return Object.values(p).some(val => {
@@ -91,44 +87,49 @@ const AdminProducts = () => {
         });
     }
 
-
-
     const resetFilter = () => {
         setDisplayProducts(allProducts);
         setDesignFilter('');
         setTypeFilter('');
+        setSearchWord('');
     }
 
     return (
         <Fragment>
         { displayProducts &&
-            <Fragment>
-                <button onClick={() => resetFilter()}>Reset</button>
+            <section className='products'>
+                <h2>Products</h2>
                 {/* filters */}
-                <div className="form-input">
-                    <label htmlFor="search">Search</label>
-                    <input type="text" value={searchWord} onChange={(event) => filter('search', event.target.value)} id='search' />
-                </div>
-                <div className="form-input">
-                    <label htmlFor="type">Filter by Type</label>
-                    <select id="type" value={typeFilter} onChange={(event) => filter('type', event.target.value)} >
-                        <DisplayOptions options={typeOptions} />
-                    </select>
-                </div>
-                <div className="form-input">
-                <label htmlFor="design">Filter by Design</label>
-                <select id="design" value={designFilter} onChange={(event) => filter('design', event.target.value)} >
-                    <DisplayOptions options={designOptions} />
-                </select>
-            </div>
+                <section className="filters">
+                    <div className="search-bar">
+                        <div className="form-input">
+                            <input type="text" placeholder='Search' value={searchWord} onChange={(event) => filter('search', event.target.value)} id='search' />
+                        </div>
+                    </div>
+                    <div className="dropdowns">
+                        <div className="form-input">
+                            <label htmlFor="type">Filter by Type</label>
+                            <select id="type" value={typeFilter} onChange={(event) => filter('type', event.target.value)} >
+                                <DisplayOptions options={typeOptions} />
+                            </select>
+                        </div>
+                        <div className="form-input">
+                            <label htmlFor="design">Filter by Design</label>
+                            <select id="design" value={designFilter} onChange={(event) => filter('design', event.target.value)} >
+                                <DisplayOptions options={designOptions} />
+                            </select>
+                        </div>
+                    </div>
+                    <button onClick={() => resetFilter()}>Reset Filters</button>
+
+                </section>
+                
                 <div className='table'>
                     {generateTable(displayProducts)}
                 </div>
-            </Fragment>
+            </section>
         }
         </Fragment>
-        
-       
     )
 }
 

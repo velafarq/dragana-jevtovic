@@ -1,15 +1,46 @@
-.table {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: #fff;
-    color: #444;
-    grid-gap: 10px;
+.products {
+    padding: 0 50px 50px 50px;
+
+    h2 {
+        padding-left: 50px;
+        font-weight: 800;
+        font-size: 2rem;
+    }
+
+    .table {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        background-color: #fff;
+        color: #444;
+        grid-gap: 10px;
+    }
+    
+    .box {
+        background-color: #444;
+        color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        font-size: 150%;
+    }
 }
 
-.box {
-    background-color: #444;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 150%;
-  }
+.filters {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+
+    .dropdowns {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+
+        .form-input {
+            width: 100%;
+        }
+
+    }
+
+    button {
+        margin: 20px 0;
+    }
+}

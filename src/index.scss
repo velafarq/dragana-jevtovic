@@ -404,8 +404,8 @@ ol {
 input,
 textarea,
 select {
-    border: 1px solid #ececec;
-    border-radius: 2px;
+    border: 1px solid #c9c9c9;
+    border-radius: 5px;
     padding: 10px;
     min-height: 25px;
     font-size: 1.2rem;
@@ -436,15 +436,15 @@ form {
         display: flex;
         justify-content: space-between;
     }
+}
 
-    button {
-        background-color: #1d3f61;
-        color: white;
-        border-radius: 4px;
-        min-height: 40px;
-        min-width: 80px;
-        font-weight: 600;
-    }
+button {
+    background-color: #1d3f61;
+    color: white;
+    border-radius: 4px;
+    min-height: 40px;
+    min-width: 80px;
+    font-weight: 600;
 }
 
 .drawer {
