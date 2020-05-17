@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import './AdminProducts.scss';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
+import { typeOptions, designOptions, DisplayOptions} from '../../../helpers';
 
 const AdminProducts = () => {
     useFirestoreConnect([
@@ -10,6 +11,8 @@ const AdminProducts = () => {
 
     const allProducts = useSelector(state => state.firestore.ordered.products);
     const [displayProducts, setDisplayProducts] = useState([]);
+    const [typeFilter, setTypeFilter] = useState('');
+    const [designFilter, setDesignFilter] = useState('');
 
     useEffect(() => {
         setDisplayProducts(allProducts);
@@ -42,6 +45,13 @@ const AdminProducts = () => {
             <Fragment>
                 <button onClick={() => filterByType('mugs')}>filter</button>
                 <button onClick={() => resetFilter()}>Reset</button>
+                {/* filters */}
+                <div className="form-input">
+                    <label htmlFor="type">Type</label>
+                    <select id="type" value={typeFilter} onChange={(event) => filterByType(event)} >
+                        <DisplayOptions options={typeOptions} />
+                    </select>
+                </div>
                 <div className='table'>
                     {generateTable(displayProducts)}
                 </div>

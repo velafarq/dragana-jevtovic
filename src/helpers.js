@@ -1,3 +1,4 @@
+import React from 'react';
 export const isAdminWhiteList = (uid) => {
     const adminAuthwhiteList = ['kpVDlpiGngd4W4Z5nUVH20vTwDL2'];
     return adminAuthwhiteList.includes(uid);
@@ -22,3 +23,9 @@ export const typeOptions = [
     { value:'large_servers', label: 'Large Servers'},
     { value:'condiments', label: 'Condiments'}
 ];
+
+export const DisplayOptions = ({ options }) => {
+    return options.map((option, idx) => (
+        <option key={idx} value={option.value}>{option.label}</option>
+    ))
+};

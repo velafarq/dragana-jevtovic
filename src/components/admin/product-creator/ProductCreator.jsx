@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createProduct } from '../../../store/actions/admin-actions';
 import './ProductCreator.scss';
-import { designOptions, typeOptions } from '../../../helpers';
+import { designOptions, typeOptions, DisplayOptions } from '../../../helpers';
 
 const ProductCreator = (props) => {
     const { submit, toggleDrawer } = props;
@@ -25,12 +25,6 @@ const ProductCreator = (props) => {
         gbp: 0,
         zar: 0 
     });
-
-    const displayOptions = (options) => {
-        return options.map((option, idx) => (
-            <option key={idx} value={option.value}>{option.label}</option>
-        ))
-    };
 
     const handleChange = (event, key) => {
         setProduct({...product, [key]: event.target.value});
@@ -91,13 +85,13 @@ const ProductCreator = (props) => {
             <div className="form-input">
                 <label htmlFor="design">Design</label>
                 <select id="design" value={product.design} onChange={(event) => handleChange(event, 'design')} >
-                    {displayOptions(designOptions)}
+                    <DisplayOptions options={designOptions} />
                 </select>
             </div>
             <div className="form-input">
                 <label htmlFor="type">Type</label>
                 <select id="type" value={product.type} onChange={(event) => handleChange(event, 'type')} >
-                    {displayOptions(typeOptions)}
+                    <DisplayOptions options={typeOptions} />
                 </select>
             </div>
             <div className="form-input">
