@@ -1,0 +1,19 @@
+.filters {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+
+    .dropdowns {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+
+        .form-input {
+            width: 100%;
+        }
+    }
+
+    button {
+        margin: 20px 0;
+    }
+}
