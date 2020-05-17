@@ -1,10 +1,20 @@
 .products {
     padding: 0 50px 50px 50px;
 
-    h2 {
+    .page-title {
         padding-left: 50px;
         font-weight: 800;
         font-size: 2rem;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .create-new {
+            max-height: 25px;
+        }
     }
 
     .table {

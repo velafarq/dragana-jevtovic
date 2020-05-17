@@ -3,6 +3,7 @@ import './AdminProducts.scss';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import { typeOptions, designOptions, DisplayOptions} from '../../../helpers';
+import ProductCreator from '../product-creator/ProductCreator';
 
 const AdminProducts = () => {
     useFirestoreConnect([
@@ -14,6 +15,13 @@ const AdminProducts = () => {
     const [typeFilter, setTypeFilter] = useState('');
     const [designFilter, setDesignFilter] = useState('');
     const [searchWord, setSearchWord] = useState('');
+
+    const [drawer, setDrawer] = useState(false);
+
+   const toggleDrawer = (e) => {
+        e.preventDefault();
+        setDrawer(!drawer);
+    }
 
     useEffect(() => {
         setDisplayProducts(allProducts);
@@ -98,7 +106,11 @@ const AdminProducts = () => {
         <Fragment>
         { displayProducts &&
             <section className='products'>
-                <h2>Products</h2>
+                <div className="header">
+                    <h2 className="page-title">Products</h2>
+                    <button className='create-new' onClick={(e) => toggleDrawer(e)}>Create new product</button>
+                </div>
+
                 {/* filters */}
                 <section className="filters">
                     <div className="search-bar">
@@ -127,6 +139,10 @@ const AdminProducts = () => {
                 <div className='table'>
                     {generateTable(displayProducts)}
                 </div>
+                <div className={drawer ? 'drawer active' : 'drawer'}>
+                        <ProductCreator toggleDrawer={toggleDrawer} />
+                    </div>
+
             </section>
         }
         </Fragment>
