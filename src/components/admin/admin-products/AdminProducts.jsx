@@ -30,28 +30,52 @@ const AdminProducts = () => {
         return products.map((product) => row(product));
     }
     
-    const filterByType = (type) => {
-        const filtered = allProducts.filter(product => product.type === type);
+    const filter = (category, value) => {
+        let filtered = allProducts;
+        if (category === 'design'){
+            setDesignFilter(value);
+            if (value) {
+                filtered = filtered.filter(p => p.design === value);
+            }
+            if (typeFilter) {
+                filtered = filtered.filter(p => p.type === typeFilter);
+            }
+        } else if (category === 'type') {
+            setTypeFilter(value);
+            if (value) {
+                filtered = filtered.filter(p => p.type === value);
+            }
+            if (designFilter) {
+                filtered = filtered.filter(p => p.design === designFilter);
+            }
+        }
         setDisplayProducts(filtered);
     }
 
     const resetFilter = () => {
         setDisplayProducts(allProducts);
+        setDesignFilter('');
+        setTypeFilter('');
     }
 
     return (
         <Fragment>
-        { displayProducts && displayProducts.length &&
+        { displayProducts &&
             <Fragment>
-                <button onClick={() => filterByType('mugs')}>filter</button>
                 <button onClick={() => resetFilter()}>Reset</button>
                 {/* filters */}
                 <div className="form-input">
-                    <label htmlFor="type">Type</label>
-                    <select id="type" value={typeFilter} onChange={(event) => filterByType(event)} >
+                    <label htmlFor="type">Filter by Type</label>
+                    <select id="type" value={typeFilter} onChange={(event) => filter('type', event.target.value)} >
                         <DisplayOptions options={typeOptions} />
                     </select>
                 </div>
+                <div className="form-input">
+                <label htmlFor="design">Filter by Design</label>
+                <select id="design" value={designFilter} onChange={(event) => filter('design', event.target.value)} >
+                    <DisplayOptions options={designOptions} />
+                </select>
+            </div>
                 <div className='table'>
                     {generateTable(displayProducts)}
                 </div>
