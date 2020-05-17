@@ -29,6 +29,10 @@ const AdminProducts = () => {
             <div className='box'>{product.name}</div>
             <div className='box'>{product.design}</div>
             <div className='box'>{product.type}</div>
+            <div className='box actions'>
+                <i className="material-icons edit">edit</i>
+                <i className="material-icons delete">delete_forever</i>
+            </div>
         </Fragment>
     );
     
@@ -46,12 +50,15 @@ const AdminProducts = () => {
                 </div>
                 <ProductFilter allProducts={allProducts} setDisplayProducts={setDisplayProducts} />
                 <div className='table'>
+                    <div className="box title">Name</div>
+                    <div className="box title">Design</div>
+                    <div className="box title">Type</div>
+                    <div className="box title"></div>
                     {generateTable(displayProducts)}
                 </div>
                 <div className={drawer ? 'drawer active' : 'drawer'}>
-                        <ProductCreator toggleDrawer={toggleDrawer} />
-                    </div>
-
+                    <ProductCreator toggleDrawer={toggleDrawer} />
+                </div>
             </section>
         }
         </Fragment>
