@@ -12,11 +12,15 @@ const AdminProducts = () => {
 
     const allProducts = useSelector(state => state.firestore.ordered.products);
     const [displayProducts, setDisplayProducts] = useState([]);
+    const [editable, setEditable] = useState(null);
 
     const [drawer, setDrawer] = useState(false);
 
-   const toggleDrawer = (e) => {
-        e.preventDefault();
+   const toggleDrawer = () => {
+        if (drawer) {
+            setEditable(null);
+            console.log('null')
+        }
         setDrawer(!drawer);
     }
 
@@ -30,11 +34,21 @@ const AdminProducts = () => {
             <div className='box'>{product.design}</div>
             <div className='box'>{product.type}</div>
             <div className='box actions'>
-                <i className="material-icons edit">edit</i>
-                <i className="material-icons delete">delete_forever</i>
+                <i className="material-icons edit" onClick={() => editProduct(product)}>edit</i>
+                <i className="material-icons delete" onClick={() => deleteProduct(product.id)}>delete_forever</i>
             </div>
         </Fragment>
     );
+
+    const deleteProduct = (id) => {
+        console.log(id, 'delete');
+    }
+
+    const editProduct = (product) => {
+        console.log(product, 'edit');
+        setEditable(product);
+        toggleDrawer();
+    }
     
     const generateTable = (products) => {
         return products.map((product) => row(product));
@@ -46,7 +60,7 @@ const AdminProducts = () => {
             <section className='products'>
                 <div className="header">
                     <h2 className="page-title">Products</h2>
-                    <button className='create-new' onClick={(e) => toggleDrawer(e)}>Create new product</button>
+                    <button className='create-new' onClick={toggleDrawer}>Create new product</button>
                 </div>
                 <ProductFilter allProducts={allProducts} setDisplayProducts={setDisplayProducts} />
                 <div className='table'>
@@ -57,7 +71,7 @@ const AdminProducts = () => {
                     {generateTable(displayProducts)}
                 </div>
                 <div className={drawer ? 'drawer active' : 'drawer'}>
-                    <ProductCreator toggleDrawer={toggleDrawer} />
+                    <ProductCreator toggleDrawer={toggleDrawer} editable={editable} />
                 </div>
             </section>
         }

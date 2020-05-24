@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createProduct } from '../../../store/actions/admin-actions';
 import './ProductCreator.scss';
 import { designOptions, typeOptions, DisplayOptions } from '../../../helpers';
 
 const ProductCreator = (props) => {
-    const { submit, toggleDrawer } = props;
+    const { submit, toggleDrawer, editable = null } = props;
 
     const baseProduct = {
         design: '',
@@ -13,18 +13,27 @@ const ProductCreator = (props) => {
         name: '',
         type: '',
         dimensions: ''
-    }
+    };
+
     const [product, setProduct] = useState({...baseProduct});
     const [images, setImages ] = useState([{
         url: '',
         primary: true,
         alt: ''
-    }])
+    }]);
     const [price, setPrice] = useState({ 
         usd: 0,
         gbp: 0,
         zar: 0 
     });
+
+    useEffect(() => {
+        if (editable) {
+            setImages(editable.images);
+            setPrice(editable.price);
+            setProduct({...editable});
+        }
+    }, [editable]);
 
     const handleChange = (event, key) => {
         setProduct({...product, [key]: event.target.value});
@@ -61,14 +70,30 @@ const ProductCreator = (props) => {
 
     const cancel = (event) => {
         event.preventDefault();
-        toggleDrawer(event);
+        resetData()
+        toggleDrawer();
     }
 
     const save = (event) => {
         event.preventDefault();
         const payload = {...product, images, price};
         submit(payload);
-        toggleDrawer(event);
+        resetData()
+        toggleDrawer();
+    }
+
+    const resetData = () => {
+        setProduct({...baseProduct});
+        setImages([{
+            url: '',
+            primary: true,
+            alt: ''
+        }]);
+        setPrice({ 
+            usd: 0,
+            gbp: 0,
+            zar: 0 
+        });
     }
 
     return (
