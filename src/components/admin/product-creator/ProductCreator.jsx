@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { createProduct } from '../../../store/actions/admin-actions';
+import { createProduct, updateProduct } from '../../../store/actions/admin-actions';
 import './ProductCreator.scss';
 import { designOptions, typeOptions, DisplayOptions } from '../../../helpers';
 
 const ProductCreator = (props) => {
-    const { submit, toggleDrawer, editable = null } = props;
+    const { create, toggleDrawer, editable = null, update } = props;
 
     const baseProduct = {
         design: '',
@@ -77,7 +77,12 @@ const ProductCreator = (props) => {
     const save = (event) => {
         event.preventDefault();
         const payload = {...product, images, price};
-        submit(payload);
+
+        if (editable) {
+            update(payload);
+        } else {
+            create(payload);
+        }
         resetData()
         toggleDrawer();
     }
@@ -164,7 +169,8 @@ const ProductCreator = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        submit: (payload) => dispatch(createProduct(payload))
+        create: (payload) => dispatch(createProduct(payload)),
+        update: (payload) => dispatch(updateProduct(payload))
     }
 }
 

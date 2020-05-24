@@ -4,8 +4,10 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import ProductCreator from '../product-creator/ProductCreator';
 import ProductFilter from '../product-filter/ProductFilter';
+import { connect } from 'react-redux';
+import { deleteProduct } from '../../../store/actions/admin-actions';
 
-const AdminProducts = () => {
+const AdminProducts = (props) => {
     useFirestoreConnect([
         { collection: 'products' }
     ]);
@@ -19,7 +21,6 @@ const AdminProducts = () => {
    const toggleDrawer = () => {
         if (drawer) {
             setEditable(null);
-            console.log('null')
         }
         setDrawer(!drawer);
     }
@@ -41,11 +42,10 @@ const AdminProducts = () => {
     );
 
     const deleteProduct = (id) => {
-        console.log(id, 'delete');
+        props.delete(id);
     }
 
     const editProduct = (product) => {
-        console.log(product, 'edit');
         setEditable(product);
         toggleDrawer();
     }
@@ -79,4 +79,9 @@ const AdminProducts = () => {
     )
 }
 
-export default AdminProducts;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        delete: (payload) => dispatch(deleteProduct(payload))
+    }
+}
+export default connect(null, mapDispatchToProps)(AdminProducts);
