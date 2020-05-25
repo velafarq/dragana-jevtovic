@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import './HomeCore.scss';
 
-class Home extends Component {
+class HomeCore extends Component {
     render() {
         return (
             <div className="home container">
@@ -9,4 +10,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default HomeCore;

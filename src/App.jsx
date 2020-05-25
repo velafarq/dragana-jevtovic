@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './components/home/Home';
 import ProductDashboard from './components/product-dashboard/ProductDashboard'
 import ProductDetails from './components/products/ProductDetails';
 import SignIn from './components/auth/SignIn';
@@ -11,6 +10,7 @@ import { connect } from 'react-redux';
 import { isAdminWhiteList } from './helpers';
 import { isAdmin } from './store/actions/auth-actions';
 import AdminDashboard from './components/admin/admin-dashboard/AdminDashboard';
+import HomeCore from './components/home/home-core/HomeCore';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
@@ -31,7 +31,7 @@ function App(props) {
                 <div className="App">
                     <Header />
                     <Switch>
-                        <Route exact path='/' component={Home} />
+                        <Route exact path='/' component={HomeCore} />
                         <Route exact path='/products' component={ProductDashboard} />
                         <Route path='/products/:id' component={ProductDetails} />
                         <Route path='/signin' component={SignIn} />
