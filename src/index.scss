@@ -1,7 +1,6 @@
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-        "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -495,4 +494,10 @@ select {
     white-space: nowrap;
     height: 50px;
     // text-indent: 0.01px; text-overflow: "";
+}
+
+a {
+    margin: 0;
+    text-decoration: none;
+    color: inherit;
 }
