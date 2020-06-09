@@ -41,15 +41,17 @@
             font-weight: 600;
             margin: 0;
             line-height: 1.5;
-
         }
 
         &__btn {   
             background-color: transparent;
             width: 140px;
             border: 2px solid white;
+            color: white;
             font-weight: 700;
             cursor: pointer;
+            width: 113px;
+            height: 35px;
         }
 
     }
