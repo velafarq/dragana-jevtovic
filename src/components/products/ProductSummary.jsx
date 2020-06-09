@@ -18,7 +18,7 @@ const ProductSummary = (props) => {
                 <span className="card-title">{product.name}</span>
                 <p>{product.price}</p>
                 <p className="grey-text">{product.description}</p>
-                <button onClick={() => addToCart()}>ADD TO CART</button>
+                <button className='client-button' Click={() => addToCart()}>ADD TO CART</button>
             </div>
         </div>
     )

@@ -1,0 +1,51 @@
+.artist-bio-container {
+    width: 100%;
+    background-color: black;
+    height: 90vh;
+    color: white;
+
+    .heading-text {
+        font-size: 64px;
+        line-height: 1.1;
+        font-weight: normal;
+    }
+
+    .bio {
+        display: flex;
+        max-width: 1096px;
+        margin: auto;
+        justify-content: space-between;
+
+        figure {
+            width: 40%;
+            margin: 0;
+
+            .bio__img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+        .bio__blurb {
+            width: 40%;
+            color: white;
+            font-size: 24px;
+            line-height: 1.5;
+
+            .client-button {
+                line-height: 14px;
+                font-size: 10px;
+                font-weight: 500;
+                width: 113px;
+                height: 35px;
+                border: 1px solid white;
+            }
+
+            p {
+                margin: 0;
+                max-width: 457px;
+                padding-bottom: 15px;
+            }
+        }
+    }
+}

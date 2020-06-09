@@ -30,7 +30,7 @@ class HeroSlider extends Component {
                     pagination={false}
                     ref={ref => (this.carousel = ref)}
                     showArrows={false}
-                    enableAutoPlay={true}
+                    enableAutoPlay={false}
                     autoPlaySpeed={5000}
                     transitionMs={1500}>
                     {items.map(item => 
@@ -41,7 +41,7 @@ class HeroSlider extends Component {
                         <i className='material-icons arrow right' onClick={() => this.carousel.slideNext()}>keyboard_arrow_right</i>
                         <div className="content">
                             <h2 className="heading-text">{item.title}</h2>
-                            <button className="content__btn">View Style</button>
+                            <button className="client-button content__btn">View Style</button>
                         </div>
                    
                     </div>)}

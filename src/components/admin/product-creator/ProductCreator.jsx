@@ -146,7 +146,7 @@ const ProductCreator = (props) => {
                     </div>
                 </div>
             ))}
-            <button className="add-img" onClick={(event) => addImage(event)}>Add image</button>
+            <button className="admin-button add-img" onClick={(event) => addImage(event)}>Add image</button>
             <div className="form-input">
                 <label htmlFor="usd">Price - USD</label>
                 <input type="number" value={price.usd} onChange={(event) => handlePriceChange(event, 'usd')} id='usd' />
@@ -160,8 +160,8 @@ const ProductCreator = (props) => {
                 <input type="number" value={price.zar} onChange={(event) => handlePriceChange(event, 'zar')} id='zar' />
             </div>
             <div className="actions">
-                <button onClick={(event) => cancel(event)}>Cancel</button>
-                <button onClick={(event) => save(event)}>Save</button>
+                <button className="admin-button" onClick={(event) => cancel(event)}>Cancel</button>
+                <button className='admin-button' onClick={(event) => save(event)}>Save</button>
             </div>
         </form>
     );

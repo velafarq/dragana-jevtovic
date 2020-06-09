@@ -9,12 +9,12 @@ const Box = (props) => {
     } = props;
 
     return (
-        <div className={'box ' + layout}>
+        <div className={'product-box ' + layout}>
             <div className="side" 
                 style={{backgroundImage: `url('${url}')`}} ></div>
             <div className="side">
                 <h2 className="heading-text">{title}</h2>
-                <button className="side__btn">VIEW STYLE</button>
+                <button className="client-button side__btn">VIEW STYLE</button>
             </div>
         </div>
     )

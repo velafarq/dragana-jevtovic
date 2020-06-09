@@ -93,7 +93,7 @@ const ProductFilter = (props) => {
                     </select>
                 </div>
             </div>
-            <button onClick={() => resetFilter()}>Reset Filters</button>
+            <button className='admin-button' onClick={() => resetFilter()}>Reset Filters</button>
         </section>
     )
 }

@@ -60,7 +60,7 @@ const AdminProducts = (props) => {
             <section className='products'>
                 <div className="header">
                     <h2 className="page-title">Products</h2>
-                    <button className='create-new' onClick={toggleDrawer}>Create new product</button>
+                    <button className='admin-button create-new' onClick={toggleDrawer}>Create new product</button>
                 </div>
                 <ProductFilter allProducts={allProducts} setDisplayProducts={setDisplayProducts} />
                 <div className='table'>

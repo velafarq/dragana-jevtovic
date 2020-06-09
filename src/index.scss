@@ -438,13 +438,20 @@ form {
     }
 }
 
-.button {
+.admin-button {
     background-color: #1d3f61;
     color: white;
     border-radius: 4px;
     min-height: 40px;
     min-width: 80px;
     font-weight: 600;
+}
+
+.client-button {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
 }
 
 .drawer {
