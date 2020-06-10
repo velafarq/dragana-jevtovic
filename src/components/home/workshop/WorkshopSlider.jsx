@@ -9,8 +9,8 @@ class WorkshopSlider extends Component {
         this.breakPoints = [
             { width: 1, itemsToShow: 1 },
             { width: 550, itemsToShow: 2 },
-            { width: 850, itemsToShow: 3 },
-            { width: 1080, itemsToShow: 4 },
+            { width: 850, itemsToShow: 4, itemsToScroll: 2 },
+            { width: 1080, itemsToShow: 4, itemsToScroll: 2 },
         ];
 
     }

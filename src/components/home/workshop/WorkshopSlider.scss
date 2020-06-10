@@ -1,9 +1,10 @@
 .workshop-slider-container {
-
     margin-bottom: 200px;
+    margin-top: 50px;
+
     .workshop-slider {
         max-height: 300px;
-        width: 1080px;
+        max-width: 1080px;
 
         .workshop-slide {
             width: 260px;
