@@ -11,6 +11,7 @@ import { isAdminWhiteList } from './helpers';
 import { isAdmin } from './store/actions/auth-actions';
 import AdminDashboard from './components/admin/admin-dashboard/AdminDashboard';
 import HomeCore from './components/home/home-core/HomeCore';
+import Footer from './components/layout/footer/Footer';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
@@ -39,6 +40,7 @@ function App(props) {
                         <Route path='/checkout' component={Checkout} />
                         <Route path='/admin' component={AdminDashboard} />
                     </Switch>
+                    <Footer />
                 </div>
             </BrowserRouter>
         );

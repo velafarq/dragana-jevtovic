@@ -10,4 +10,23 @@
         line-height: 1.2;
         margin-top: 60px;
     }
+
+    .contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 160px;
+        margin-bottom: 150px;
+
+        .heading-text {
+            font-weight: 500;
+        }
+        .client-button {
+            color: black;
+            border-color: black;
+            padding: 10px 25px;
+            font-size: 14px
+        }
+    }
 }
