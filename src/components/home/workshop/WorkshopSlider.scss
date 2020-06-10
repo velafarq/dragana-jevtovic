@@ -11,6 +11,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: black;
+
 
             img {
                 max-width: 260px;
@@ -26,14 +28,9 @@
     }
 }
 
-.workshop-slider-container {
-    .workshop-slide {
-        width: 300px;
-        max-height: 300px;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 30%;
-        background-color: black;
+@media only screen and (max-width: 550px) {
+    .workshop-slider-container .workshop-slider .workshop-slide {
+        width: 100px;
+        height: 100px;
     }
 }

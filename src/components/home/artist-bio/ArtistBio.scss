@@ -53,21 +53,32 @@
 }
 
 @media only screen and (max-width: 1010px) {
-    .artist-bio-container .bio {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .artist-bio-container {
 
-        .bio__blurb {
-            width: 100%;
-            text-align: center;
+        .heading-text {
+            font-size: 40px;
+        }
 
-            p {
-                max-width: 90%;
-                margin: auto;
+        .bio {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+    
+            .bio__blurb {
+                width: 100%;
                 text-align: center;
-                margin-top: 15px;
+    
+                p {
+                    max-width: 90%;
+                    margin: auto;
+                    text-align: center;
+                    margin-top: 15px;
+                    font-size: 18px;
+                }
             }
         }
+
     }
+    
+        
 }

@@ -7,7 +7,6 @@ class WorkshopSlider extends Component {
     constructor(props) {
         super(props) 
         this.breakPoints = [
-            { width: 1, itemsToShow: 1 },
             { width: 550, itemsToShow: 2 },
             { width: 850, itemsToShow: 4, itemsToScroll: 2 },
             { width: 1080, itemsToShow: 4, itemsToScroll: 2 },

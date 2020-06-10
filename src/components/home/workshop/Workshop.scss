@@ -17,3 +17,18 @@
         margin: 0;
     }
 }
+
+@media only screen and (max-width: 1010px) {
+    .workshop-container {
+        .heading-text {
+            font-size: 40px;
+        }
+
+        .workshop-description {
+            max-width: 90%;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+        }
+    }
+}

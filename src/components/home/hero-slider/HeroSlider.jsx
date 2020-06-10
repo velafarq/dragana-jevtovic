@@ -16,7 +16,7 @@ class HeroSlider extends Component {
             url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Fbrown-feather-slide.JPG?alt=media&token=bda511ac-38a0-46e1-9533-d859edce351d'},
         {
             id: 2,
-            title: 'Two Oceans Feathers',
+            title: "Two Oceans' Feathers",
             url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Foceans-feathers-slider.JPG?alt=media&token=110083ff-3d26-49bc-86c8-25527f081e32'
         }]
     }
