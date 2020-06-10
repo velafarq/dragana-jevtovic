@@ -10,7 +10,7 @@ class HomeCore extends Component {
         return (
             <div className="home container">
                 <HeroSlider />
-                <h2 className="heading-text">Hand-made ceramics by Dragana Jevtovic</h2>
+                <h2 className="heading-text home-title">Hand-made ceramics by Dragana Jevtovic</h2>
                 <ProductBoxes />
                 <ArtistBio />
                 <Workshop />
