@@ -1,9 +1,10 @@
 .artist-bio-container {
     width: 100%;
     background-color: black;
-    height: calc(100vh - 104px);
+    min-height: calc(100vh - 104px);
     color: white;
     margin-top: 100px;
+    padding-bottom: 80px;
 
     .heading-text {
         font-size: 64px;
@@ -46,6 +47,26 @@
                 margin: 0;
                 max-width: 457px;
                 padding-bottom: 15px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1010px) {
+    .artist-bio-container .bio {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .bio__blurb {
+            width: 100%;
+            text-align: center;
+
+            p {
+                max-width: 90%;
+                margin: auto;
+                text-align: center;
+                margin-top: 15px;
             }
         }
     }
