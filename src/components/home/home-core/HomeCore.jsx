@@ -3,6 +3,7 @@ import './HomeCore.scss';
 import HeroSlider from '../hero-slider/HeroSlider';
 import ProductBoxes from '../product-boxes/ProductBoxes';
 import ArtistBio from '../artist-bio/ArtistBio';
+import Workshop from '../workshop/Workshop';
 
 class HomeCore extends Component {
     render() {
@@ -12,6 +13,7 @@ class HomeCore extends Component {
                 <h2 className="heading-text">Hand-made ceramics by Dragana Jevtovic</h2>
                 <ProductBoxes />
                 <ArtistBio />
+                <Workshop />
             </div>
         )
     }
