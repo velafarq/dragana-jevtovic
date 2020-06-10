@@ -36,13 +36,13 @@ const ProductBoxes = () => {
     ]
     return (
         <div className="product-boxes">
-            <div className="top-row">
+            <div className="boxes-row">
                 { top_row && top_row.map((row, i) => {
                     return <Box url={row.url} title={row.title} layout={row.layout} key={i} />
                 })}
             </div>
 
-            <div className="bottom-row">
+            <div className="boxes-row">
                 { bottom_row && bottom_row.map((row, i) => {
                     return <Box url={row.url} title={row.title} layout={row.layout} key={i} />
                 })}

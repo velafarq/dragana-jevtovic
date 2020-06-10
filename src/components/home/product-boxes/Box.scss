@@ -49,3 +49,19 @@
         flex-direction: column;
     }
 }
+
+@media only screen and (max-width: 1010px) {
+    .product-box {
+        margin: 0;
+        margin-bottom: 20px;
+
+        &.row {
+            height: 391px;
+            width: 345px;
+            flex-direction: column;
+        }
+
+    }
+    
+        
+}

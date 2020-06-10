@@ -1,11 +1,12 @@
 
 .hero-container {
     margin-top: 104px;
+
 }
 
 .slide {
     width: 100%;
-    min-height: 85vh;
+    min-height: calc(100vh - 104px);
     background-size: cover;
     background-position: center;
     display: flex;

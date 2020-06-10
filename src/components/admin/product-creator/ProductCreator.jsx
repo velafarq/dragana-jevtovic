@@ -12,7 +12,8 @@ const ProductCreator = (props) => {
         description: '',
         name: '',
         type: '',
-        dimensions: ''
+        dimensions: '',
+        hidden: false
     };
 
     const [product, setProduct] = useState({...baseProduct});
@@ -36,7 +37,14 @@ const ProductCreator = (props) => {
     }, [editable]);
 
     const handleChange = (event, key) => {
-        setProduct({...product, [key]: event.target.value});
+        console.log(event.target.value)
+        if (key === 'hidden') {
+            setProduct({...product, hidden: !product.hidden})
+        } else {
+            setProduct({...product, [key]: event.target.value});
+
+        }
+        
     };
 
     const handleImageChange = (event, key, index) => {
@@ -158,6 +166,10 @@ const ProductCreator = (props) => {
             <div className="form-input">
                 <label htmlFor="zar">Price - ZAR</label>
                 <input type="number" value={price.zar} onChange={(event) => handlePriceChange(event, 'zar')} id='zar' />
+            </div>
+            <div className="form-input check">
+                <label htmlFor='hidden'>Hidden</label>
+                <input type="checkbox" checked={product.hidden} value={product.hidden} onChange={(event) => handleChange(event, 'hidden')} id='hidden' />
             </div>
             <div className="actions">
                 <button className="admin-button" onClick={(event) => cancel(event)}>Cancel</button>
