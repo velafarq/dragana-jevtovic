@@ -24,7 +24,7 @@ class HeroSlider extends Component {
     render() {
         const { items } = this.state;
         return (
-            <div className='container'>
+            <div className='hero-container'>
                 <Carousel className='slider' 
                     itemsToShow={1}
                     pagination={false}
