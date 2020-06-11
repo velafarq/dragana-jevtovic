@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import AdminProducts from '../admin-products/AdminProducts';
+import './AdminDashboard.scss';
 
 const AdminDashboard = (props) => {
     const { auth } = props;

@@ -1,18 +1,16 @@
 import React, {Fragment} from 'react';
 import './Header.scss';
 import { connect } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
-// import SignedInLinks from '../SignedInLinks';
-// import SignedOutLinks from '../SignedOutLinks';
+import { NavLink } from 'react-router-dom';
+import SignedInLinks from '../SignedInLinks';
+import SignedOutLinks from '../SignedOutLinks';
+
 const Header = (props) => {
-    // const { auth } = props;
-    const location = useLocation();
-    const isAdmin = location.pathname.includes('admin');
+    const { auth } = props;
 
     return (
         <Fragment>
-            {!isAdmin && <div className="header-container">
-            {/* { auth.uid ? <SignedInLinks/> : <SignedOutLinks /> } */}
+            <div className="header-container">
                 <img className='logo' src='https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/logo%2Flogo.png?alt=media&token=24d2acb4-4fd9-4590-a5fe-164dd2169f9c' alt=""/>
                 <nav className="nav-items">
                     <NavLink className='item' exact to='/' activeClassName='selected'>HOME</NavLink>
@@ -23,10 +21,10 @@ const Header = (props) => {
                 <div className="side-icons">
                     <i className="material-icons">search</i>
                     <NavLink exact to='/checkout' className="item"><i className="material-icons">shopping_cart</i></NavLink>
+                    { auth.uid ? <SignedInLinks/> : <SignedOutLinks /> }
                 </div>
-            </div>}
+            </div>
         </Fragment>
-        
     )
 }
 

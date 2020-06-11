@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/auth-actions';
+import './auth.scss';
 
 const SignedInLinks = (props) => {
     return (
-        <ul className="right">
-            <li><button onClick={props.signOut}>Log Out</button></li>
-        </ul>
+        <div className="auth-links" onClick={props.signOut}>Log Out</div>
     )
 }
 
