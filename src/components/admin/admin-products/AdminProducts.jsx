@@ -34,7 +34,7 @@ const AdminProducts = (props) => {
             <div className='box'>{product.name}</div>
             <div className='box'>{product.design}</div>
             <div className='box'>{product.type}</div>
-            <div className='box actions'>
+            <div className='box table-actions'>
                 <i className="material-icons edit" onClick={() => editProduct(product)}>edit</i>
                 <i className="material-icons delete" onClick={() => deleteProduct(product.id)}>delete_forever</i>
             </div>
