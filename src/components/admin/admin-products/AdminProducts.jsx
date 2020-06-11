@@ -34,6 +34,7 @@ const AdminProducts = (props) => {
             <div className='box'>{product.name}</div>
             <div className='box'>{product.design}</div>
             <div className='box'>{product.type}</div>
+            <div className="box">{product.hidden ? <i className="material-icons hidden">check_circle_outline</i> : ''}</div>
             <div className='box table-actions'>
                 <i className="material-icons edit" onClick={() => editProduct(product)}>edit</i>
                 <i className="material-icons delete" onClick={() => deleteProduct(product.id)}>delete_forever</i>
@@ -67,6 +68,7 @@ const AdminProducts = (props) => {
                     <div className="box title">Name</div>
                     <div className="box title">Design</div>
                     <div className="box title">Type</div>
+                    <div className="box title">Hidden</div>
                     <div className="box title"></div>
                     {generateTable(displayProducts)}
                 </div>
