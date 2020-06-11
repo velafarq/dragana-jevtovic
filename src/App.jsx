@@ -15,7 +15,6 @@ import Footer from './components/layout/footer/Footer';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
-
     useEffect(() => {
         if (fbAuth.isLoaded) {
             if (fbAuth.uid && isAdminWhiteList(fbAuth.uid)) {
