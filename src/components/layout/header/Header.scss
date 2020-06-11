@@ -46,5 +46,14 @@
         .material-icons {
             margin-right: 10px
         }
+
+        .dashboard {
+            font-size: 14px;
+            font-weight: 600;
+
+            &.selected {
+                text-decoration: underline;
+            }
+        }
     }
 }
