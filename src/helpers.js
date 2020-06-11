@@ -1,6 +1,6 @@
 import React from 'react';
 export const isAdminWhiteList = (uid) => {
-    const adminAuthwhiteList = ['kpVDlpiGngd4W4Z5nUVH20vTwDL2'];
+    const adminAuthwhiteList = ['kpVDlpiGngd4W4Z5nUVH20vTwDL2', 'b60yeBTNDCRPsNWWXcj2vyUxLhi2'];
     return adminAuthwhiteList.includes(uid);
 }
 
