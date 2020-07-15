@@ -16,7 +16,7 @@ const ProductDashboard = (props) => {
     return (
         <div className="product-dashboard container">
             <ProductBoxes />
-            {/* <ProductList products={products}></ProductList> */}
+            <ProductList products={products}></ProductList>
         </div>
     )
     
