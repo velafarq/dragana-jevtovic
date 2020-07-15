@@ -2,6 +2,8 @@ import React from 'react';
 import ProductList from '../products/ProductList';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
+import './ProductDashboard.scss';
+import ProductBoxes from '../home/product-boxes/ProductBoxes';
 
 const ProductDashboard = (props) => {
     useFirestoreConnect([
@@ -13,7 +15,8 @@ const ProductDashboard = (props) => {
     
     return (
         <div className="product-dashboard container">
-            <ProductList products={products}></ProductList>
+            <ProductBoxes />
+            {/* <ProductList products={products}></ProductList> */}
         </div>
     )
     
