@@ -109,6 +109,12 @@ const ProductCreator = (props) => {
         });
     }
 
+    const removeImg = (img, idx) => {
+        const local = [...images];
+        local.splice(idx, 1);
+        setImages(local);
+    }
+
     return (
         <form>
             <h2>Create New Product</h2>
@@ -139,7 +145,10 @@ const ProductCreator = (props) => {
 
             { images.length && images.map((image, idx) => (
                 <div key={idx} className="image-inputs">
-                    <h3>Image Details</h3>
+                    <div className="image-inputs-header">
+                        <h3>Image Details</h3>
+                        <i className="material-icons" onClick={() => removeImg(image, idx)}>clear</i>
+                    </div>
                     <div className="form-input">
                         <label htmlFor={'image-url' + idx}>Image URL</label>
                         <input type="text" value={image.url} onChange={(event) => handleImageChange(event, 'url', idx)} id={'image-url' + idx} />
@@ -172,7 +181,7 @@ const ProductCreator = (props) => {
                 <input type="checkbox" checked={product.hidden} value={product.hidden} onChange={(event) => handleChange(event, 'hidden')} id='hidden' />
             </div>
             <div className="actions">
-                <button className="admin-button" onClick={(event) => cancel(event)}>Cancel</button>
+                <button className="admin-button cancel" onClick={(event) => cancel(event)}>Cancel</button>
                 <button className='admin-button' onClick={(event) => save(event)}>Save</button>
             </div>
         </form>

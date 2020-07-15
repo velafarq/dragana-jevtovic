@@ -445,6 +445,11 @@ form {
     min-height: 40px;
     min-width: 80px;
     font-weight: 600;
+    border: none;
+
+    &.cancel {
+        background-color: grey;
+    }
 }
 
 .client-button {
@@ -511,4 +516,8 @@ a {
 
 .heading-text {
     font-family: 'Libre Caslon Display', serif;
+}
+
+.material-icons {
+    cursor: pointer;
 }
