@@ -64,7 +64,7 @@ function ProductDetails(props) {
     
     return (
        <React.Fragment>
-            {product ? <div className="container section">
+            {product ? <div className="product-details-container section">
               <div className="product-content"> 
                   <div className="mini-images">
                       { displayImages(secondary_images)}
