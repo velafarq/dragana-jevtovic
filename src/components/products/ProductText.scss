@@ -1,0 +1,44 @@
+.product-text {
+    min-height: 100%;
+    max-width: 386px;
+
+    .row {
+        display: flex;
+        width: 100%;
+
+        input {
+            max-width: 55px;
+            max-height: 100%;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+    
+        }
+        .add-to-cart-btn {
+            background-color: #2C527C;
+            font-size: 20px;
+            line-height: 1.2;
+            flex-grow: 1;
+            padding: 5px 0;
+        }
+    
+    }
+    
+    .details {
+        ul {
+            list-style: initial;
+            padding-left: 20px;
+        }
+    }
+
+    .sub {
+        font-size: 24px;
+        line-height: 1.2l
+    }
+
+    .main {
+        font-size: 36px;
+        line-height: 1.4;
+    }
+
+}
+

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './ProductDetails.scss';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
+import ProductText from './ProductText';
 
 function ProductDetails(props) {
     useFirestoreConnect([
@@ -22,11 +23,9 @@ function ProductDetails(props) {
     const product = findProduct(products, product_id);
 
     useEffect(() => {
-        
         if (product && product.images) {
             handleSecondaryImages(product.images);
             handlePrimaryImage(product.images);
-            console.log('in here boom')
         }
 
     }, [product]);
@@ -48,7 +47,6 @@ function ProductDetails(props) {
         }
     }
    
-    console.log(product)
     function displayImages(imagesArr) {
         return imagesArr.map((img, i) => (
             <img src={img.url} key={i} alt={img.alt} onClick={() => handleSmallImgClick(img, i)} />
@@ -74,7 +72,9 @@ function ProductDetails(props) {
                   <div className="main-image">
                       {primary_image && <img src={primary_image.url} alt={primary_image.alt} />}
                   </div>
-                  <div className="product-info"></div>
+                  <div className="product-info">
+                      <ProductText product={product} />
+                  </div>
               </div>
             </div> : 'Product does not exist!'}
 
