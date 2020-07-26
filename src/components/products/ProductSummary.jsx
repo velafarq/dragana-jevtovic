@@ -14,7 +14,7 @@ const ProductSummary = (props) => {
     }
 
     return (
-        <Link to={`/product/${product.id}`}>
+        <Link to={`/products/${product.id}`}>
             <div className="card z-depth-0 product-summary">
                 <div className="card-content grey-text text-darker-3">
                     <span className="card-title">{product.name}</span>
