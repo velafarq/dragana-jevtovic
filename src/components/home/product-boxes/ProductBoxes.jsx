@@ -2,7 +2,7 @@ import React from 'react';
 import './ProductBoxes.scss';
 import Box from './Box';
 
-const ProductBoxes = () => {
+const ProductBoxes = ({ layout }) => {
 
     const top_row = [
         {
@@ -34,8 +34,21 @@ const ProductBoxes = () => {
             layout: 'col',
         },
     ]
-    return (
-        <div className="product-boxes">
+
+    const colView = () => {
+        const items = [...top_row, ...bottom_row];
+
+        return  <div className="product-boxes small">
+            <div className="boxes-row">
+                { items && items.map((row, i) => {
+                    return <Box url={row.url} title={row.title} layout={'col'} key={i} />
+                })}
+            </div>
+        </div>
+    }
+
+    const combinedView = () => {
+        return <div className="product-boxes">
             <div className="boxes-row">
                 { top_row && top_row.map((row, i) => {
                     return <Box url={row.url} title={row.title} layout={row.layout} key={i} />
@@ -47,8 +60,13 @@ const ProductBoxes = () => {
                     return <Box url={row.url} title={row.title} layout={row.layout} key={i} />
                 })}
             </div>
-            
         </div>
+    }
+
+    return (
+       <React.Fragment>
+           { layout === 'col' ? colView() : combinedView() } 
+       </React.Fragment>
     )
    
 }

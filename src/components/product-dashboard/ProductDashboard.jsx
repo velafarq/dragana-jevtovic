@@ -15,7 +15,7 @@ const ProductDashboard = (props) => {
     
     return (
         <div className="product-dashboard container">
-            <ProductBoxes />
+            <ProductBoxes layout='col' />
             <ProductList products={products}></ProductList>
         </div>
     )

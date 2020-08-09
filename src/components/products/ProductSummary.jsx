@@ -18,7 +18,7 @@ const ProductSummary = (props) => {
             <div className="card z-depth-0 product-summary">
                 <div className="card-content grey-text text-darker-3">
                     <span className="card-title">{product.name}</span>
-                    <p>{product.price.zar}</p>
+                    {/* <p>{product.price.zar}</p> */}
                     <p className="grey-text">{product.description}</p>
                     {/* <button className='client-button' onClick={() => addToCart()}>ADD TO CART</button> */}
                 </div>

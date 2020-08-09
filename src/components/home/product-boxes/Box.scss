@@ -65,3 +65,22 @@
     
         
 }
+
+.small {
+    .product-box .side {
+        h2 {
+            font-size: 25px;
+        }
+
+        .side__btn {
+            font-size: 7px;
+            width: 78px;
+            height: 24px;
+        }
+    }
+
+    .col {
+        height: 271px;
+        width: 239px;
+    }
+}
