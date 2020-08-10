@@ -4,6 +4,15 @@ export const isAdminWhiteList = (uid) => {
     return adminAuthwhiteList.includes(uid);
 }
 
+export const DESIGN_NAMES = {
+    '': 'All',
+    'blue_guinea': 'Blue Guinea Fowl',
+    'royal_african': 'Royal African',
+    'brown_feather': 'Brown Feather',
+    'oceans_feather': 'Oceans Feather',
+    'custom': 'Custom'
+}
+
 export const designOptions = [
     { value:'', label: 'All'},
     { value:'blue_guinea', label: 'Blue Guinea Fowl'},

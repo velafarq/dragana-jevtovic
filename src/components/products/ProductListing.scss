@@ -1,0 +1,22 @@
+.product-listing {
+    height: 237px;
+    width: 194px;
+    font-size: 16px;
+
+    &__img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
+
+    &__design, &__title {
+        line-height: 1.2;
+        font-weight: 500;
+    }
+
+    &__price {
+        line-height: 1.4;
+        font-weight: 700;
+    }
+}
