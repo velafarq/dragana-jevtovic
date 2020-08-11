@@ -14,10 +14,6 @@ class HomeCore extends Component {
                 <ProductBoxes />
                 <ArtistBio />
                 <Workshop />
-                <div className="contact">
-                    <h2 className="heading-text">From South Africa with Love</h2>
-                    <button className="client-button">CONTACT</button>
-                </div>
             </div>
         )
     }

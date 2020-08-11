@@ -16,25 +16,6 @@
         margin-top: 100px;
 
     }
-
-    .contact {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 160px;
-        margin-bottom: 150px;
-
-        .heading-text {
-            font-weight: 500;
-        }
-        .client-button {
-            color: black;
-            border-color: black;
-            padding: 10px 25px;
-            font-size: 14px
-        }
-    }
 }
 
 @media only screen and (max-width: 1010px) {
@@ -42,7 +23,7 @@
         font-size: 40px
     }
 
-    .container .contact {
+    .container {
         margin-right: 10px;
         margin-left: 10px;
     }
