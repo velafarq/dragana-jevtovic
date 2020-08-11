@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ProductList from '../products/ProductList';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import './ProductDashboard.scss';
