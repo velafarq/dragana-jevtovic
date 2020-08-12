@@ -1,0 +1,46 @@
+.empty-message {
+    padding-top: 300px;
+    text-align: center;
+}
+
+
+.product-design {
+    padding-top: 104px;
+
+    &__header {
+        height: 320px;
+        width: 100%;
+        position: relative;
+        
+        img {
+            height: auto;
+            width: 100vw;
+            position: absolute;
+            z-index: -1;
+
+        }
+
+        &__breadcrumbs {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.4;
+            padding-top: 40px;
+        }
+
+        .heading-text {
+            font-size: 48px;
+            line-height: 1.3;
+            margin-top: 32px;
+        }
+    }
+
+    &__content {
+        &__nav-box {
+            width: 213px;
+            height: 302px;
+            background-color: white;
+            border: 1px solid #d5dce5;
+            border-radius: 4px;
+        }
+    }
+}

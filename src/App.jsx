@@ -12,6 +12,7 @@ import { isAdmin } from './store/actions/auth-actions';
 import AdminDashboard from './components/admin/admin-dashboard/AdminDashboard';
 import HomeCore from './components/home/home-core/HomeCore';
 import Footer from './components/layout/footer/Footer';
+import ProductDesignDashboard from './components/product-design/product-design-dashboard/ProductDesignDashboard';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
@@ -38,6 +39,8 @@ function App(props) {
                         <Route path='/signup' component={SignUp} />
                         <Route path='/checkout' component={Checkout} />
                         <Route path='/admin' component={AdminDashboard} />
+                        <Route path='/product_design/:design' component={ProductDesignDashboard} />
+
                     </Switch>
                     <Footer />
                 </div>
