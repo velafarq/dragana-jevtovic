@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './ProductDesignDashboard.scss';
+import './DesignDashboard.scss';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
+import ProductListing from '../../products/ProductListing';
 
-export const ProductDesignDashboard = (props) => {
+export const DesignDashboard = (props) => {
     const [ products, setProducts ] = useState([]);
     useFirestoreConnect([
         { collection: 'products' }
@@ -26,30 +27,32 @@ export const ProductDesignDashboard = (props) => {
     
     return (
         products && products.length > 0  ? 
-        <div className="product-design">
-            <header className="product-design__header">
+        <div className="design">
+            <header className="design__header">
                 <img src={header_img.url} alt={header_img.alt} />
-                <div className="product-design__header__breadcrumbs center-content">
+                <div className="design__header__breadcrumbs center-content">
                     Home / Products / Blue Guinea Fowl
                 </div>
                 <div className="heading-text center-content">Blue Guinea Fowl</div>
             </header>
 
-            <section className="product-design__content center-content">
-                <div className="product-design__content__nav-box">
+            <section className="design__content center-content">
+                <div className="design__content__nav-box">
                     <ul>
                         <li>All</li>
-                        <li>Cups and Saucers</li>
-                        <li>Dishes</li>
-                        <li>Egg Cups</li>
-                        <li>Jugs</li>
-                        <li>Mugs</li>
                         <li>Plates</li>
-                        <li>Teapots</li>
-                        <li>Vases</li>
+                        <li>Bowls</li>
+                        <li>Tea Pots</li>
+                        <li>Cups and Saucers</li>
+                        <li>Mugs</li>
+                        <li>Large Servers</li>
+                        <li>Condiments</li>
                     </ul>
 
                 </div>
+
+                <div className="design__content__listings"></div>
+
             </section>
         </div>
      : 
@@ -58,4 +61,4 @@ export const ProductDesignDashboard = (props) => {
     )
 }
 
-export default ProductDesignDashboard;
+export default DesignDashboard;

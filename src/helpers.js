@@ -10,6 +10,7 @@ export const DESIGN_NAMES = {
     'royal_african': 'Royal African',
     'brown_feather': 'Brown Feather',
     'oceans_feather': 'Oceans Feather',
+    'african_elephant': 'African Elephant',
     'custom': 'Custom'
 }
 
@@ -19,6 +20,7 @@ export const designOptions = [
     { value:'royal_african', label: 'Royal African'},
     { value:'brown_feather', label: 'Brown Feather'},
     { value:'oceans_feather', label: 'Oceans Feather'},
+    { value: 'african_elephant', label: 'African Elephant'},
     { value:'custom', label: 'Custom'}
 ];
 
