@@ -35,12 +35,25 @@
     }
 
     &__content {
+        display: flex;
+        justify-content: space-between;
         &__nav-box {
             width: 213px;
             height: 302px;
             background-color: white;
             border: 1px solid #d5dce5;
             border-radius: 4px;
+        }
+
+        &__listings {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 37px;
+
+            &__listing {
+                margin-left: 40px;
+                margin-bottom: 20px;
+            }
         }
 
     }

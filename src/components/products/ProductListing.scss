@@ -2,8 +2,7 @@
     height: 237px;
     width: 194px;
     font-size: 16px;
-    margin-right: 32px;
-
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     &__img {
         width: 100%;
         max-width: 100%;
@@ -19,5 +18,9 @@
     &__price {
         line-height: 1.4;
         font-weight: 700;
+    }
+
+    .box-padding {
+        padding: 0 13px;
     }
 }

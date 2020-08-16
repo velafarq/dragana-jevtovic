@@ -21,9 +21,9 @@ const ProductListing = ({ product }) => {
     return (
         <article className="product-listing">
             <img className="product-listing__img" src={image && image.url} alt={image && image.alt} />
-            <div className="product-listing__design">{DESIGN_NAMES[product.design]}</div>
-            <div className="product-listing__title">{product.name}</div>
-            <div className="product-listing__price">{handlePrice(product.price, 'usd')}</div>
+            <div className="product-listing__design box-padding">{DESIGN_NAMES[product.design]}</div>
+            <div className="product-listing__title box-padding">{product.name}</div>
+            <div className="product-listing__price box-padding">{handlePrice(product.price, 'usd')}</div>
         </article>
     )
 }

@@ -3,9 +3,11 @@ import './DesignDashboard.scss';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import ProductListing from '../../products/ProductListing';
+import { Link } from 'react-router-dom';
 
 export const DesignDashboard = (props) => {
     const [ products, setProducts ] = useState([]);
+    const [ filteredProducts, setFilteredProducts ] = useState([]);
     useFirestoreConnect([
         { collection: 'products' }
     ]);
@@ -20,11 +22,16 @@ export const DesignDashboard = (props) => {
         if (allProducts) {
             const filteredByDesign = allProducts.filter(p => p.design === productDesignName);
             setProducts(filteredByDesign);
+            setFilteredProducts(filteredByDesign);
             console.log(filteredByDesign)
         }
     }, [allProducts, productDesignName])
 
-    
+    const filterByCategory = (category) => {
+        const filtered = products.filter(product => product.type === category);
+        console.log(filtered, category)
+        setFilteredProducts(filtered);
+    }   
     return (
         products && products.length > 0  ? 
         <div className="design">
@@ -40,18 +47,23 @@ export const DesignDashboard = (props) => {
                 <div className="design__content__nav-box">
                     <ul>
                         <li>All</li>
-                        <li>Plates</li>
-                        <li>Bowls</li>
-                        <li>Tea Pots</li>
-                        <li>Cups and Saucers</li>
-                        <li>Mugs</li>
-                        <li>Large Servers</li>
-                        <li>Condiments</li>
+                        <li onClick={() => filterByCategory('plates')}>Plates</li>
+                        <li onClick={() => filterByCategory('bowls')}>Bowls</li>
+                        <li onClick={() => filterByCategory('teapots')}>Tea Pots</li>
+                        <li onClick={() => filterByCategory('cups_saucers')}>Cups and Saucers</li>
+                        <li onClick={() => filterByCategory('mugs')}>Mugs</li>
+                        <li onClick={() => filterByCategory('large_servers')}>Large Servers</li>
+                        <li onClick={() => filterByCategory('condiments')}>Condiments</li>
                     </ul>
 
                 </div>
 
-                <div className="design__content__listings"></div>
+                <div className="design__content__listings">{filteredProducts.map((product, i) => 
+                        <Link to={`/products/${product.id}`} key={product.id} className="design__content__listings__listing">
+                            <ProductListing product={product} />
+                        </Link>
+                    )}
+                </div>
 
             </section>
         </div>

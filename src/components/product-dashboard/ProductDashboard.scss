@@ -14,5 +14,9 @@
         display: flex;
         overflow-x: scroll;
 
+        &__product {
+            margin-right: 35px;
+        }
+
     }
 }

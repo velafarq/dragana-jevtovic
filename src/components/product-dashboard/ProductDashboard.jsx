@@ -73,7 +73,7 @@ const ProductDashboard = (props) => {
                     {title}
                 </div>
                 <div className="product-dashboard__products-carousel">{products.map((product, i) => 
-                        <Link to={`/products/${product.id}`} key={product.id}>
+                        <Link to={`/products/${product.id}`} key={product.id} className="product-dashboard__products-carousel__product">
                             <ProductListing product={product} />
                         </Link>
                     )}
