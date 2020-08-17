@@ -13,10 +13,10 @@ const Header = (props) => {
             <div className="header-container">
                 <img className='logo' src='https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/logo%2Flogo.png?alt=media&token=24d2acb4-4fd9-4590-a5fe-164dd2169f9c' alt=""/>
                 <nav className="nav-items">
-                    <NavLink className='item' exact to='/' activeClassName='selected'>HOME</NavLink>
-                    <NavLink className='item' strict to='/products' activeClassName='selected'>PRODUCTS</NavLink>
-                    <NavLink className='item' exact to='/about' activeClassName='selected'>ABOUT</NavLink>
-                    <NavLink className='item' exact to='/contact' activeClassName='selected'>CONTACT</NavLink>
+                    <NavLink className='item' exact to='/' activeClassName='selected'>Home</NavLink>
+                    <NavLink className='item' strict to='/products' activeClassName='selected'>Products</NavLink>
+                    <NavLink className='item' exact to='/about' activeClassName='selected'>How to Purchase</NavLink>
+                    <NavLink className='item' exact to='/contact' activeClassName='selected'>Contact</NavLink>
                 </nav>
                 <div className="side-icons">
                     <i className="material-icons">search</i>

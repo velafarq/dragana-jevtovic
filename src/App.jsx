@@ -13,6 +13,7 @@ import AdminDashboard from './components/admin/admin-dashboard/AdminDashboard';
 import HomeCore from './components/home/home-core/HomeCore';
 import Footer from './components/layout/footer/Footer';
 import DesignDashboard from './components/product-design/design-dashboard/DesignDashboard';
+import About from './components/about/About';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
@@ -40,6 +41,7 @@ function App(props) {
                         <Route path='/checkout' component={Checkout} />
                         <Route path='/admin' component={AdminDashboard} />
                         <Route path='/designs/:design' component={DesignDashboard} />
+                        <Route exact path='/about' component={About} />
 
                     </Switch>
                     <Footer />
