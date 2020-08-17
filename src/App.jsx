@@ -14,6 +14,7 @@ import HomeCore from './components/home/home-core/HomeCore';
 import Footer from './components/layout/footer/Footer';
 import DesignDashboard from './components/product-design/design-dashboard/DesignDashboard';
 import About from './components/about/About';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
@@ -30,6 +31,7 @@ function App(props) {
     if (fbAuth.isLoaded && localAuth.isLoaded) {
         return (
             <BrowserRouter>
+                <ScrollToTop />
                 <div className="App">
                     <Header />
                     <Switch>
