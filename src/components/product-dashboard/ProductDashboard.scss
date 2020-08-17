@@ -1,7 +1,13 @@
 .product-dashboard {
-    padding: 150px 16px;
+    padding: 100px 16px;
     max-width: 1257px;
     margin: auto;
+    
+    &__title {
+        font-size: 64px;
+        text-align: center;
+        font-weight: normal;
+    }
 
     &__category-title {
         font-size: 48px;

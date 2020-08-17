@@ -84,6 +84,7 @@ const ProductDashboard = (props) => {
 
     return (
         <div className="product-dashboard container">
+            <h1 className="heading-text product-dashboard__title">Choose a Style</h1>
             <ProductBoxes layout='col' />
             {custom.length > 0 && renderProductRow(custom, 'Exclusive Pieces')}
             {mugs.length > 0 && renderProductRow(mugs, 'Mugs')}
