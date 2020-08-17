@@ -14,6 +14,17 @@ export const DESIGN_NAMES = {
     'custom': 'Custom'
 }
 
+export const CATEGORY_NAMES = {
+    '': 'All',
+    'plates': 'Plates',
+    'bowls': 'Bowls',
+    'teapots': 'Tea Pots',
+    'cups_saucers': 'Cups & Saucers',
+    'mugs': 'Mugs',
+    'large_servers': 'Large Servers',
+    'condiments': 'Condiments'
+}
+
 export const designOptions = [
     { value:'', label: 'All'},
     { value:'blue_guinea', label: 'Blue Guinea Fowl'},

@@ -4,11 +4,12 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import ProductListing from '../../products/ProductListing';
 import { Link } from 'react-router-dom';
+import {CATEGORY_NAMES, typeOptions} from '../../../helpers';
 
 export const DesignDashboard = (props) => {
     const [ products, setProducts ] = useState([]);
     const [ filteredProducts, setFilteredProducts ] = useState([]);
-    const [ selected, setSelected ] = useState('all');
+    const [ selected, setSelected ] = useState('');
 
     useFirestoreConnect([
         { collection: 'products' }
@@ -20,6 +21,7 @@ export const DesignDashboard = (props) => {
         url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/misc%2Fblue-guinea-slide-faded.png?alt=media&token=e6e2d5d7-cb82-4c2e-8d8a-ceddeff53a1d',
         alt: 'Dragana Jevtovic Blue Guinea Fowl Design Cape Town South Africa Pottery'
     }
+
     useEffect(() => {
         if (allProducts) {
             const filteredByDesign = allProducts.filter(p => p.design === productDesignName);
@@ -39,7 +41,14 @@ export const DesignDashboard = (props) => {
             setFilteredProducts(filtered);
         }
         
-    }   
+    }
+
+    const renderListItem = (type) => {
+        return (
+            <li className={selected === type.value ? 'selected': ''} onClick={() => filterByCategory(type.value)}>{type.label}</li>
+        )
+    }
+
     return (
         products && products.length > 0  ? 
         <div className="design">
@@ -55,16 +64,8 @@ export const DesignDashboard = (props) => {
             <section className="design__content center-content">
                 <div className="design__content__nav-box">
                     <ul>
-                        <li className={selected === 'all' ? 'selected': ''} onClick={() => filterByCategory('all')}>All</li>
-                        <li className={selected === 'plates' ? 'selected': ''} onClick={() => filterByCategory('plates')}>Plates</li>
-                        <li className={selected === 'bowls' ? 'selected': ''} onClick={() => filterByCategory('bowls')}>Bowls</li>
-                        <li className={selected === 'teapots' ? 'selected': ''} onClick={() => filterByCategory('teapots')}>Tea Pots</li>
-                        <li className={selected === 'cups_saucers' ? 'selected': ''} onClick={() => filterByCategory('cups_saucers')}>Cups and Saucers</li>
-                        <li className={selected === 'mugs' ? 'selected': ''} onClick={() => filterByCategory('mugs')}>Mugs</li>
-                        <li className={selected === 'large_servers' ? 'selected': ''} onClick={() => filterByCategory('large_servers')}>Large Servers</li>
-                        <li className={selected === 'condiments' ? 'selected': ''} onClick={() => filterByCategory('condiments')}>Condiments</li>
+                        { typeOptions && typeOptions.map(type => renderListItem(type))}
                     </ul>
-
                 </div>
 
                 <div className="design__content__listings">{filteredProducts.map((product, i) => 
