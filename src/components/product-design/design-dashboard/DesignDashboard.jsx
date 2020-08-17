@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import ProductListing from '../../products/ProductListing';
 import { Link } from 'react-router-dom';
-import {CATEGORY_NAMES, typeOptions} from '../../../helpers';
+import { typeOptions, DESIGN_NAMES } from '../../../helpers';
 
 export const DesignDashboard = (props) => {
     const [ products, setProducts ] = useState([]);
@@ -16,7 +16,7 @@ export const DesignDashboard = (props) => {
     ]);
 
     const allProducts = useSelector(state => state.firestore.ordered.products);
-    const productDesignName = props.match.params.design;
+    const designName = props.match.params.design;
     const header_img = {
         url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/misc%2Fblue-guinea-slide-faded.png?alt=media&token=e6e2d5d7-cb82-4c2e-8d8a-ceddeff53a1d',
         alt: 'Dragana Jevtovic Blue Guinea Fowl Design Cape Town South Africa Pottery'
@@ -24,12 +24,11 @@ export const DesignDashboard = (props) => {
 
     useEffect(() => {
         if (allProducts) {
-            const filteredByDesign = allProducts.filter(p => p.design === productDesignName);
+            const filteredByDesign = allProducts.filter(p => p.design === designName);
             setProducts(filteredByDesign);
             setFilteredProducts(filteredByDesign);
-            console.log(filteredByDesign)
         }
-    }, [allProducts, productDesignName])
+    }, [allProducts, designName])
 
     const filterByCategory = (category) => {
         if (category === 'all') {
@@ -56,9 +55,9 @@ export const DesignDashboard = (props) => {
 
             <header className="design__header">
                 <div className="design__header__breadcrumbs center-content">
-                    Home / Products / Blue Guinea Fowl
+                    <Link to={'/'}>Home</Link> / <Link to={'/products'}>Products</Link> / {DESIGN_NAMES[designName]}
                 </div>
-                <div className="heading-text center-content">Blue Guinea Fowl</div>
+                <div className="heading-text center-content">{DESIGN_NAMES[designName]}</div>
             </header>
 
             <section className="design__content center-content">
@@ -69,10 +68,10 @@ export const DesignDashboard = (props) => {
                 </div>
 
                 <div className="design__content__listings">{filteredProducts.map((product, i) => 
-                        <Link to={`/products/${product.id}`} key={product.id} className="design__content__listings__listing">
-                            <ProductListing product={product} />
-                        </Link>
-                    )}
+                    <Link to={`/products/${product.id}`} key={product.id} className="design__content__listings__listing">
+                        <ProductListing product={product} />
+                    </Link>
+                )}
                 </div>
 
             </section>
