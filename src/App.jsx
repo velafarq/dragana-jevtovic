@@ -15,6 +15,7 @@ import Footer from './components/layout/footer/Footer';
 import DesignDashboard from './components/product-design/design-dashboard/DesignDashboard';
 import About from './components/about/About';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import Contact from './components/contact/Contact';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
@@ -44,7 +45,7 @@ function App(props) {
                         <Route path='/admin' component={AdminDashboard} />
                         <Route path='/designs/:design' component={DesignDashboard} />
                         <Route exact path='/about' component={About} />
-
+                        <Route exact path='/contact' component={Contact} />
                     </Switch>
                     <Footer />
                 </div>
