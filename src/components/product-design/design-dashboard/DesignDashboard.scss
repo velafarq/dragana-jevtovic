@@ -6,19 +6,18 @@
 
 .design {
     padding-top: 104px;
+    position: relative;
+
+    &__hero {
+        height: auto;
+        width: 100vw;
+        position: absolute;
+        z-index: -1;
+    }
 
     &__header {
-        height: 320px;
+        height: 220px;
         width: 100%;
-        position: relative;
-        
-        img {
-            height: auto;
-            width: 100vw;
-            position: absolute;
-            z-index: -1;
-
-        }
 
         &__breadcrumbs {
             font-weight: 500;
@@ -36,13 +35,29 @@
 
     &__content {
         display: flex;
-        justify-content: space-between;
+
         &__nav-box {
             width: 213px;
-            height: 302px;
+            height: 100%;
             background-color: white;
             border: 1px solid #d5dce5;
             border-radius: 4px;
+            font-size: 18px;
+
+            ul {
+                padding: 10px;
+                margin: 0;
+                font-size: 18px;
+                line-height: 1.5;
+
+                li {
+                    cursor: pointer;
+                }
+            }
+
+            .selected {
+                font-weight: bold;
+            }
         }
 
         &__listings {

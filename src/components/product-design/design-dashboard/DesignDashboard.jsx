@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 export const DesignDashboard = (props) => {
     const [ products, setProducts ] = useState([]);
     const [ filteredProducts, setFilteredProducts ] = useState([]);
+    const [ selected, setSelected ] = useState('all');
+
     useFirestoreConnect([
         { collection: 'products' }
     ]);
@@ -28,15 +30,22 @@ export const DesignDashboard = (props) => {
     }, [allProducts, productDesignName])
 
     const filterByCategory = (category) => {
-        const filtered = products.filter(product => product.type === category);
-        console.log(filtered, category)
-        setFilteredProducts(filtered);
+        if (category === 'all') {
+            setFilteredProducts(products);
+        } else {
+            const filtered = products.filter(product => product.type === category);
+            console.log(filtered, category)
+            setSelected(category);
+            setFilteredProducts(filtered);
+        }
+        
     }   
     return (
         products && products.length > 0  ? 
         <div className="design">
+            <img className="design__hero" src={header_img.url} alt={header_img.alt} />
+
             <header className="design__header">
-                <img src={header_img.url} alt={header_img.alt} />
                 <div className="design__header__breadcrumbs center-content">
                     Home / Products / Blue Guinea Fowl
                 </div>
@@ -46,14 +55,14 @@ export const DesignDashboard = (props) => {
             <section className="design__content center-content">
                 <div className="design__content__nav-box">
                     <ul>
-                        <li>All</li>
-                        <li onClick={() => filterByCategory('plates')}>Plates</li>
-                        <li onClick={() => filterByCategory('bowls')}>Bowls</li>
-                        <li onClick={() => filterByCategory('teapots')}>Tea Pots</li>
-                        <li onClick={() => filterByCategory('cups_saucers')}>Cups and Saucers</li>
-                        <li onClick={() => filterByCategory('mugs')}>Mugs</li>
-                        <li onClick={() => filterByCategory('large_servers')}>Large Servers</li>
-                        <li onClick={() => filterByCategory('condiments')}>Condiments</li>
+                        <li className={selected === 'all' ? 'selected': ''} onClick={() => filterByCategory('all')}>All</li>
+                        <li className={selected === 'plates' ? 'selected': ''} onClick={() => filterByCategory('plates')}>Plates</li>
+                        <li className={selected === 'bowls' ? 'selected': ''} onClick={() => filterByCategory('bowls')}>Bowls</li>
+                        <li className={selected === 'teapots' ? 'selected': ''} onClick={() => filterByCategory('teapots')}>Tea Pots</li>
+                        <li className={selected === 'cups_saucers' ? 'selected': ''} onClick={() => filterByCategory('cups_saucers')}>Cups and Saucers</li>
+                        <li className={selected === 'mugs' ? 'selected': ''} onClick={() => filterByCategory('mugs')}>Mugs</li>
+                        <li className={selected === 'large_servers' ? 'selected': ''} onClick={() => filterByCategory('large_servers')}>Large Servers</li>
+                        <li className={selected === 'condiments' ? 'selected': ''} onClick={() => filterByCategory('condiments')}>Condiments</li>
                     </ul>
 
                 </div>
@@ -68,7 +77,6 @@ export const DesignDashboard = (props) => {
             </section>
         </div>
      : 
-        
         <div className="empty-message">Check back later for more products!</div>
     )
 }
