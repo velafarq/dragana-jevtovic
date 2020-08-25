@@ -42,9 +42,9 @@ export const DesignDashboard = (props) => {
         
     }
 
-    const renderListItem = (type) => {
+    const renderListItem = (type, i) => {
         return (
-            <li className={selected === type.value ? 'selected': ''} onClick={() => filterByCategory(type.value)}>{type.label}</li>
+            <li key={i} className={selected === type.value ? 'selected': ''} onClick={() => filterByCategory(type.value)}>{type.label}</li>
         )
     }
 
@@ -63,7 +63,7 @@ export const DesignDashboard = (props) => {
             <section className="design__content center-content">
                 <div className="design__content__nav-box">
                     <ul>
-                        { typeOptions && typeOptions.map(type => renderListItem(type))}
+                        { typeOptions && typeOptions.map((type, i) => renderListItem(type, i))}
                     </ul>
                 </div>
 
