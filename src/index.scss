@@ -526,3 +526,32 @@ a {
     max-width: 1274px;
     margin: auto;
 }
+
+.contact-love {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .heading-text {
+        text-align: center;
+        letter-spacing: 1px;
+        font-size: 64px;
+        line-height: 1.2;
+        margin-top: 60px;
+        font-weight: 500;
+    }
+    .client-button {
+        color: black;
+        border-color: black;
+        padding: 10px 25px;
+        font-size: 14px
+    }
+}
+
+@media only screen and (max-width: 1010px) {
+    .contact {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}

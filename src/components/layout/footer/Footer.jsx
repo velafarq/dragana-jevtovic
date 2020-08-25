@@ -5,13 +5,10 @@ import './Footer.scss';
 
 const Footer = () => {
     const isAdmin = useLocation().pathname.includes('admin');
+    console.log(isAdmin)
     return (
         !isAdmin && 
         <Fragment>
-            <div className="contact">
-                <h2 className="heading-text">From South Africa with Love</h2>
-                <button className="client-button">CONTACT</button>
-            </div>
             <div className="footer-container">
                 <div className="social-icons">
                     <a className="first" href="https://www.instagram.com/draganajevtovic/" rel="noopener noreferrer" target="_blank"><i className="fab fa-instagram"></i></a>

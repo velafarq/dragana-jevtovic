@@ -92,6 +92,10 @@ const ProductDashboard = (props) => {
             {plates.length > 0 && renderProductRow(plates, 'Mugs')}
             {teapots.length > 0 && renderProductRow(teapots, 'Mugs')}
             {largeServers.length > 0 && renderProductRow(largeServers, 'Large Servers')}
+            <div className="contact-love">
+                <h2 className="heading-text">From South Africa with Love</h2>
+                <Link to={'/contact'} className="client-button">CONTACT</Link>
+            </div>
         </div>
     )
 }

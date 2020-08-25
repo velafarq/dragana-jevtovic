@@ -21,3 +21,15 @@ export const submitOrder = (data) => {
         })
     }
 }
+
+export const submitContactForm = (data) => {
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        const firestore = getFirestore();
+        firestore.collection('contactForms').add({ 
+            ...data,
+            created_at: new Date()
+        }).catch((error) => {
+            console.error(error);
+        })
+    }
+}
