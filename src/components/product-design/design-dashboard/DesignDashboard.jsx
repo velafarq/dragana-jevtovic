@@ -31,11 +31,10 @@ export const DesignDashboard = (props) => {
     }, [allProducts, designName])
 
     const filterByCategory = (category) => {
-        if (category === 'all') {
+        if (!category) {
             setFilteredProducts(products);
         } else {
             const filtered = products.filter(product => product.type === category);
-            console.log(filtered, category)
             setSelected(category);
             setFilteredProducts(filtered);
         }
