@@ -6,7 +6,8 @@ import SignedInLinks from '../SignedInLinks';
 import SignedOutLinks from '../SignedOutLinks';
 
 const Header = (props) => {
-    const { auth, isAdmin } = props;
+    const { auth, isAdmin, cartItems } = props;
+    console.log(cartItems)
 
     return (
         <Fragment>
@@ -20,7 +21,10 @@ const Header = (props) => {
                 </nav>
                 <div className="side-icons">
                     <i className="material-icons">search</i>
-                    <NavLink exact to='/checkout' className="item"><i className="material-icons">shopping_cart</i></NavLink>
+                    <NavLink exact to='/checkout' className="item cart">
+                        <i className="material-icons">shopping_cart</i>
+                        {cartItems && cartItems.length ? <div className="cart-number">{cartItems.length}</div> : null}
+                    </NavLink>
                     { auth.uid ? <SignedInLinks/> : <SignedOutLinks /> }
                     { isAdmin && <NavLink activeClassName="selected" className="dashboard" exact to='/admin'>Admin Dashboard</NavLink>}
                 </div>
@@ -32,7 +36,8 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
     return {
         auth: state.firebase.auth,
-        isAdmin: state.auth.isAdmin
+        isAdmin: state.auth.isAdmin,
+        cartItems: state.cart.items
     }
 }
 
