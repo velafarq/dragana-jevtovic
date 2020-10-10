@@ -6,6 +6,7 @@ import ProductCreator from '../product-creator/ProductCreator';
 import ProductFilter from '../product-filter/ProductFilter';
 import { connect } from 'react-redux';
 import { deleteProduct } from '../../../store/actions/admin-actions';
+import { Link } from 'react-router-dom';
 
 const AdminProducts = (props) => {
     useFirestoreConnect([
@@ -36,6 +37,7 @@ const AdminProducts = (props) => {
             <div className='box'>{product.type}</div>
             <div className="box">{product.hidden ? <i className="material-icons hidden">check_circle_outline</i> : ''}</div>
             <div className='box table-actions'>
+                <Link className="view-listing" to={'/products/' + product.id} target="_blank">View</Link>
                 <i className="material-icons edit" onClick={() => editProduct(product)}>edit</i>
                 <i className="material-icons delete" onClick={() => deleteProduct(product.id)}>delete_forever</i>
             </div>

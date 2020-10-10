@@ -31,6 +31,17 @@
         border-bottom: 1px solid #c9c9c9;
         padding: 10px;
         font-size: 100%;
+
+        .view-listing {
+            color: rgb(1, 1, 191);;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .view-listing:hover {
+            text-decoration: underline;
+        }
     }
 
     .table-actions {
