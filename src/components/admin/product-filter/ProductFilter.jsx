@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ProductFilter.scss';
-import { typeOptions, designOptions, DisplayOptions, hiddenOptions, setStringToBool} from '../../../helpers';
+import { adminTypeOptions, designOptions, DisplayOptions, hiddenOptions, setStringToBool} from '../../../helpers';
 
 const ProductFilter = (props) => {
     const { allProducts, setDisplayProducts } = props;
@@ -106,7 +106,7 @@ const ProductFilter = (props) => {
                 <div className="form-input">
                     <label htmlFor="type">Filter by Type</label>
                     <select id="type" value={typeFilter} onChange={(event) => filter('type', event.target.value)} >
-                        <DisplayOptions options={typeOptions} />
+                        <DisplayOptions options={adminTypeOptions} />
                     </select>
                 </div>
                 <div className="form-input">

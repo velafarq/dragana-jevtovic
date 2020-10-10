@@ -9,7 +9,7 @@ import { typeOptions, DESIGN_NAMES, DESIGN_HERO_IMAGES } from '../../../helpers'
 export const DesignDashboard = (props) => {
     const [ products, setProducts ] = useState([]);
     const [ filteredProducts, setFilteredProducts ] = useState([]);
-    const [ selected, setSelected ] = useState('');
+    const [ selected, setSelected ] = useState('all');
 
     useFirestoreConnect([
         { collection: 'products' }
@@ -31,7 +31,8 @@ export const DesignDashboard = (props) => {
     }, [allProducts, designName])
 
     const filterByCategory = (category) => {
-        if (!category) {
+        if (category === 'all') {
+            setSelected(category);
             setFilteredProducts(products);
         } else {
             const filtered = products.filter(product => product.type === category);

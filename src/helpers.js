@@ -37,6 +37,18 @@ export const designOptions = [
 ];
 
 export const typeOptions = [
+    { value:'all', label: 'All'},
+    { value:'plates', label: 'Plates'},
+    { value:'bowls', label: 'Bowls'},
+    { value:'teapots', label: 'Teapots'},
+    { value:'cups_saucers', label: 'Cups & Saucers'},
+    { value:'mugs', label: 'Mugs'},
+    { value:'large_servers', label: 'Large Servers'},
+    { value:'condiments', label: 'Condiments'},
+    { value:'jugs', label: 'Jugs'}
+];
+
+export const adminTypeOptions = [
     { value:'', label: 'All'},
     { value:'plates', label: 'Plates'},
     { value:'bowls', label: 'Bowls'},
