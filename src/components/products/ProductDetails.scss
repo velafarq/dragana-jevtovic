@@ -1,5 +1,5 @@
 .product-details-container {
-    padding: 104px 0 100px 0;
+    padding-top: 104px;
     max-width: 1210px;
     margin: auto;
 
@@ -16,6 +16,10 @@
         .active-link {
             font-weight: 700;
         }
+    }
+
+    .related-products {
+        margin: 120px 0 288px;
     }
 }
 

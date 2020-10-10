@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import ProductText from './ProductText';
 import { Link } from 'react-router-dom';
 import {DESIGN_NAMES} from '../../helpers';
+import RelatedProducts from '../related-products/RelatedProducts';
 
 function ProductDetails(props) {
     useFirestoreConnect([
@@ -85,7 +86,10 @@ function ProductDetails(props) {
                         </div>
                     </div> : 
                     'Product does not exist!'
-                } 
+                }
+                <section className="related-products">
+                    <RelatedProducts></RelatedProducts>
+                </section>
             </div>
        </React.Fragment>
         
