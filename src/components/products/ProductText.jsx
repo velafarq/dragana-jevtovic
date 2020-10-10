@@ -30,7 +30,7 @@ const ProductText = ({ product, addItem }) => {
         </div>
         <div className="details">
             <h4>DETAILS</h4>
-            <div>{product.description}</div>
+            <div className="details__description">{product.description}</div>
             <ul>
                 {product.height && <li>Height: <span>{product.height}</span></li>}
                 {product.diameter && <li>Diameter: <span>{product.diameter}</span></li>}
