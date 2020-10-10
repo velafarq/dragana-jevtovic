@@ -12,7 +12,6 @@ const ArtistBio = () => {
                 </figure>
                 <div className="bio__blurb">
                     <p>{short_bio}</p>
-                    <button className="client-button">VIEW BIO</button>
                 </div>
             </div>
         </div>
