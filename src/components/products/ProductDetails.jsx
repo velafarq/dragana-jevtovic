@@ -52,7 +52,9 @@ function ProductDetails(props) {
    
     function displayImages(imagesArr) {
         return imagesArr.map((img, i) => (
-            <img src={img.url} key={i} alt={img.alt} onClick={() => handleSmallImgClick(img, i)} />
+            <div key={i} className="mini-images__img">
+                <img src={img.url} alt={img.alt} onClick={() => handleSmallImgClick(img, i)} />
+            </div>
         ))
     }
 
