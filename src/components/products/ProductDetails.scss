@@ -1,7 +1,22 @@
 .product-details-container {
-    padding: 120px 0 100px 0;
+    padding: 104px 0 100px 0;
     max-width: 1210px;
     margin: auto;
+
+    .breadcrumbs {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.4;
+        padding-top: 40px;
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .active-link {
+            font-weight: 700;
+        }
+    }
 }
 
 .product-content {

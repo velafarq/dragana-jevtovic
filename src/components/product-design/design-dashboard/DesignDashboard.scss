@@ -26,6 +26,14 @@
             padding-top: 40px;
         }
 
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .active-link {
+            font-weight: 700;
+        }
+
         .heading-text {
             font-size: 48px;
             line-height: 1.3;

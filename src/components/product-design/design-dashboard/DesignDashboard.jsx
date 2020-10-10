@@ -54,7 +54,7 @@ export const DesignDashboard = (props) => {
 
             <header className="design__header">
                 <div className="design__header__breadcrumbs center-content">
-                    <Link to={'/'}>Home</Link> / <Link to={'/products'}>Products</Link> / {DESIGN_NAMES[designName]}
+                    <Link className="link" to={'/'}>Home</Link> / <Link className="link" to={'/products'}>Products</Link> / <span className="active-link">{DESIGN_NAMES[designName]}</span>
                 </div>
                 <div className="heading-text center-content">{DESIGN_NAMES[designName]}</div>
             </header>

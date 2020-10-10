@@ -3,6 +3,8 @@ import './ProductDetails.scss';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
 import ProductText from './ProductText';
+import { Link } from 'react-router-dom';
+import {DESIGN_NAMES} from '../../helpers';
 
 function ProductDetails(props) {
     useFirestoreConnect([
@@ -64,20 +66,27 @@ function ProductDetails(props) {
     
     return (
        <React.Fragment>
-            {product ? <div className="product-details-container section">
-              <div className="product-content"> 
-                  <div className="mini-images">
-                      { displayImages(secondary_images)}
-                  </div>
-                  <div className="main-image">
-                      {primary_image && <img src={primary_image.url} alt={primary_image.alt} />}
-                  </div>
-                  <div className="product-info">
-                      <ProductText product={product} />
-                  </div>
-              </div>
-            </div> : 'Product does not exist!'}
-
+            <div className="product-details-container section">
+                 <div className="breadcrumbs center-content">
+                    <Link className="link" to={'/'}>Home</Link> / <Link className="link" to={'/products'}>Products</Link> 
+                    { product && 
+                        <React.Fragment> / <Link className="link" to={'/designs/' + product.design}>{DESIGN_NAMES[product.design]}</Link> / <span className="active-link">{product.name}</span></React.Fragment> }
+                </div>
+                {product ? 
+                    <div className="product-content"> 
+                        <div className="mini-images">
+                            { displayImages(secondary_images)}
+                        </div>
+                        <div className="main-image">
+                            {primary_image && <img src={primary_image.url} alt={primary_image.alt} />}
+                        </div>
+                        <div className="product-info">
+                            <ProductText product={product} />
+                        </div>
+                    </div> : 
+                    'Product does not exist!'
+                } 
+            </div>
        </React.Fragment>
         
     )
