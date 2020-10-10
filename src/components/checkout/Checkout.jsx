@@ -33,13 +33,15 @@ const Checkout = (props) => {
 
     const row = (itemDetails) => {
         const { item, quantity } = itemDetails;
+
         return (
             <Fragment key={item.id}>
-                <div className='box'><img src={getPrimaryImage(item)} alt="" /></div>
                 <div className='box'>
                     <div>{DESIGN_NAMES[item.design]}</div>
                     <div>{item.name}</div>
                 </div>
+                <div className='box cart-product-img'><img src={getPrimaryImage(item)} alt="" /></div>
+                
                 <div className='box'>{handlePrice(item.price, 'usd')}</div>
                 <div className="box">
                     <input type="number" value={quantity} onChange={(e) => handleInput(e, itemDetails)} min="1" />
