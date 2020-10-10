@@ -22,7 +22,8 @@ export const CATEGORY_NAMES = {
     'cups_saucers': 'Cups & Saucers',
     'mugs': 'Mugs',
     'large_servers': 'Large Servers',
-    'condiments': 'Condiments'
+    'condiments': 'Condiments',
+    'jugs': 'Jugs'
 }
 
 export const designOptions = [
