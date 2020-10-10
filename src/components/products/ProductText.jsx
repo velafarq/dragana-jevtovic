@@ -30,7 +30,11 @@ const ProductText = ({ product, addItem }) => {
             <h4>DETAILS</h4>
             <div>{product.description}</div>
             <ul>
-                {product.dimensions && <li>{product.dimensions}</li>}
+                {product.height && <li>Height: <span>{product.height}</span></li>}
+                {product.diameter && <li>Diameter: <span>{product.diameter}</span></li>}
+                {product.volume && <li>Volume: <span>{product.volume}</span></li>}
+                {product.weight && <li>Weight: <span>{product.weight}</span></li>}
+
                 <li>Microwave & dishwasher safe</li>
             </ul>
         </div>
