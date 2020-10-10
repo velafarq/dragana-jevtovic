@@ -22,6 +22,12 @@ class HeroSlider extends Component {
             title: "Two Oceans' Feathers",
             design: 'oceans_feather',
             url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Foceans-feathers-slider.JPG?alt=media&token=110083ff-3d26-49bc-86c8-25527f081e32'
+        },
+        {
+            id: 3,
+            title: "Royal African",
+            design: 'royal_african',
+            url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Froyal-african-hero.jpg?alt=media&token=c287cb26-1d29-4632-b468-638439d96a58',
         }]
     }
 

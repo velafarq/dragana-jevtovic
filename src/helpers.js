@@ -43,7 +43,8 @@ export const typeOptions = [
     { value:'cups_saucers', label: 'Cups & Saucers'},
     { value:'mugs', label: 'Mugs'},
     { value:'large_servers', label: 'Large Servers'},
-    { value:'condiments', label: 'Condiments'}
+    { value:'condiments', label: 'Condiments'},
+    { value:'jugs', label: 'Jugs'}
 ];
 
 export const hiddenOptions = [
@@ -97,4 +98,31 @@ export const currencyLabels = {
     usd: '$',
     gbp: '&#163;',
     zar: 'R'
+}
+
+export const DESIGN_HERO_IMAGES = {
+    'blue_guinea': {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/misc%2Fblue-guinea-slide-faded.png?alt=media&token=e6e2d5d7-cb82-4c2e-8d8a-ceddeff53a1d',
+        alt: 'Dragana Jevtovic Blue Guinea Fowl Design Cape Town South Africa Pottery'
+    },
+    'royal_african': {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Froyal-african-hero.jpg?alt=media&token=c287cb26-1d29-4632-b468-638439d96a58',
+        alt: 'Dragana Jevtovic Royal African Design Cape Town South Africa Pottery'
+    },
+    'brown_feather': {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Fbrown-feather-slide.JPG?alt=media&token=bda511ac-38a0-46e1-9533-d859edce351d',
+        alt: 'Dragana Jevtovic Brown Feather Design Cape Town South Africa Pottery'
+    },
+    'oceans_feather': {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Foceans-feathers-slider.JPG?alt=media&token=110083ff-3d26-49bc-86c8-25527f081e32',
+        alt: 'Dragana Jevtovic Two Oceans Feather Cape Town South Africa Pottery'
+    },
+    'african_elephant': {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/misc%2Fblue-guinea-slide-faded.png?alt=media&token=e6e2d5d7-cb82-4c2e-8d8a-ceddeff53a1d',
+        alt: 'Dragana Jevtovic Blue Guinea Fowl Design Cape Town South Africa Pottery'
+    },
+    'custom': {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/misc%2Fblue-guinea-slide-faded.png?alt=media&token=e6e2d5d7-cb82-4c2e-8d8a-ceddeff53a1d',
+        alt: 'Dragana Jevtovic Blue Guinea Fowl Design Cape Town South Africa Pottery'
+    }
 }

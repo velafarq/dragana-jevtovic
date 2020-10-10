@@ -34,7 +34,8 @@ const ProductDashboard = (props) => {
                         largeServers.push(product);
                         break;
                     case 'cups_saucers':
-                    case 'mugs': 
+                    case 'mugs':
+                    case 'jugs':
                         mugs.push(product);
                         break;
                     case 'teapots':
@@ -87,7 +88,7 @@ const ProductDashboard = (props) => {
             <h1 className="heading-text product-dashboard__title">Choose a Style</h1>
             <ProductBoxes layout='col' />
             {custom.length > 0 && renderProductRow(custom, 'Exclusive Pieces')}
-            {mugs.length > 0 && renderProductRow(mugs, 'Mugs')}
+            {mugs.length > 0 && renderProductRow(mugs, 'Mugs, Cups & Saucers and Jugs')}
             {bowls.length > 0 && renderProductRow(bowls, 'Bowls')}
             {plates.length > 0 && renderProductRow(plates, 'Plates')}
             {teapots.length > 0 && renderProductRow(teapots, 'Teapots')}

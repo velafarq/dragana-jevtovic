@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import ProductListing from '../../products/ProductListing';
 import { Link } from 'react-router-dom';
-import { typeOptions, DESIGN_NAMES } from '../../../helpers';
+import { typeOptions, DESIGN_NAMES, DESIGN_HERO_IMAGES } from '../../../helpers';
 
 export const DesignDashboard = (props) => {
     const [ products, setProducts ] = useState([]);
@@ -50,7 +50,7 @@ export const DesignDashboard = (props) => {
     return (
         products && products.length > 0  ? 
         <div className="design">
-            <img className="design__hero" src={header_img.url} alt={header_img.alt} />
+            <img className="design__hero" src={DESIGN_HERO_IMAGES[designName].url} alt={DESIGN_HERO_IMAGES[designName].alt} />
 
             <header className="design__header">
                 <div className="design__header__breadcrumbs center-content">
