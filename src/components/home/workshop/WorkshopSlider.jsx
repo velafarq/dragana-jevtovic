@@ -17,20 +17,17 @@ class WorkshopSlider extends Component {
     render() {
         return (
             <div className='workshop-slider-container'>
-                <Carousel className='workshop-slider'
-                    breakPoints={this.breakPoints}
-                    pagination={false}
-                    ref={ref => (this.carousel = ref)}
-                    showArrows={false}>
+                <div className="workshop-slider">
                     {WORKSHOP_CAROUSEL && WORKSHOP_CAROUSEL.map((url, index) => 
-                    <div className='workshop-slide' 
-                        // style={{backgroundImage: `url('${url}')`}} 
-                        key={index}>
-                            <img src={url} alt=""/>
-                        {/* <i className='material-icons arrow left' onClick={() => this.carousel.slidePrev()}>keyboard_arrow_left</i>
-                        <i className='material-icons arrow right' onClick={() => this.carousel.slideNext()}>keyboard_arrow_right</i> */}
-                    </div>)}
-                </Carousel>
+                        <div className='workshop-slide' 
+                            // style={{backgroundImage: `url('${url}')`}} 
+                            key={index}>
+                                <img src={url} alt=""/>
+                            {/* <i className='material-icons arrow left' onClick={() => this.carousel.slidePrev()}>keyboard_arrow_left</i>
+                            <i className='material-icons arrow right' onClick={() => this.carousel.slideNext()}>keyboard_arrow_right</i> */}
+                        </div>)}
+                </div>
+               
             </div>
         )
     }
