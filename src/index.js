@@ -12,6 +12,10 @@ import fbConfig from './config/fb-config';
 import firebase from 'firebase/app';
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase'
 
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { PersistGate } from 'redux-persist/integration/react';
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rrfConfig = {
@@ -20,12 +24,23 @@ const rrfConfig = {
     attachAuthIsReady: true
 }
 
-const store = createStore(root_reducer,
+const persistConfig = {
+    key: 'root',
+    storage
+}
+
+const persistedReducer = persistReducer(persistConfig, root_reducer)
+
+
+const store = createStore(persistedReducer,
     composeEnhancers(
         applyMiddleware(thunk.withExtraArgument({ getFirestore, getFirebase })),
         reduxFirestore(fbConfig)
     )
 );
+
+const persistor = persistStore(store);
+
 
 const rrfProps = {
     firebase,
@@ -34,12 +49,15 @@ const rrfProps = {
     createFirestoreInstance
 }
 
+
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-        <ReactReduxFirebaseProvider {...rrfProps}>
-            <App />
-        </ReactReduxFirebaseProvider>
+            <PersistGate loading={null} persistor={persistor}>
+                <ReactReduxFirebaseProvider {...rrfProps}>
+                    <App />
+                </ReactReduxFirebaseProvider>
+            </PersistGate>
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')
