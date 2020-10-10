@@ -82,7 +82,12 @@ export const getDesignName = (key) => {
 export const handlePrice = (prices, currency) => {
     const symbol = currencyLabels[currency];
     if (symbol) {
-        const price = prices[currency];
+        let price;
+        if (typeof prices === 'object') {
+            price = prices[currency];
+        } else {
+            price = prices;
+        }
         return `${symbol}${price}`;
     }
         return '';
