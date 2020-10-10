@@ -19,6 +19,7 @@
     &__products-carousel {
         display: flex;
         overflow-x: auto;
+        overflow-y: hidden;
 
         &__product {
             margin-right: 35px;
