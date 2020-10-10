@@ -88,7 +88,7 @@ function ProductDetails(props) {
                     'Product does not exist!'
                 }
                 <section className="related-products">
-                    <RelatedProducts></RelatedProducts>
+                    { product && <RelatedProducts designName={product.design}></RelatedProducts> }
                 </section>
             </div>
        </React.Fragment>

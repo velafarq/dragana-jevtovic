@@ -88,9 +88,9 @@ const ProductDashboard = (props) => {
             <ProductBoxes layout='col' />
             {custom.length > 0 && renderProductRow(custom, 'Exclusive Pieces')}
             {mugs.length > 0 && renderProductRow(mugs, 'Mugs')}
-            {bowls.length > 0 && renderProductRow(bowls, 'Mugs')}
-            {plates.length > 0 && renderProductRow(plates, 'Mugs')}
-            {teapots.length > 0 && renderProductRow(teapots, 'Mugs')}
+            {bowls.length > 0 && renderProductRow(bowls, 'Bowls')}
+            {plates.length > 0 && renderProductRow(plates, 'Plates')}
+            {teapots.length > 0 && renderProductRow(teapots, 'Teapots')}
             {largeServers.length > 0 && renderProductRow(largeServers, 'Large Servers')}
             <div className="contact-love">
                 <h2 className="heading-text">From South Africa with Love</h2>

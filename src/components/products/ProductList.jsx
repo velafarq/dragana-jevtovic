@@ -7,8 +7,6 @@ const ProductList = ({ products }) => {
             { products && products.map(product => 
                 <ProductSummary product={product} key={product.id} />
             )}
-         
-
         </div>
     )
 }
