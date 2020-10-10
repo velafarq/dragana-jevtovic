@@ -22,6 +22,8 @@ const ProductText = ({ product, addItem }) => {
         <div className="sub heading-text">{getDesignName(product.design)}</div>
         <div className="main heading-text">{product.name}</div>
         <div className="main heading-text">{handlePrice(product.price, 'usd')}</div>
+
+        <div className="divider"></div>
         <div className="row">
             <input type="number" value={quantity} onChange={(e) => handleInput(e)} min="1" />
             <button className="client-button add-to-cart-btn" onClick={() => addToCart(product)}>ADD TO CART</button>

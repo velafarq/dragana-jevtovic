@@ -1,5 +1,7 @@
 .product-details-container {
-    padding-top: 120px;
+    padding: 120px 0 100px 0;
+    max-width: 1210px;
+    margin: auto;
 }
 
 .product-content {
@@ -31,12 +33,18 @@
     }
 
     .main-image {
-        max-height: 550px;
+        max-height: 350px;
 
         img {
-            max-height: 550px;
+            max-height: 350px;
             width: auto;
+            border-radius: 4px;
+
         }
+    }
+
+    .product-info {
+        padding-left: 50px;
     }
 }
 
