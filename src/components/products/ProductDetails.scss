@@ -37,7 +37,7 @@
         min-height: 100%;
         justify-content: center;
         max-height: 100%;
-        overflow-y: scroll;
+        overflow-y: auto;
         padding-right: 20px;
         -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
         -moz-animation: fadein 0.5s; /* Firefox < 16 */
@@ -71,6 +71,6 @@
 }
 
 ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    // width: 0px;  /* Remove scrollbar space */
+    // background: transparent;  /* Optional: just make scrollbar invisible */
 }

@@ -78,7 +78,7 @@ export const DesignDashboard = (props) => {
      : 
         <div className="empty-message">
             <div>Check back later for more products!</div>
-            <Link to={'/products'}>Go Back</Link>
+            <Link to={'/products'} className="empty-message-link">Go Back</Link>
         </div>
     )
 }
