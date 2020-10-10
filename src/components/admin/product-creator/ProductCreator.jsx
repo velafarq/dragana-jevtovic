@@ -12,8 +12,11 @@ const ProductCreator = (props) => {
         description: '',
         name: '',
         type: '',
-        dimensions: '',
-        hidden: false
+        hidden: false,
+        height: '',
+        diameter: '',
+        weight: '',
+        volume: ''
     };
 
     const [product, setProduct] = useState({...baseProduct});
@@ -138,9 +141,25 @@ const ProductCreator = (props) => {
                     <DisplayOptions options={typeOptions} />
                 </select>
             </div>
+
             <div className="form-input">
-                <label htmlFor="dimensions">Dimensions</label>
-                <input type="text" value={product.dimensions} onChange={(event) => handleChange(event, 'dimensions')} id='dimensions' />
+                <label htmlFor="dimensions">Height</label>
+                <input type="text" value={product.height} onChange={(event) => handleChange(event, 'height')} id='height' />
+            </div>
+
+            <div className="form-input">
+                <label htmlFor="dimensions">Diameter</label>
+                <input type="text" value={product.diameter} onChange={(event) => handleChange(event, 'diameter')} id='diameter' />
+            </div>
+
+            <div className="form-input">
+                <label htmlFor="dimensions">Volume</label>
+                <input type="text" value={product.volume} onChange={(event) => handleChange(event, 'volume')} id='volume' />
+            </div>
+
+            <div className="form-input">
+                <label htmlFor="dimensions">Weight</label>
+                <input type="text" value={product.weight} onChange={(event) => handleChange(event, 'weight')} id='weight' />
             </div>
 
             { images.length && images.map((image, idx) => (
