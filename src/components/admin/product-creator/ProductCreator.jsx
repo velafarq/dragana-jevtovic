@@ -16,7 +16,9 @@ const ProductCreator = (props) => {
         height: '',
         diameter: '',
         weight: '',
-        volume: ''
+        volume: '',
+        width: '',
+        length: ''
     };
 
     const [product, setProduct] = useState({...baseProduct});
@@ -145,6 +147,16 @@ const ProductCreator = (props) => {
             <div className="form-input">
                 <label htmlFor="dimensions">Height</label>
                 <input type="text" value={product.height} onChange={(event) => handleChange(event, 'height')} id='height' />
+            </div>
+
+            <div className="form-input">
+                <label htmlFor="dimensions">Width</label>
+                <input type="text" value={product.width} onChange={(event) => handleChange(event, 'width')} id='width' />
+            </div>
+
+            <div className="form-input">
+                <label htmlFor="dimensions">Length</label>
+                <input type="text" value={product.length} onChange={(event) => handleChange(event, 'length')} id='length' />
             </div>
 
             <div className="form-input">
