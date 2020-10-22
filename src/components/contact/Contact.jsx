@@ -8,13 +8,14 @@ const Contact = (props) => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [country, setCountry] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const payload = {
-            firstName, lastName, email, phone, subject, message
+            firstName, lastName, email, phone, country, subject, message
         }
         props.submit(payload);
         clearForm();
@@ -25,6 +26,7 @@ const Contact = (props) => {
         setLastName('');
         setEmail('');
         setPhone('');
+        setCountry('');
         setSubject('');
         setMessage('');
     }
@@ -64,6 +66,14 @@ const Contact = (props) => {
                         name="phone"
                         value={phone}
                         onChange={e => setPhone(e.target.value)} />
+                </label>
+                <label>Country*
+                    <input 
+                        type="text" 
+                        name="country"
+                        value={country}
+                        onChange={e => setCountry(e.target.value)}
+                        required />
                 </label>
                 <label>Subject*
                     <input 
