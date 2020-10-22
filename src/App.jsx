@@ -19,6 +19,7 @@ import Contact from './components/contact/Contact';
 import AdminProducts from './components/admin/admin-products/AdminProducts';
 import AdminOrders from './components/admin/admin-orders/AdminOrders';
 import AdminMessages from './components/admin/admin-messages/AdminMessages';
+import SubmitOrder from './components/submit-order/SubmitOrder';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
@@ -44,7 +45,9 @@ function App(props) {
                         <Route path='/products/:id' component={ProductDetails} />
                         <Route path='/signin' component={SignIn} />
                         <Route path='/signup' component={SignUp} />
-                        <Route path='/checkout' component={Checkout} />
+                        <Route exact path='/checkout' component={Checkout} />
+                        <Route exact path='/checkout/submit' component={SubmitOrder} />
+
                         <Route path='/designs/:design' component={DesignDashboard} />
                         <Route exact path='/about' component={About} />
                         <Route exact path='/contact' component={Contact} />

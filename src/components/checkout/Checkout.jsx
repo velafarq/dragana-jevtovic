@@ -1,14 +1,11 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import './Checkout.scss'
 import { connect } from 'react-redux';
-import { submitOrder } from '../../store/actions/cart-actions';
 import { DESIGN_NAMES, handlePrice } from '../../helpers';
+import { Link } from 'react-router-dom';
 
 const Checkout = (props) => {
     console.log(props.items)
-    const handleCheckout = () => {
-        props.submitOrder(props.items);
-    }
 
     const getPrimaryImage = (item) => {
         if (item.images && item.images.length) {
@@ -62,7 +59,7 @@ const Checkout = (props) => {
     return (
         <div className="checkout">
             <h1 className="heading-text checkout__title">Order Request</h1>
-            <button onClick={() => handleCheckout()}>Checkout</button>
+            <Link to={'/checkout/submit'}>Checkout</Link>
 
             <div className="table">
                 <div className="box title"></div>
@@ -85,9 +82,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        submitOrder: (data) => dispatch(submitOrder(data))
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
+export default connect(mapStateToProps)(Checkout);
