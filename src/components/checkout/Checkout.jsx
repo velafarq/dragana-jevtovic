@@ -59,7 +59,6 @@ const Checkout = (props) => {
     return (
         <div className="checkout">
             <h1 className="heading-text checkout__title">Order Request</h1>
-            <Link to={'/checkout/submit'}>Checkout</Link>
 
             <div className="table">
                 <div className="box title"></div>
@@ -72,6 +71,10 @@ const Checkout = (props) => {
                 {generateTable(props.items)}
 
             </div>
+            <div className="checkout-btn">
+                <button className='heading-text contact__form__submit'><Link to={'/checkout/submit'}>Checkout</Link></button>
+            </div>
+
         </div>
     )
 }
