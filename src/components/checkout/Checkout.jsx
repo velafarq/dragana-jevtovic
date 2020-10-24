@@ -33,7 +33,7 @@ const Checkout = (props) => {
 
         return (
             <Fragment key={item.id}>
-                <div className='box'>
+                <div className='box product-name'>
                     <div>{DESIGN_NAMES[item.design]}</div>
                     <div>{item.name}</div>
                 </div>
