@@ -51,7 +51,7 @@ export const DesignDashboard = (props) => {
     return (
         products && products.length > 0  ? 
         <div className="design">
-            <img className="design__hero" src={DESIGN_HERO_IMAGES[designName].url} alt={DESIGN_HERO_IMAGES[designName].alt} />
+            <img className="design__hero" src={header_img.url} alt={header_img.alt} />
 
             <header className="design__header">
                 <div className="design__header__breadcrumbs center-content">

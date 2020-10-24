@@ -8,7 +8,7 @@ const ArtistBio = () => {
             <h2 className="heading-text">The Artist</h2>
             <div className="bio">
                 <figure>
-                    <img className="bio__img" src="https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fdragana%2Fdragana-jevtovic.png?alt=media&token=66237126-061b-40c4-a4ef-47c87597bab5" alt="Dragana Jevtovic Ceramics Cape Town South Africa"/>
+                    <img className="bio__img" src="https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fdragana%2Fdragana-green-jacket-tiny.jpg?alt=media&token=16d589b3-97b3-44dd-ad2a-d599efa7f6c2" alt="Dragana Jevtovic Ceramics Cape Town South Africa"/>
                 </figure>
                 <div className="bio__blurb">
                     <p>{short_bio}</p>
