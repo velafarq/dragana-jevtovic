@@ -4,10 +4,15 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import SignedInLinks from '../SignedInLinks';
 import SignedOutLinks from '../SignedOutLinks';
+import {changeCurrency} from '../../../store/actions/currency-actions';
 
 const Header = (props) => {
-    const { auth, isAdmin, cartItems } = props;
-    console.log(cartItems)
+    const { auth, isAdmin, cartItems, updateCurrency } = props;
+    
+    const handleCurrencyChange = (e) => {
+        updateCurrency(e.target.value)
+
+    }
 
     return (
         <Fragment>
@@ -20,25 +25,39 @@ const Header = (props) => {
                     <NavLink className='item' exact to='/contact' activeClassName='selected'>Contact</NavLink>
                 </nav>
                 <div className="side-icons">
-                    <i className="material-icons">search</i>
                     <NavLink exact to='/checkout' className="item cart">
                         <i className="material-icons">shopping_cart</i>
                         {cartItems && cartItems.length ? <div className="cart-number">{cartItems.length}</div> : null}
                     </NavLink>
-                    { auth.uid ? <SignedInLinks/> : <SignedOutLinks /> }
-                    { isAdmin && <NavLink activeClassName="selected" className="dashboard" exact to='/admin'>Admin Dashboard</NavLink>}
+                    <select name="currency" className="currency" onChange={(event) => handleCurrencyChange(event)}>
+                        <option value="usd">USD</option>
+                        <option value="gbp">GBP</option>
+                        <option value="zar">ZAR</option>
+                    </select>
+                    {isAdmin && 
+                        <React.Fragment>
+                            { auth.uid ? <SignedInLinks/> : <SignedOutLinks /> }
+                            <NavLink activeClassName="selected" className="dashboard" exact to='/admin'>Admin Dashboard</NavLink>
+                        </React.Fragment>}
                 </div>
             </div>
         </Fragment>
     )
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateCurrency: (currency) => dispatch(changeCurrency(currency))
+    }
+}
+
 const mapStateToProps = (state) => {
     return {
         auth: state.firebase.auth,
         isAdmin: state.auth.isAdmin,
-        cartItems: state.cart.items
+        cartItems: state.cart.items,
+        currency: state.currency
     }
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
