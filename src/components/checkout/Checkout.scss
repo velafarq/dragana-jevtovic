@@ -31,7 +31,6 @@
         &.product-name {
             display: flex;
             flex-direction: column;
-            
         }
         &.cart-product-img {
             max-height: 60px;
@@ -40,6 +39,13 @@
             img {
                 max-height: 60px;
                 width: auto;
+            }
+        }
+
+        &.qty {
+            input {
+                max-width: 60px;
+
             }
         }
     }

@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { DESIGN_NAMES, handlePrice } from '../../helpers';
 import { Link } from 'react-router-dom';
 
-const Checkout = (props) => {
-    console.log(props.items)
+const Checkout = ({ items, currency }) => {
 
     const getPrimaryImage = (item) => {
         if (item.images && item.images.length) {
@@ -17,7 +16,7 @@ const Checkout = (props) => {
 
     const calculateTotal = (price, qty) => {
         const total = price * qty;
-        return handlePrice(total, 'usd'); 
+        return handlePrice(total, currency); 
     }
 
     const removeItemFromCart = (item) => {
@@ -39,11 +38,11 @@ const Checkout = (props) => {
                 </div>
                 <div className='box cart-product-img'><img src={getPrimaryImage(item)} alt="" /></div>
                 
-                <div className='box'>{handlePrice(item.price, 'usd')}</div>
-                <div className="box">
+                <div className='box'>{handlePrice(item.price, currency)}</div>
+                <div className="box qty">
                     <input type="number" value={quantity} onChange={(e) => handleInput(e, itemDetails)} min="1" />
                 </div>
-                <div className="box">{calculateTotal(item.price['usd'], quantity)}</div>
+                <div className="box">{calculateTotal(item.price[currency], quantity)}</div>
                 <div className="box table-actions">
                     <i className="material-icons close" onClick={() => removeItemFromCart(item)}>close</i>
                 </div>
@@ -68,7 +67,7 @@ const Checkout = (props) => {
                 <div className="box title">Total</div>
                 <div className="box title"></div>
 
-                {generateTable(props.items)}
+                {generateTable(items)}
 
             </div>
             <div className="checkout-btn">
@@ -81,7 +80,8 @@ const Checkout = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.cart.items
+        items: state.cart.items,
+        currency: state.currency.currency
     }
 }
 
