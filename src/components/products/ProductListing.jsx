@@ -1,9 +1,9 @@
 import React from 'react';
 import './ProductListing.scss';
 import { DESIGN_NAMES, handlePrice } from '../../helpers';
+import { connect } from 'react-redux';
 
-const ProductListing = ({ product }) => {
-    
+const ProductListing = ({ product, currency }) => {
     const setImage = () => {
         let url = null;
         if (product && Array.isArray(product.images)) {
@@ -28,9 +28,15 @@ const ProductListing = ({ product }) => {
             </div>
             <div className="product-listing__design box-padding">{DESIGN_NAMES[product.design]}</div>
             <div className="product-listing__title box-padding">{product.name}</div>
-            <div className="product-listing__price box-padding">{handlePrice(product.price, 'usd')}</div>
+            <div className="product-listing__price box-padding">{handlePrice(product.price, currency)}</div>
         </article>
     )
 }
 
-export default ProductListing;
+const mapStateToProps = (state) => {
+    return {
+        currency: state.currency.currency
+    }
+}
+
+export default connect(mapStateToProps)(ProductListing);

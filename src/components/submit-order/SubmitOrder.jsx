@@ -97,8 +97,6 @@ const SubmitOrder = ({ submitOrder }) => {
         </React.Fragment>
        
     )
-   
-        
 }
 
 

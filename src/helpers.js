@@ -102,14 +102,15 @@ export const handlePrice = (prices, currency) => {
         } else {
             price = prices;
         }
-        return `${symbol}${price}`;
+        const fixed = Number(price).toFixed(2);
+        return `${symbol}${fixed}`;
     }
         return '';
 }
 
 export const currencyLabels = {
     usd: '$',
-    gbp: '&#163;',
+    gbp: '£',
     zar: 'R'
 }
 
