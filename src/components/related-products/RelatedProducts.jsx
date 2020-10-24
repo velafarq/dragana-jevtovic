@@ -15,24 +15,26 @@ const RelatedProducts = ({ designName, currentProductId }) => {
     const allProducts = useSelector(state => state.firestore.ordered.products);
 
 
+
     useEffect(() => {
         if (allProducts) {
+
+            const getRandomArray = (products) => {
+                const shuffled = products.sort(() => 0.5 - Math.random());
+                if (currentProductId) {
+                    const idx = shuffled.findIndex(p => p.id === currentProductId)
+                    if (idx !== -1) {
+                        shuffled.splice(idx, 1);
+                    }
+                }
+                return shuffled.slice(0, 5);
+            }
             const filteredByDesign = allProducts.filter(p => p.design === designName);
+
             const randomArray = getRandomArray(filteredByDesign);
             setRelatedProducts(randomArray);
         }
-    }, []);
-
-    const getRandomArray = (products) => {
-        const shuffled = products.sort(() => 0.5 - Math.random());
-        if (currentProductId) {
-            const idx = shuffled.findIndex(p => p.id === currentProductId)
-            if (idx !== -1) {
-                shuffled.splice(idx, 1);
-            }
-        }
-        return shuffled.slice(0, 5);
-    }
+    }, [allProducts, designName, currentProductId]);
 
     return <React.Fragment>
         { relatedProducts.length ?
