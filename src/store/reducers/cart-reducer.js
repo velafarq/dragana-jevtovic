@@ -4,10 +4,20 @@ const initState = {
 
 const cart_reducer = (state = initState, action) => {
     switch(action.type) {
-        case 'ADD_ITEM':
+        case 'ADD_ITEM': {
+            const { quantity, item } = action.item;
+            const foundIndex = state.items.findIndex(product => product.item.id === item.id);
+            const copied = [...state.items];
+            if (foundIndex !== -1) {
+                copied[foundIndex].quantity = Number(copied[foundIndex].quantity) + Number(quantity);
+            } else {
+                copied.push(action.item)
+            }
             return {
                 ...state,
-                items: [...state.items, action.item]}
+                items: [...copied]}
+        }
+          
         case 'SUBMIT_ORDER':
             return {
                 ...initState

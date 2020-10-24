@@ -27,7 +27,7 @@ const Checkout = ({ items, currency, updateQuantity, removeItemFromCart }) => {
     const changeQuantity = (e, index) => {
         const payload = {
             item_index: index,
-            quantity: e.target.value
+            quantity: Number(e.target.value)
         }
         updateQuantity(payload)
     }
