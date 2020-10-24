@@ -4,7 +4,7 @@ import { getDesignName, handlePrice } from '../../helpers';
 import { addItem } from '../../store/actions/cart-actions';
 import { connect } from 'react-redux';
 
-const ProductText = ({ product, addItem }) => {
+const ProductText = ({ product, addItem, currency }) => {
     const [quantity, setQuantity] = useState(1);
     const addToCart = (item) => {
         const payload = {
@@ -21,7 +21,7 @@ const ProductText = ({ product, addItem }) => {
     return <div className="product-text">
         <div className="sub heading-text">{getDesignName(product.design)}</div>
         <div className="main heading-text">{product.name}</div>
-        <div className="main heading-text">{handlePrice(product.price, 'usd')}</div>
+        <div className="main heading-text">{handlePrice(product.price, currency)}</div>
 
         <div className="divider"></div>
         <div className="row">
@@ -49,4 +49,10 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ProductText);
+const mapStateToProps = (state) => {
+    return {
+        currency: state.currency.currency
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductText);
