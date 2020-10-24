@@ -76,7 +76,7 @@ const Checkout = ({ items, currency, updateQuantity, removeItemFromCart }) => {
 
             </div>
             <div className="checkout-btn">
-                <button className='heading-text contact__form__submit'><Link to={'/checkout/submit'}>Checkout</Link></button>
+              <Link className='link heading-text contact__form__submit' to={'/checkout/submit'}>Checkout</Link>
             </div>
 
         </div>
