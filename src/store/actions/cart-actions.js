@@ -1,7 +1,5 @@
 export const addItem = (item) => {
     return (dispatch, getState) => {
-        // make async call to db
-        
         dispatch({ type: 'ADD_ITEM', item })
     }
 }
@@ -32,5 +30,17 @@ export const submitContactForm = (data) => {
         }).catch((error) => {
             console.error(error);
         })
+    }
+}
+
+export const updateItemQuantity = (data) => {
+    return (dispatch) => {
+        dispatch({ type: 'UPDATE_ITEM_QUANTITY', data });
+    }
+}
+
+export const removeItem = (data) => {
+    return (dispatch) => {
+        dispatch({ type: 'REMOVE_ITEM', data });
     }
 }

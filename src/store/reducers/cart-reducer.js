@@ -9,13 +9,32 @@ const cart_reducer = (state = initState, action) => {
                 ...state,
                 items: [...state.items, action.item]}
         case 'SUBMIT_ORDER':
-            console.log(action.data);
             return {
                 ...initState
             };
         case 'SUBMIT_ORDER_FAILED':
-            console.log('create project err', action.err);
             return state;
+        case 'UPDATE_ITEM_QUANTITY': {
+            const {item_index, quantity} = action.data;
+            const copied_items = [...state.items];
+            const item = copied_items[item_index];
+            if (item) {
+                copied_items[item_index].quantity = quantity;
+            }
+            return {
+                ...state,
+                items: copied_items
+            }
+        }
+        case 'REMOVE_ITEM': {
+            const { index } = action.data;
+            const copied_items = [...state.items];
+            copied_items.splice(index, 1);
+            return {
+                ...state,
+                items: copied_items
+            }
+        }
         default: 
             return state;
     }

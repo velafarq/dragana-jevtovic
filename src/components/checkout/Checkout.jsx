@@ -3,8 +3,9 @@ import './Checkout.scss'
 import { connect } from 'react-redux';
 import { DESIGN_NAMES, handlePrice } from '../../helpers';
 import { Link } from 'react-router-dom';
+import {updateItemQuantity, removeItem} from '../../store/actions/cart-actions';
 
-const Checkout = ({ items, currency }) => {
+const Checkout = ({ items, currency, updateQuantity, removeItemFromCart }) => {
 
     const getPrimaryImage = (item) => {
         if (item.images && item.images.length) {
@@ -19,15 +20,19 @@ const Checkout = ({ items, currency }) => {
         return handlePrice(total, currency); 
     }
 
-    const removeItemFromCart = (item) => {
-        console.log(item);
+    const remove = (index) => {
+        removeItemFromCart(index);
     }
 
-    function handleInput(e, itemDetails) {
-        itemDetails.quantity = e.target.value;
+    const changeQuantity = (e, index) => {
+        const payload = {
+            item_index: index,
+            quantity: e.target.value
+        }
+        updateQuantity(payload)
     }
 
-    const row = (itemDetails) => {
+    const row = (itemDetails, index) => {
         const { item, quantity } = itemDetails;
 
         return (
@@ -40,11 +45,11 @@ const Checkout = ({ items, currency }) => {
                 
                 <div className='box'>{handlePrice(item.price, currency)}</div>
                 <div className="box qty">
-                    <input type="number" value={quantity} onChange={(e) => handleInput(e, itemDetails)} min="1" />
+                    <input type="number" value={quantity} onChange={(e) => changeQuantity(e, index)} min="1" />
                 </div>
                 <div className="box">{calculateTotal(item.price[currency], quantity)}</div>
                 <div className="box table-actions">
-                    <i className="material-icons close" onClick={() => removeItemFromCart(item)}>close</i>
+                    <i className="material-icons close" onClick={() => remove(index)}>close</i>
                 </div>
             </Fragment>);
 
@@ -52,7 +57,7 @@ const Checkout = ({ items, currency }) => {
 
 
     const generateTable = (products) => {
-        return products.map((product) => row(product));
+        return products.map((product, i) => row(product, i));
     }
 
     return (
@@ -85,4 +90,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Checkout);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateQuantity: (data) => dispatch(updateItemQuantity(data)),
+        removeItemFromCart: (data) => dispatch(removeItem(data))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
