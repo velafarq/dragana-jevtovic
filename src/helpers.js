@@ -9,7 +9,7 @@ export const DESIGN_NAMES = {
     'blue_guinea': 'Blue Guinea Fowl',
     'royal_african': 'Royal African',
     'brown_feather': 'Brown Feather',
-    'oceans_feather': 'Oceans Feather',
+    'oceans_feather': 'Two Oceans Feather',
     'african_elephant': 'African Elephant',
     'custom': 'Custom'
 }
