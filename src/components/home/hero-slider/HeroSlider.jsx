@@ -7,6 +7,11 @@ class HeroSlider extends Component {
     state =  {
         items: [
         {
+            title: 'TEST Blue Guinea Fowl',
+            design: 'blue_guinea',
+            url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2F20200918_150107.jpg?alt=media&token=09aa580c-e975-43e1-8b6f-10b2b0b48218'
+        },
+        {
             title: 'Blue Guinea Fowl',
             design: 'blue_guinea',
             url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Fblue-guinea-slide.png?alt=media&token=c4d35c3a-ef30-4051-aa05-35b4e08f2a19'
@@ -48,6 +53,7 @@ class HeroSlider extends Component {
                     <div className='slide' 
                         style={{backgroundImage: `url('${item.url}')`}} 
                         key={i}>
+                        <div className="gradient"></div>
                         <i className='material-icons arrow left' onClick={() => this.carousel.slidePrev()}>keyboard_arrow_left</i>
                         <i className='material-icons arrow right' onClick={() => this.carousel.slideNext()}>keyboard_arrow_right</i>
                         <div className="content">
