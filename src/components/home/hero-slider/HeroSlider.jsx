@@ -2,43 +2,64 @@ import React, { Component } from 'react';
 import './HeroSlider.scss';
 import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
+import {AFRICAN_ELEPHANT_SLIDES, BLUE_GUINEA_SLIDES, BROWN_FEATHER_SLIDES, OCEANS_FEATHER_SLIDES, ROYAL_AFRICAN_SLIDES} from '../../../helpers';
 
 class HeroSlider extends Component {
-    state =  {
-        items: [
-        {
-            title: 'TEST Blue Guinea Fowl',
-            design: 'blue_guinea',
-            url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2F20200918_150107.jpg?alt=media&token=09aa580c-e975-43e1-8b6f-10b2b0b48218'
-        },
-        {
-            title: 'Blue Guinea Fowl',
-            design: 'blue_guinea',
-            url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Fblue-guinea-slide.png?alt=media&token=c4d35c3a-ef30-4051-aa05-35b4e08f2a19'
-        },
-        {
-            title: "Royal African",
-            design: 'royal_african',
-            url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Froyal-african-main.png?alt=media&token=b6c6a8f9-d85f-43f8-838d-e4e3657fff78',
-        },
-        {
-            title: "African Elephant",
-            design: 'african_elephant',
-            url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Fafrican-elephant-main.png?alt=media&token=05f67e2d-c364-4ee7-9341-e7a4f148ec60',
-        },
-        {
-            title: 'Brown Feather',
-            design: 'brown_feather',
-            url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Fbrown-feather-slide.JPG?alt=media&token=bda511ac-38a0-46e1-9533-d859edce351d'},
-        {
-            title: "Two Oceans' Feathers",
-            design: 'oceans_feather',
-            url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Foceans-feathers-slider.JPG?alt=media&token=110083ff-3d26-49bc-86c8-25527f081e32'
-        }]
+    buildItems() {
+        const items = [];
+        const longest = Math.max(BLUE_GUINEA_SLIDES.length, BROWN_FEATHER_SLIDES.length, ROYAL_AFRICAN_SLIDES.length, AFRICAN_ELEPHANT_SLIDES.length, OCEANS_FEATHER_SLIDES.length);
+        for (let i = 0; i < longest; i++) {
+            if (BLUE_GUINEA_SLIDES[i]) {
+                items.push(
+                    {
+                        title: 'Blue Guinea Fowl',
+                        design: 'blue_guinea',
+                        url: BLUE_GUINEA_SLIDES[i]
+                    }
+                )
+            }
+            if (ROYAL_AFRICAN_SLIDES[i]) {
+                items.push(
+                    {
+                        title: "Royal African",
+                        design: 'royal_african',
+                        url: ROYAL_AFRICAN_SLIDES[i]
+                    }
+                )
+            }
+            if (AFRICAN_ELEPHANT_SLIDES[i]) {
+                items.push(
+                    {
+                        title: "African Elephant",
+                        design: 'african_elephant',
+                        url: AFRICAN_ELEPHANT_SLIDES[i]
+                    },
+                )
+            }
+            if (BROWN_FEATHER_SLIDES[i]) {
+                items.push(
+                    {
+                        title: 'Brown Feather',
+                        design: 'brown_feather',
+                        url: BROWN_FEATHER_SLIDES[i]
+                    }
+                )
+            }
+            if (OCEANS_FEATHER_SLIDES[i]) {
+                items.push(
+                    {
+                        title: "Two Oceans' Feathers",
+                        design: 'oceans_feather',
+                        url: OCEANS_FEATHER_SLIDES[i]
+                    },
+                )
+            }
+        }
+        return items;
     }
 
     render() {
-        const { items } = this.state;
+        const items = this.buildItems();
         return (
             <div className='hero-container'>
                 <Carousel className='slider' 
@@ -46,9 +67,9 @@ class HeroSlider extends Component {
                     pagination={false}
                     ref={ref => (this.carousel = ref)}
                     showArrows={false}
-                    enableAutoPlay={false}
+                    enableAutoPlay={true}
                     autoPlaySpeed={5000}
-                    transitionMs={1500}>
+                    transitionMs={2000}>
                     {items.map((item, i) => 
                     <div className='slide' 
                         style={{backgroundImage: `url('${item.url}')`}} 
@@ -62,7 +83,6 @@ class HeroSlider extends Component {
                                 <button className="client-button content__btn">View Style</button>
                             </Link>
                         </div>
-                   
                     </div>)}
                 </Carousel>
             </div>
