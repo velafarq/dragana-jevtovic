@@ -4,7 +4,7 @@ import './AdminOrders.scss';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
-
+import AdminNav from '../admin-nav/AdminNav';
 const AdminOrders = () => {
     useFirestoreConnect([
         { collection: 'orders' }
@@ -13,7 +13,14 @@ const AdminOrders = () => {
     const allOrders = useSelector(state => state.firestore.ordered.orders);
     console.log(allOrders)
 
-    return <div></div>
+    return (
+        <section className="admin-orders">
+            <AdminNav />
+            <div className="header">
+                <h2 className="page-title">Orders</h2>
+            </div>
+        </section>
+    )
 }
 
 export default AdminOrders;

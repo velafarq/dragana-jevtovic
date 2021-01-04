@@ -7,6 +7,7 @@ import ProductFilter from '../product-filter/ProductFilter';
 import { connect } from 'react-redux';
 import { deleteProduct } from '../../../store/actions/admin-actions';
 import { Link } from 'react-router-dom';
+import AdminNav from '../admin-nav/AdminNav';
 
 const AdminProducts = (props) => {
     useFirestoreConnect([
@@ -61,6 +62,7 @@ const AdminProducts = (props) => {
         <Fragment>
         { displayProducts &&
             <section className='products'>
+                <AdminNav />
                 <div className="header">
                     <h2 className="page-title">Products</h2>
                     <button className='admin-button create-new' onClick={toggleDrawer}>Create new product</button>

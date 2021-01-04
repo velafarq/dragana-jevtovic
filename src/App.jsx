@@ -18,8 +18,9 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Contact from './components/contact/Contact';
 import AdminProducts from './components/admin/admin-products/AdminProducts';
 import AdminOrders from './components/admin/admin-orders/AdminOrders';
-import AdminMessages from './components/admin/admin-messages/AdminMessages';
+// import AdminMessages from './components/admin/admin-messages/AdminMessages';
 import SubmitOrder from './components/submit-order/SubmitOrder';
+import AdminCustomize from './components/admin/admin-customize/AdminCustomize';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
@@ -56,7 +57,8 @@ function App(props) {
                         <Route exact path='/admin' component={AdminDashboard} />
                         <Route exact path='/admin/products' component={AdminProducts} />
                         <Route exact path='/admin/orders' component={AdminOrders} />
-                        <Route exact path='/admin/messages' component={AdminMessages} />
+                        {/* <Route exact path='/admin/messages' component={AdminMessages} /> */}
+                        <Route exact path='/admin/customize' component={AdminCustomize} />
 
 
                     </Switch>
