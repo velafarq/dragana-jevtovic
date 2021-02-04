@@ -20,6 +20,15 @@ const Checkout = ({ items, currency, updateQuantity, removeItemFromCart }) => {
         return handlePrice(total, currency); 
     }
 
+    const calculateGrandTotal = () => {
+        let total = 0;
+        items.forEach(one => {
+            const { item, quantity } = one;
+                total = total + item.price[currency] * quantity;
+        });
+        return handlePrice(total, currency);
+    }
+
     const remove = (index) => {
         removeItemFromCart(index);
     }
@@ -63,22 +72,24 @@ const Checkout = ({ items, currency, updateQuantity, removeItemFromCart }) => {
     return (
         <div className="checkout">
             <h1 className="heading-text checkout__title">Quote Request</h1>
-
-            <div className="table">
-                <div className="box title"></div>
-                <div className="box title"></div>
-                <div className="box title">Price</div>
-                <div className="box title">Qty</div>
-                <div className="box title">Total</div>
-                <div className="box title"></div>
-
-                {generateTable(items)}
-
-            </div>
-            <div className="checkout-btn">
-              <Link className='link heading-text contact__form__submit' to={'/checkout/submit'}>Checkout</Link>
-            </div>
-
+            {items && items.length ? 
+                <React.Fragment>
+                    <div className="table">
+                        <div className="box title"></div>
+                        <div className="box title"></div>
+                        <div className="box title">Price</div>
+                        <div className="box title">Qty</div>
+                        <div className="box title">Total</div>
+                        <div className="box title"></div>
+                        {generateTable(items)}
+                    </div>
+                    <div className="total">Total: {calculateGrandTotal()}</div>
+                    <div className="checkout-btn">
+                        <Link className='link heading-text contact__form__submit' to={'/checkout/submit'}>Checkout</Link>
+                    </div>
+                </React.Fragment>
+                : <div className="empty-cart">Your cart is empty.</div>
+            }
         </div>
     )
 }
