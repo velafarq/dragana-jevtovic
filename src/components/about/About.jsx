@@ -6,12 +6,33 @@ const About = () => {
     return (
         <div className="about">
             <h1 className="about__title heading-text">How to Purchase</h1>
-            <p>To receive a quote on the items you would like designed, simply add them to your “Quote Cart”, fill in your details and then checkout.</p>
-            <p>We are a small studio and deal personally with each order. Within 24 hours we will get back to you with a quote in either ZAR, US$, GB£ or € (depending in which part of the world you reside).</p>
-            <p>We will also supply a quote for shipping and handling and give you a choice of either airmail or surface mail delivery.</p>
-            <p>If you wish to continue with the order, email your acceptance, giving your preferred shipping method (surface or air) and we will provide you with bank or PayPal details for payment. You may also modify your order at this stage.</p>
-            <p>We do not have a warehouse full of stock. It’s probable that your items will be made especially for you.</p>
-            <p>We are happy to correspond via email with our customers, and if necessary, discuss your order on the phone.</p>
+            <p>To receive a quote add the items you would like to purchase to your “Quote Cart”, fill in your details and then check out.</p>
+            <p>
+                Within 24 hours we will get back to you by email with a quote, including shipping, in
+                either ZAR, US$, GB£ or € (depending on which part of the world you reside in).
+                If you wish to continue with the order, reply to our email with your acceptance
+                including the delivery address and a contact telephone number and we will send you
+                a PayPal invoice for payment. You may also modify your order at this stage.
+                It is probable that your items will be made especially for you as we do not have a
+                warehouse full of stock.
+            </p>
+            <p>
+                We are a small studio and deal personally with each order. We are happy to
+                correspond via email with our customers, and if necessary, discuss your order on
+                <a href="https://wa.me/27832835201" target="_blank"> WhatsApp + 27 83 283 5201</a>.
+            </p>
+            <p>
+                Delivery is by FedEx courier - We have a special contract for
+                international shipping with favourable rates. Orders should
+                arrive within 7 - 8 days after sending.
+            </p>
+
+            <p>
+                Shop in real time via WhatsApp and get a 10% discount.
+                Arrange an appointment with Dragana on WhatsApp for a
+                video tour of the studio shop - discuss shapes, sizes and
+                designs and ask about special offers. +27 83 283 5201.
+            </p>
             <Link className="about__button heading-text" to={'/products'}>View Products</Link>
         </div>
     )

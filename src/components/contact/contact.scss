@@ -3,6 +3,12 @@
     max-width: 710px;
     margin: auto;
 
+    .whatsapp-link {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
     &__title {
         font-size: 64px;
         font-weight: normal;
