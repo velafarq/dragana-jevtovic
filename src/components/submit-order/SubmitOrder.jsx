@@ -8,6 +8,8 @@ const SubmitOrder = ({ submitOrder }) => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [postalCode, setPostalCode] = useState('');
+    const [state, setState] = useState('');
     const [country, setCountry] = useState('');
     const [message, setMessage] = useState('');
     const [submitted, setSubmitted] = useState(false);
@@ -28,6 +30,8 @@ const SubmitOrder = ({ submitOrder }) => {
         setPhone('');
         setCountry('');
         setMessage('');
+        setPostalCode('');
+        setState('');
     }
 
     const form = () => {
@@ -65,6 +69,22 @@ const SubmitOrder = ({ submitOrder }) => {
                         name="phone"
                         value={phone}
                         onChange={e => setPhone(e.target.value)} />
+                </label>
+                <label>Postal Code*
+                    <input 
+                        type="text" 
+                        name="postalCode"
+                        value={postalCode}
+                        onChange={e => setPostalCode(e.target.value)}
+                        required />
+                </label>
+                <label>State/Provice
+                    <input 
+                        type="text" 
+                        name="state"
+                        value={state}
+                        onChange={e => setState(e.target.value)}
+                        required />
                 </label>
                 <label>Country*
                     <input 
