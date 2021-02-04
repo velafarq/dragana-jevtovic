@@ -34,11 +34,32 @@ const Contact = (props) => {
     return (
         <div className="contact">
             <h1 className="contact__title heading-text">Contact</h1>
-            <p>Have a question? We’d love to hear from you. Please send a message and we’ll respond as soon as possible.</p>
-            <a href="https://wa.me/27832835201" target="_blank" className="whatsapp-link">
-                <img className="whatsapp-message" src="https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/icons%2Fmessage-us-correct.png?alt=media&token=c88f2cda-ef9f-4ed5-888b-84382b60ed77" alt=""/>
-            </a>
-            <div>Or Leave us a message here:</div>
+            <section>
+                <div className="contact-top">
+                    <div className="address">
+                        <h4>Physical Address</h4>
+                        <address>
+                            <div>4 Lobelia Street</div>
+                            <div>Wellway Park</div>
+                            <div>Durbanville 7550</div>
+                            <div>South Africa</div>
+                            <div>Telephone: +27 (0)21 975 2530</div>
+                            <div>Cell: +27 (0)83 283 5201</div>
+                            <div>E-mail: <a href="mailto:dragana@draganajevtovic.com">dragana@draganajevtovic.com</a></div>
+                            <div>Commercial Enquiries:
+                            Please email directly to <a href="mailto:dragana@draganajevtovic.com">dragana@draganajevtovic.com</a></div>
+                        </address>
+                    </div>
+                    <div>
+                    <a href="https://wa.me/27832835201" target="_blank" className="whatsapp-link">
+                        <img className="whatsapp-message" src="https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/icons%2Fmessage-us-correct.png?alt=media&token=c88f2cda-ef9f-4ed5-888b-84382b60ed77" alt=""/>
+                    </a>
+                    </div>
+                </div>
+            </section>
+            
+            <h4>Have a question? We’d love to hear from you. Please send a message and we’ll respond as soon as possible.</h4>
+           
             <form onSubmit={handleSubmit} className="contact__form">
                 <label>First Name*
                     <input 

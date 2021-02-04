@@ -3,6 +3,14 @@
     max-width: 710px;
     margin: auto;
 
+    .contact-top {
+        display: flex;
+
+        address div {
+            line-height: 1.8;
+            font-style: initial;
+        }
+    }
     .whatsapp-link {
         display: flex;
         justify-content: center;
