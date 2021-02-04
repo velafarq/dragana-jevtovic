@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './SubmitOrder.scss';
 import { connect } from 'react-redux';
 import { submitOrder } from '../../store/actions/cart-actions';
+import { COUNTRIES } from '../../countries';
 
 const SubmitOrder = ({ submitOrder }) => {
     const [firstName, setFirstName] = useState('');
@@ -87,12 +88,13 @@ const SubmitOrder = ({ submitOrder }) => {
                         required />
                 </label>
                 <label>Country*
-                    <input 
-                        type="text" 
+                    <select
                         name="country"
-                        value={country}
+                        value={country} 
                         onChange={e => setCountry(e.target.value)}
-                        required />
+                        required>
+                        { COUNTRIES.map((c, i) => <option key={i} value={c.name}>{c.name}</option>) }
+                    </select>
                 </label>
                 <label>Anything else you'd like to add?
                     <textarea 
