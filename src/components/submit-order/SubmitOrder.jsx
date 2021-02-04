@@ -82,7 +82,7 @@ const SubmitOrder = ({ submitOrder }) => {
                         onChange={e => setMessage(e.target.value)}
                         required />
                 </label>
-                <button className='heading-text contact__form__submit'>Submit Order Request</button>
+                <button className='heading-text contact__form__submit'>Submit Quote Request</button>
             </form>
         </div>
     }

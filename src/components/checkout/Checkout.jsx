@@ -62,7 +62,7 @@ const Checkout = ({ items, currency, updateQuantity, removeItemFromCart }) => {
 
     return (
         <div className="checkout">
-            <h1 className="heading-text checkout__title">Order Request</h1>
+            <h1 className="heading-text checkout__title">Quote Request</h1>
 
             <div className="table">
                 <div className="box title"></div>
