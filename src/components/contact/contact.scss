@@ -10,6 +10,22 @@
             line-height: 1.8;
             font-style: initial;
         }
+
+        .download-button {
+            margin-top: 10px;
+            height: 40px;
+            background-color: #2C527C;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: none;
+            color: #ffffff;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            cursor: pointer;
+        }
     }
     .whatsapp-link {
         display: flex;

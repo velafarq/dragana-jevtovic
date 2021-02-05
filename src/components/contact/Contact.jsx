@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './contact.scss';
 import { submitContactForm } from '../../store/actions/cart-actions';
 import { connect } from 'react-redux';
+import Pdf from '../../assets/dragana-jevtovic-ceramics-directions-to-studio.pdf';
 
 const Contact = (props) => {
     const [firstName, setFirstName] = useState('');
@@ -49,6 +50,9 @@ const Contact = (props) => {
                             <div>Commercial Enquiries:
                             Please email directly to <a href="mailto:dragana@draganajevtovic.com">dragana@draganajevtovic.com</a></div>
                         </address>
+                        <a className="download-directions" href={Pdf} target="_blank">
+                            <button className="download-button">Download Directions</button>
+                          </a>
                     </div>
                     <div>
                     <a href="https://wa.me/27832835201" target="_blank" className="whatsapp-link">
