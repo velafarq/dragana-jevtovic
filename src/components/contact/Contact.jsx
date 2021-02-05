@@ -55,9 +55,9 @@ const Contact = (props) => {
                           </a>
                     </div>
                     <div>
-                    <a href="https://wa.me/27832835201" target="_blank" className="whatsapp-link">
-                        <img className="whatsapp-message" src="https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/icons%2Fmessage-us-correct.png?alt=media&token=c88f2cda-ef9f-4ed5-888b-84382b60ed77" alt=""/>
-                    </a>
+                        <a href="https://wa.me/27832835201" target="_blank" className="whatsapp-link">
+                            <img className="whatsapp-message" src="https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/icons%2Fmessage-us-correct.png?alt=media&token=c88f2cda-ef9f-4ed5-888b-84382b60ed77" alt=""/>
+                        </a>
                     </div>
                 </div>
             </section>
