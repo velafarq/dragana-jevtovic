@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createProduct, updateProduct } from '../../../store/actions/admin-actions';
 import './ProductCreator.scss';
-import { designOptions, typeOptions, DisplayOptions } from '../../../helpers';
+import { typeOptions, DisplayOptions, categoryOptions, DESIGN_NAMES, handlePrice } from '../../../helpers';
+import { Multiselect } from 'multiselect-react-dropdown';
 
 const ProductCreator = (props) => {
     const { create, toggleDrawer, editable = null, update } = props;
 
     const baseProduct = {
-        design: '',
+        categories: [],
         description: '',
         name: '',
         type: '',
@@ -33,23 +34,31 @@ const ProductCreator = (props) => {
         zar: 0 
     });
 
+    const [selectedCats, setSelectedCats] = useState([]);
+
     useEffect(() => {
         if (editable) {
             setImages(editable.images);
             setPrice(editable.price);
             setProduct({...editable});
+            handleCats(editable.categories);
         }
     }, [editable]);
 
+    const handleCats = (categories) => {
+        const selectedCategories = [];
+        categories.forEach(cat => {
+            selectedCategories.push({value: cat, label: DESIGN_NAMES[cat]})
+        });
+        setSelectedCats(selectedCategories);
+    }
+
     const handleChange = (event, key) => {
-        console.log(event.target.value)
         if (key === 'hidden') {
             setProduct({...product, hidden: !product.hidden})
         } else {
             setProduct({...product, [key]: event.target.value});
-
         }
-        
     };
 
     const handleImageChange = (event, key, index) => {
@@ -112,12 +121,26 @@ const ProductCreator = (props) => {
             gbp: 0,
             zar: 0 
         });
+        setSelectedCats([]);
     }
 
     const removeImg = (img, idx) => {
         const local = [...images];
         local.splice(idx, 1);
         setImages(local);
+    }
+
+    const onSelect = (list, item) => {
+        console.log('select', list, item);
+        const categories = [...product.categories];
+        categories.push(item.value);
+        setProduct({...product, categories });
+    }
+
+    const onRemove = (list, item) => {
+        console.log('remove', list, item);
+        const categories = product.categories.filter(cat => cat !== item.value);        
+        setProduct({...product, categories });
     }
 
     return (
@@ -132,10 +155,16 @@ const ProductCreator = (props) => {
                 <textarea type="text" value={product.description} onChange={(event) => handleChange(event, 'description')} id='description' />
             </div>
             <div className="form-input">
-                <label htmlFor="design">Design</label>
-                <select id="design" value={product.design} onChange={(event) => handleChange(event, 'design')} >
-                    <DisplayOptions options={designOptions} />
-                </select>
+                <label htmlFor="">Categories</label>
+                <Multiselect 
+                options={categoryOptions}
+                selectedValues={selectedCats}
+                onSelect={onSelect}
+                onRemove={onRemove}
+                displayValue="label"
+                placeholder="Select a category"
+                hidePlaceholder={true}
+            />
             </div>
             <div className="form-input">
                 <label htmlFor="type">Type</label>

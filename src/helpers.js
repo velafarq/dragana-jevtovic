@@ -42,6 +42,17 @@ export const designOptions = [
     { value:'gifts', label: 'Gifts'}
 ];
 
+export const categoryOptions = [
+    { value:'blue_guinea', label: 'Blue Guinea Fowl'},
+    { value:'royal_african', label: 'Royal African'},
+    { value:'oceans_feather', label: 'Oceans Feather'},
+    { value: 'african_elephant', label: 'African Elephant'},
+    { value:'custom', label: 'Custom'},
+    { value:'new_creations', label: 'New Creations'},
+    { value:'african_velvet', label: 'African Velvet'},
+    { value:'gifts', label: 'Gifts'}
+];
+
 export const typeOptions = [
     { value:'all', label: 'All'},
     { value:'plates', label: 'Plates'},
