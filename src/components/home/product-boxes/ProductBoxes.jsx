@@ -22,10 +22,10 @@ const ProductBoxes = ({ layout }) => {
             design: 'blue_guinea'
     }
 
-    const brown_feather = {
+    const african_velvet = {
         url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-boxes%2Fbrown-feather-box.png?alt=media&token=0992f2f6-b1c1-42ca-b310-7f4323720d31',
-        title: 'Brown Feathers',
-        design: 'brown_feather'
+        title: 'African Velvet',
+        design: 'africa_velvet'
     }
 
     const oceans_feather = {
@@ -35,7 +35,7 @@ const ProductBoxes = ({ layout }) => {
     }
 
     const top_row = [blue_guinea, royal_african];
-    const bottom_row = [brown_feather, african_elephant, oceans_feather];
+    const bottom_row = [african_velvet, african_elephant, oceans_feather];
 
     const box = (box, layout, i) => {
         return <Link to={`designs/${box.design}`} key={i}>

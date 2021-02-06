@@ -11,7 +11,10 @@ export const DESIGN_NAMES = {
     'brown_feather': 'Brown Feather',
     'oceans_feather': 'Two Oceans Feather',
     'african_elephant': 'African Elephant',
-    'custom': 'Custom'
+    'custom': 'Custom',
+    'new_creations': 'New Creations',
+    'african_velvet': 'African Velvet',
+    'gifts': 'Gifts'
 }
 
 export const CATEGORY_NAMES = {
@@ -33,7 +36,10 @@ export const designOptions = [
     { value:'brown_feather', label: 'Brown Feather'},
     { value:'oceans_feather', label: 'Oceans Feather'},
     { value: 'african_elephant', label: 'African Elephant'},
-    { value:'custom', label: 'Custom'}
+    { value:'custom', label: 'Custom'},
+    { value:'new_creations', label: 'New Creations'},
+    { value:'african_velvet', label: 'African Velvet'},
+    { value:'gifts', label: 'Gifts'}
 ];
 
 export const typeOptions = [
@@ -123,9 +129,9 @@ export const DESIGN_HERO_IMAGES = {
         url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Froyal-african-hero.jpg?alt=media&token=c287cb26-1d29-4632-b468-638439d96a58',
         alt: 'Dragana Jevtovic Royal African Design Cape Town South Africa Pottery'
     },
-    'brown_feather': {
+    'african_velvet': {
         url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Fbrown-feather-slide.JPG?alt=media&token=bda511ac-38a0-46e1-9533-d859edce351d',
-        alt: 'Dragana Jevtovic Brown Feather Design Cape Town South Africa Pottery'
+        alt: 'Dragana Jevtovic African Velvet Design Cape Town South Africa Pottery'
     },
     'oceans_feather': {
         url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Foceans-feathers-slider.JPG?alt=media&token=110083ff-3d26-49bc-86c8-25527f081e32',
@@ -150,7 +156,7 @@ export const BLUE_GUINEA_SLIDES = [
     'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2FIMG_1965.JPG?alt=media&token=fdbb2dd8-e857-4f3c-a15c-d92c7831cb4a'
 ]
 
-export const BROWN_FEATHER_SLIDES = [
+export const AFRICAN_VELVET_SLIDES = [
     'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Fbrown-feather-slide.JPG?alt=media&token=bda511ac-38a0-46e1-9533-d859edce351d',
     'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2F20200911_113304.jpg?alt=media&token=aa795e6f-ea3d-45e8-aa72-9a7a168fb0b7',
     'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2F20200913_160304.jpg?alt=media&token=29d62634-bebc-4238-b14d-1f642183e0ea',
