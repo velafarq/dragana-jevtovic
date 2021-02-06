@@ -21,13 +21,13 @@ export const DesignDashboard = (props) => {
         african_elephant: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-categories%2Fheaders%2Fafrica-elephant-header.png?alt=media&token=5a11daec-0710-4e6c-bfb3-d014e1892a78',
         royal_african: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-categories%2Fheaders%2Froyal-african-header.png?alt=media&token=3ff815b3-a7a5-4dfb-b33b-246ea6b03e28',
         blue_guinea: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/misc%2Fblue-guinea-slide-faded.png?alt=media&token=e6e2d5d7-cb82-4c2e-8d8a-ceddeff53a1d',
-        brown_feather: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-categories%2Fheaders%2Fbrown-feathers-header.png?alt=media&token=fe293550-5aa1-4336-b567-75ba77c89903',
+        african_velvet: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-categories%2Fheaders%2Fbrown-feathers-header.png?alt=media&token=fe293550-5aa1-4336-b567-75ba77c89903',
         oceans_feather: `https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-categories%2Fheaders%2Ftwo-oceans'-feathers-header.png?alt=media&token=d70290a9-a34f-4a8a-a710-189479441a3a`
     }
 
     useEffect(() => {
         if (allProducts) {
-            const filteredByDesign = allProducts.filter(p => p.design === designName);
+            const filteredByDesign = allProducts.filter(p => p.categories.includes(designName));
             setProducts(filteredByDesign);
             setFilteredProducts(filteredByDesign);
         }

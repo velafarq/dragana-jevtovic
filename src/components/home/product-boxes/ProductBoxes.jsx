@@ -25,7 +25,7 @@ const ProductBoxes = ({ layout }) => {
     const african_velvet = {
         url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-boxes%2Fbrown-feather-box.png?alt=media&token=0992f2f6-b1c1-42ca-b310-7f4323720d31',
         title: 'African Velvet',
-        design: 'africa_velvet'
+        design: 'african_velvet'
     }
 
     const oceans_feather = {
