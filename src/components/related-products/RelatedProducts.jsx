@@ -5,7 +5,7 @@ import { useFirestoreConnect } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 import ProductListing from '../products/ProductListing';
 
-const RelatedProducts = ({ designName, currentProductId }) => {
+const RelatedProducts = ({ categories, currentProductId }) => {
     const [ relatedProducts, setRelatedProducts ] = useState([]);
 
     useFirestoreConnect([
@@ -29,12 +29,14 @@ const RelatedProducts = ({ designName, currentProductId }) => {
                 }
                 return shuffled.slice(0, 5);
             }
-            const filteredByDesign = allProducts.filter(p => p.design === designName);
+            const filteredByDesign = allProducts.filter(p => {
+                return p.categories.some(cat => categories.includes(cat))
+            });
 
             const randomArray = getRandomArray(filteredByDesign);
             setRelatedProducts(randomArray);
         }
-    }, [allProducts, designName, currentProductId]);
+    }, [allProducts, categories, currentProductId]);
 
     return <React.Fragment>
         { relatedProducts.length ?

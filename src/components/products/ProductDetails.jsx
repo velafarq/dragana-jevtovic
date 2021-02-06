@@ -92,7 +92,7 @@ function ProductDetails(props) {
                     'Product does not exist!'
                 }
                 <section className="related-products">
-                    { product && <RelatedProducts designName={product.design} currentProductId={product.id}></RelatedProducts> }
+                    { product && <RelatedProducts categories={product.categories} currentProductId={product.id}></RelatedProducts> }
                 </section>
             </div>
        </React.Fragment>
