@@ -109,17 +109,6 @@ export const setStringToBool = (string) => {
     return 'all';
 }
 
-export const getDesignName = (key) => {
-    switch (key) {
-        case 'blue_guinea':
-            return 'Blue Guinea Fowl';
-        
-        default:
-            return '';
-
-    }
-}
-
 export const handlePrice = (prices, currency) => {
     const symbol = currencyLabels[currency];
     if (symbol) {

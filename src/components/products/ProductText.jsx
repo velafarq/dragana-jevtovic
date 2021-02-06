@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './ProductText.scss';
-import { getDesignName, handlePrice } from '../../helpers';
+import { handlePrice } from '../../helpers';
 import { addItem } from '../../store/actions/cart-actions';
 import { connect } from 'react-redux';
+import { DESIGN_NAMES } from  '../../helpers';
 
 const ProductText = ({ product, addItem, currency }) => {
     const [quantity, setQuantity] = useState(1);
@@ -18,8 +19,17 @@ const ProductText = ({ product, addItem, currency }) => {
         setQuantity(e.target.value);
     }
 
+    const handleCategoryLabels = (categories) => {
+        const labels = [];
+        categories.forEach(cat => {
+            labels.push(DESIGN_NAMES[cat]);
+        });
+
+        return labels.join(', ');
+    }
+
     return <div className="product-text">
-        <div className="sub heading-text">{getDesignName(product.design)}</div>
+        <div className="sub heading-text">{handleCategoryLabels(product.categories)}</div>
         <div className="main heading-text">{product.name}</div>
         <div className="main heading-text">{handlePrice(product.price, currency)}</div>
 
