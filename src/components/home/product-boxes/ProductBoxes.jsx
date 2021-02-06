@@ -34,9 +34,22 @@ const ProductBoxes = ({ layout }) => {
         design: 'oceans_feather'
     }
 
-    const top_row = [blue_guinea, royal_african];
-    const bottom_row = [african_velvet, african_elephant, oceans_feather];
+    const new_creations = {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-boxes%2Ftwo-oceans-box.png?alt=media&token=e121ab51-b790-4daf-9186-bfc8cdf8a8fa',
+        title: "New Creations",
+        design: 'new_creations'
+    }
 
+    const gifts = {
+        url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-boxes%2Ftwo-oceans-box.png?alt=media&token=e121ab51-b790-4daf-9186-bfc8cdf8a8fa',
+        title: "Gifts",
+        design: 'gifts'
+    }
+
+    const home_top = [blue_guinea, royal_african];
+    const home_bottom = [african_velvet, african_elephant, oceans_feather];
+    const products_top = [new_creations, blue_guinea, gifts];
+    const products_bottom = [royal_african, african_elephant, oceans_feather, african_velvet]
     const box = (box, layout, i) => {
         return <Link to={`designs/${box.design}`} key={i}>
             <Box url={box.url} title={box.title} layout={layout}></Box>
@@ -44,11 +57,14 @@ const ProductBoxes = ({ layout }) => {
     } 
 
     const colView = () => {
-        const items = [...top_row, ...bottom_row];
-
         return  <div className="product-boxes small">
             <div className="boxes-row">
-                { items && items.map((row, i) => {
+                { products_top && products_top.map((row, i) => {
+                    return box(row, 'col', i);
+                })}
+            </div>
+            <div className="boxes-row">
+                { products_bottom && products_bottom.map((row, i) => {
                     return box(row, 'col', i);
                 })}
             </div>
@@ -58,13 +74,13 @@ const ProductBoxes = ({ layout }) => {
     const combinedView = () => {
         return <div className="product-boxes">
             <div className="boxes-row">
-                { top_row && top_row.map((row, i) => {
+                { home_top && home_top.map((row, i) => {
                     return box(row, 'row', i)
                 })}
             </div>
 
             <div className="boxes-row">
-                { bottom_row && bottom_row.map((row, i) => {
+                { home_bottom && home_bottom.map((row, i) => {
                     return box(row, 'col', i);
                 })}
             </div>
