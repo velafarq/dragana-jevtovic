@@ -5,7 +5,7 @@ import { useFirestoreConnect } from 'react-redux-firebase';
 import ProductCreator from '../product-creator/ProductCreator';
 import ProductFilter from '../product-filter/ProductFilter';
 import { connect } from 'react-redux';
-import { deleteProduct } from '../../../store/actions/admin-actions';
+import { deleteProduct, updateProduct } from '../../../store/actions/admin-actions';
 import { Link } from 'react-router-dom';
 import AdminNav from '../admin-nav/AdminNav';
 
@@ -87,7 +87,8 @@ const AdminProducts = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        delete: (payload) => dispatch(deleteProduct(payload))
+        delete: (payload) => dispatch(deleteProduct(payload)),
+        update: (payload) => dispatch(updateProduct(payload))
     }
 }
 export default connect(null, mapDispatchToProps)(AdminProducts);
