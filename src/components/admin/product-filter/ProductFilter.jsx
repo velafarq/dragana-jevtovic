@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './ProductFilter.scss';
-import { adminTypeOptions, designOptions, DisplayOptions, hiddenOptions, setStringToBool} from '../../../helpers';
+import { adminTypeOptions, filterCategoryOptions, DisplayOptions, hiddenOptions, setStringToBool} from '../../../helpers';
 
 const ProductFilter = (props) => {
     const { allProducts, setDisplayProducts } = props;
 
     const [typeFilter, setTypeFilter] = useState('');
-    const [designFilter, setDesignFilter] = useState('');
+    const [categoryFilter, setCategoryFilter] = useState('');
     const [searchWord, setSearchWord] = useState('');
     const [hiddenFilter, setHiddenFilter] = useState('all');
 
@@ -20,8 +20,8 @@ const ProductFilter = (props) => {
         if (hiddenFilter !== 'all' && omit !== 'hidden') {
             filtered = filterDropdown(filtered, hiddenFilter, 'hidden');
         }
-        if (designFilter && omit !== 'design') {
-            filtered = filterDropdown(filtered, designFilter, 'design');
+        if (categoryFilter && omit !== 'category') {
+            filtered = filterDropdown(filtered, categoryFilter, 'category');
         }
         
         return filtered;
@@ -30,12 +30,12 @@ const ProductFilter = (props) => {
     const filter = (category, value) => {
         let filtered = allProducts;
         switch (category) {
-            case 'design':
-                setDesignFilter(value);
+            case 'category':
+                setCategoryFilter(value);
                 if (value) {
-                    filtered = filterDropdown(filtered, value, 'design');
+                    filtered = filterDropdown(filtered, value, 'category');
                 }
-                filtered = handleFilters(filtered, 'design');
+                filtered = handleFilters(filtered, 'category');
                 break;
             case 'type':
                 setTypeFilter(value);
@@ -68,8 +68,10 @@ const ProductFilter = (props) => {
     }
 
     const filterDropdown = (data, filter, key) => {
-        if (key === 'hidden') {
-            return data.filter(p => p[key] === filter);
+        if (key === 'category') {
+            return data.filter(p => {
+                return p.categories.includes(filter);
+            });
         } else {
             return data.filter(p => p[key] === filter);
         }
@@ -89,7 +91,7 @@ const ProductFilter = (props) => {
 
     const resetFilter = () => {
         setDisplayProducts(allProducts);
-        setDesignFilter('');
+        setCategoryFilter('');
         setTypeFilter('');
         setSearchWord('');
         setHiddenFilter('all');
@@ -110,9 +112,9 @@ const ProductFilter = (props) => {
                     </select>
                 </div>
                 <div className="form-input">
-                    <label htmlFor="design">Filter by Design</label>
-                    <select id="design" value={designFilter} onChange={(event) => filter('design', event.target.value)} >
-                        <DisplayOptions options={designOptions} />
+                    <label htmlFor="category">Filter by Category</label>
+                    <select id="category" value={categoryFilter} onChange={(event) => filter('category', event.target.value)} >
+                        <DisplayOptions options={filterCategoryOptions} />
                     </select>
                 </div>
                 <div className="form-input">
