@@ -131,14 +131,12 @@ const ProductCreator = (props) => {
     }
 
     const onSelect = (list, item) => {
-        console.log('select', list, item);
         const categories = [...product.categories];
         categories.push(item.value);
         setProduct({...product, categories });
     }
 
     const onRemove = (list, item) => {
-        console.log('remove', list, item);
         const categories = product.categories.filter(cat => cat !== item.value);        
         setProduct({...product, categories });
     }

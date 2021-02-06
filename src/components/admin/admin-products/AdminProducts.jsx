@@ -34,7 +34,6 @@ const AdminProducts = (props) => {
     const row = (product) => (
         <Fragment key={product.id}>
             <div className='box'>{product.name}</div>
-            <div className='box'>{product.design}</div>
             <div className='box'>{product.type}</div>
             <div className="box">{product.hidden ? <i className="material-icons hidden">check_circle_outline</i> : ''}</div>
             <div className='box table-actions'>
@@ -70,7 +69,6 @@ const AdminProducts = (props) => {
                 <ProductFilter allProducts={allProducts} setDisplayProducts={setDisplayProducts} />
                 <div className='table'>
                     <div className="box title">Name</div>
-                    <div className="box title">Design</div>
                     <div className="box title">Type</div>
                     <div className="box title">Hidden</div>
                     <div className="box title"></div>
