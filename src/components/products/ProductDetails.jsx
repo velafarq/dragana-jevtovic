@@ -75,7 +75,6 @@ function ProductDetails(props) {
                     { product && 
                         // <React.Fragment> / <Link className="link" to={'/designs/' + product.design}>{DESIGN_NAMES[product.design]}</Link> / <span className="active-link">{product.name}</span></React.Fragment> }
                         <React.Fragment> / <span className="active-link">{product.name}</span></React.Fragment> }
-
                 </div>
                 {product ? 
                     <div className="product-content"> 
