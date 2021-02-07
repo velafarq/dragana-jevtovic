@@ -16,7 +16,7 @@ export const DESIGN_NAMES = {
     'gifts': 'Gifts'
 }
 
-export const CATEGORY_NAMES = {
+export const TYPE_NAMES = {
     '': 'All',
     'plates': 'Plates',
     'bowls': 'Bowls',

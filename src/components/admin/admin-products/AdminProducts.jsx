@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { deleteProduct, updateProduct } from '../../../store/actions/admin-actions';
 import { Link } from 'react-router-dom';
 import AdminNav from '../admin-nav/AdminNav';
-import {DESIGN_NAMES} from '../../../helpers';
+import {DESIGN_NAMES, TYPE_NAMES} from '../../../helpers';
 
 const AdminProducts = (props) => {
     useFirestoreConnect([
@@ -44,7 +44,7 @@ const AdminProducts = (props) => {
     const row = (product) => (
         <Fragment key={product.id}>
             <div className='box'>{product.name}</div>
-            <div className='box'>{product.type}</div>
+            <div className='box'>{TYPE_NAMES[product.type]}</div>
             <div className='box'>{handleCategoryLabels(product.categories)}</div>
             <div className="box">{product.hidden ? <i className="material-icons hidden">check_circle_outline</i> : ''}</div>
             <div className='box table-actions'>
