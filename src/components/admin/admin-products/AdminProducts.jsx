@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { deleteProduct, updateProduct } from '../../../store/actions/admin-actions';
 import { Link } from 'react-router-dom';
 import AdminNav from '../admin-nav/AdminNav';
+import {DESIGN_NAMES} from '../../../helpers';
 
 const AdminProducts = (props) => {
     useFirestoreConnect([
@@ -31,10 +32,20 @@ const AdminProducts = (props) => {
         setDisplayProducts(allProducts);
     }, [allProducts]);
 
+    const handleCategoryLabels = (categories) => {
+        const labels = [];
+        categories.forEach(cat => {
+            labels.push(DESIGN_NAMES[cat]);
+        });
+
+        return labels.join(', ');
+    }
+
     const row = (product) => (
         <Fragment key={product.id}>
             <div className='box'>{product.name}</div>
             <div className='box'>{product.type}</div>
+            <div className='box'>{handleCategoryLabels(product.categories)}</div>
             <div className="box">{product.hidden ? <i className="material-icons hidden">check_circle_outline</i> : ''}</div>
             <div className='box table-actions'>
                 <Link className="view-listing" to={'/products/' + product.id} target="_blank">View</Link>
@@ -70,6 +81,7 @@ const AdminProducts = (props) => {
                 <div className='table'>
                     <div className="box title">Name</div>
                     <div className="box title">Type</div>
+                    <div className="box title">Category</div>
                     <div className="box title">Hidden</div>
                     <div className="box title"></div>
                     {generateTable(displayProducts)}

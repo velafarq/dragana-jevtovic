@@ -38,6 +38,7 @@ const ProductCreator = (props) => {
 
     useEffect(() => {
         if (editable) {
+            console.log(editable);
             setImages(editable.images);
             setPrice(editable.price);
             setProduct({...editable});
