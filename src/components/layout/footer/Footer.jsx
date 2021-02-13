@@ -5,7 +5,6 @@ import './Footer.scss';
 
 const Footer = () => {
     const isAdmin = useLocation().pathname.includes('admin');
-    console.log(isAdmin)
     return (
         !isAdmin && 
         <Fragment>
