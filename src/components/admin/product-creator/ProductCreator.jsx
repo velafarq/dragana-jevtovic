@@ -37,8 +37,14 @@ const ProductCreator = (props) => {
     const [selectedCats, setSelectedCats] = useState([]);
 
     useEffect(() => {
+        const handleCats = (categories) => {
+            const selectedCategories = [];
+            categories.forEach(cat => {
+                selectedCategories.push({value: cat, label: DESIGN_NAMES[cat]})
+            });
+            setSelectedCats(selectedCategories);
+        }
         if (editable) {
-            console.log(editable);
             setImages(editable.images);
             setPrice(editable.price);
             setProduct({...editable});
@@ -46,13 +52,6 @@ const ProductCreator = (props) => {
         }
     }, [editable]);
 
-    const handleCats = (categories) => {
-        const selectedCategories = [];
-        categories.forEach(cat => {
-            selectedCategories.push({value: cat, label: DESIGN_NAMES[cat]})
-        });
-        setSelectedCats(selectedCategories);
-    }
 
     const handleChange = (event, key) => {
         if (key === 'hidden') {
@@ -93,7 +92,7 @@ const ProductCreator = (props) => {
 
     const cancel = (event) => {
         event.preventDefault();
-        resetData()
+        // resetData()
         toggleDrawer();
     }
 
@@ -106,7 +105,7 @@ const ProductCreator = (props) => {
         } else {
             create(payload);
         }
-        resetData()
+        // resetData()
         toggleDrawer();
     }
 

@@ -86,9 +86,11 @@ const AdminProducts = (props) => {
                     <div className="box title"></div>
                     {generateTable(displayProducts)}
                 </div>
-                <div className={drawer ? 'drawer active' : 'drawer'}>
-                    <ProductCreator toggleDrawer={toggleDrawer} editable={editable} />
-                </div>
+                { drawer && 
+                    <div className='drawer active'>
+                        <ProductCreator toggleDrawer={toggleDrawer} editable={editable} />
+                    </div>
+                }
             </section>
         }
         </Fragment>
