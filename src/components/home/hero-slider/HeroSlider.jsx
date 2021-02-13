@@ -78,7 +78,7 @@ class HeroSlider extends Component {
                     showArrows={false}
                     enableAutoPlay={true}
                     autoPlaySpeed={5000}
-                    transitionMs={2000}>
+                    transitionMs={1000}>
                     {items.map((item, i) => 
                     <div className='slide' 
                         style={{backgroundImage: `url('${item.url}')`}} 
