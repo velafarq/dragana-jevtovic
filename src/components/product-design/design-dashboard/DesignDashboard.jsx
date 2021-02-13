@@ -18,11 +18,12 @@ export const DesignDashboard = (props) => {
     const allProducts = useSelector(state => state.firestore.ordered.products);
     const designName = props.match.params.design;
     const headers = {
-        african_elephant: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-categories%2Fheaders%2Fafrica-elephant-header.png?alt=media&token=5a11daec-0710-4e6c-bfb3-d014e1892a78',
-        royal_african: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-categories%2Fheaders%2Froyal-african-header.png?alt=media&token=3ff815b3-a7a5-4dfb-b33b-246ea6b03e28',
-        blue_guinea: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/misc%2Fblue-guinea-slide-faded.png?alt=media&token=e6e2d5d7-cb82-4c2e-8d8a-ceddeff53a1d',
-        african_velvet: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-categories%2Fheaders%2Fbrown-feathers-header.png?alt=media&token=fe293550-5aa1-4336-b567-75ba77c89903',
-        oceans_feather: `https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-categories%2Fheaders%2Ftwo-oceans'-feathers-header.png?alt=media&token=d70290a9-a34f-4a8a-a710-189479441a3a`
+        african_elephant: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2F20200227_101040.jpg?alt=media&token=a10fbe7b-6f47-4a74-8200-ca49d6e0603c',
+        royal_african: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2F20200911_104618.jpg?alt=media&token=b25af7b8-41de-4be1-8c9f-b97a4b17a063',
+        blue_guinea: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2F20190715_134551.jpg?alt=media&token=dd9abb80-dafc-460d-8d3c-11eaacd699c2',
+        african_velvet: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2F20200913_160304.jpg?alt=media&token=29d62634-bebc-4238-b14d-1f642183e0ea',
+        oceans_feather: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Foceans-feathers-slider.JPG?alt=media&token=110083ff-3d26-49bc-86c8-25527f081e32',
+        new_creations: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-boxes%2Fnew-creations.jpg?alt=media&token=5c22d1e8-ae86-488d-a586-09538ccd384e'
     }
 
     useEffect(() => {
@@ -54,19 +55,18 @@ export const DesignDashboard = (props) => {
     return (
         products && products.length > 0  ? 
         <div className="design">
-            <img className="design__hero" src={headers[designName]} alt={`Dragana Jevtovic ${DESIGN_NAMES[designName]} Design Cape Town South Africa Pottery`} />
-
-            <header className="design__header">
-                <div className="design__header__breadcrumbs center-content">
+            <header className="design__header" style={{backgroundImage: "url(" + headers[designName] + ")"}}></header>
+            <div className="design__breadcrumbs center-content">
                     <Link className="link" to={'/'}>Home</Link> / <Link className="link" to={'/products'}>Products</Link> / <span className="active-link">{DESIGN_NAMES[designName]}</span>
                 </div>
-                <div className="heading-text center-content">{DESIGN_NAMES[designName]}</div>
-            </header>
+            <div className="heading-text center-content">{DESIGN_NAMES[designName]}</div>
 
             <section className="design__content center-content">
+
                 <div className="design__content__nav-box">
                     <ul>
                         { typeOptions && typeOptions.map((type, i) => renderListItem(type, i))}
+
                     </ul>
                 </div>
 

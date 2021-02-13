@@ -35,7 +35,7 @@ const ProductBoxes = ({ layout }) => {
     }
 
     const new_creations = {
-        url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-boxes%2Ftwo-oceans-box.png?alt=media&token=e121ab51-b790-4daf-9186-bfc8cdf8a8fa',
+        url: 'https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fproduct-boxes%2Fnew-creations.jpg?alt=media&token=5c22d1e8-ae86-488d-a586-09538ccd384e',
         title: "New Creations",
         design: 'new_creations'
     }

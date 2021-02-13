@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import './HeroSlider.scss';
 import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
-import {AFRICAN_ELEPHANT_SLIDES, BLUE_GUINEA_SLIDES, AFRICAN_VELVET_SLIDES, OCEANS_FEATHER_SLIDES, ROYAL_AFRICAN_SLIDES} from '../../../helpers';
+import {AFRICAN_ELEPHANT_SLIDES, BLUE_GUINEA_SLIDES, AFRICAN_VELVET_SLIDES, OCEANS_FEATHER_SLIDES, ROYAL_AFRICAN_SLIDES, NEW_CREATIONS_SLIDES} from '../../../helpers';
 
 class HeroSlider extends Component {
     buildItems() {
         const items = [];
-        const longest = Math.max(BLUE_GUINEA_SLIDES.length, AFRICAN_VELVET_SLIDES.length, ROYAL_AFRICAN_SLIDES.length, AFRICAN_ELEPHANT_SLIDES.length, OCEANS_FEATHER_SLIDES.length);
+        const longest = Math.max(BLUE_GUINEA_SLIDES.length, AFRICAN_VELVET_SLIDES.length, ROYAL_AFRICAN_SLIDES.length, AFRICAN_ELEPHANT_SLIDES.length, OCEANS_FEATHER_SLIDES.length, NEW_CREATIONS_SLIDES.length);
         for (let i = 0; i < longest; i++) {
+            if (NEW_CREATIONS_SLIDES[i]) {
+                items.push(
+                    {
+                        title: 'New Creations',
+                        design: 'new_creations',
+                        url: NEW_CREATIONS_SLIDES[i]
+                    }
+                )
+            }
             if (BLUE_GUINEA_SLIDES[i]) {
                 items.push(
                     {

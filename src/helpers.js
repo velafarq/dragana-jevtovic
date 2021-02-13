@@ -193,3 +193,5 @@ export const AFRICAN_ELEPHANT_SLIDES = [
 ]
 
 export const OCEANS_FEATHER_SLIDES = ['https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2Foceans-feathers-slider.JPG?alt=media&token=110083ff-3d26-49bc-86c8-25527f081e32'];
+
+export const NEW_CREATIONS_SLIDES = ['https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fmain-slider%2F20210202_174327.jpg?alt=media&token=54fbb09e-d2ab-4b1a-9113-ac056762c0b7'];
