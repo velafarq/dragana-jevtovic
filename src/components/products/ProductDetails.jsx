@@ -6,6 +6,7 @@ import ProductText from './ProductText';
 import { Link } from 'react-router-dom';
 import {DESIGN_NAMES} from '../../helpers';
 import RelatedProducts from '../related-products/RelatedProducts';
+import ProductGallery from '../product-gallery/ProductGallery';
 
 function ProductDetails(props) {
     useFirestoreConnect([
@@ -15,7 +16,8 @@ function ProductDetails(props) {
     const product_id = props.match.params.id;
     const [secondary_images, setSecondaryImages] = useState([]);
     const [primary_image, setPrimaryImage] = useState(null);
-    
+    const [expandedImage, setExpandedImage] = useState(null);
+    const [showExpanded, setShowExpanded] = useState(false);
     const findProduct = (items, id) => {
         if (Array.isArray(items)) { 
             return items.find(p => p.id === id);
@@ -24,6 +26,19 @@ function ProductDetails(props) {
     }
 
     const product = findProduct(products, product_id);
+
+    const toggleExpanded = () => {
+        if (showExpanded) {
+            setExpandedImage(null);
+        }
+        setShowExpanded(!showExpanded);
+    }
+
+    const expandImage = (image) => {
+        console.log('in here');
+        setExpandedImage(image);
+        toggleExpanded();
+    }
 
     useEffect(() => {
         if (product && product.images) {
@@ -81,7 +96,7 @@ function ProductDetails(props) {
                         <div className="mini-images">
                             { displayImages(secondary_images)}
                         </div>
-                        <div className="main-image">
+                        <div className="main-image" onClick={() => expandImage(primary_image)}>
                             {primary_image && <img src={primary_image.url} alt={primary_image.alt} />}
                         </div>
                         <div className="product-info">
@@ -94,6 +109,8 @@ function ProductDetails(props) {
                     { product && <RelatedProducts categories={product.categories} currentProductId={product.id}></RelatedProducts> }
                 </section>
             </div>
+
+            { showExpanded && <ProductGallery toggleExpanded={toggleExpanded} image={expandedImage} />}
        </React.Fragment>
         
     )
