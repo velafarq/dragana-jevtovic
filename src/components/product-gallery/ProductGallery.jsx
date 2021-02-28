@@ -2,10 +2,11 @@ import React from 'react';
 import './ProductGallery.scss';
 
 const ProductGallery = ({ image, toggleExpanded }) => {
-    console.log(image);
     return (
         <div className="product-gallery">
-            <button onClick={() => toggleExpanded()}>close</button>
+            <button className="close-btn" onClick={() => toggleExpanded()}>
+                <i className="material-icons">close</i>
+            </button>
             <img src={image.url} alt=""/>
         </div>
     )
