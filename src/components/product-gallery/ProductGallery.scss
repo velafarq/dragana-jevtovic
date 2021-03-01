@@ -16,18 +16,52 @@
         height: auto;
         width: auto;
         border-radius: 4px;
+
+        &.zoom-1 {
+            zoom: 120%;
+        }
+        &.zoom-2 {
+            zoom: 140%;
+        }
+        &.zoom-3 {
+            zoom: 160%;
+        }
+        &.zoom-4 {
+            zoom: 180%;
+        }
+        &.zoom-5 {
+            zoom: 200%;
+        }
     }
 
     .close-btn {
         background: none;
         border: none;
-        color: white;
+        color: #c0c0c0;
         position: absolute;
-        top: 0;
+        top: 5px;
         right: 5px;
 
         .material-icons {
             font-size: 35px;
+        }
+    }
+
+    .zoom-btns {
+        position: absolute;
+        top: 5px;
+        display: flex;
+        
+        button {
+            background: none;
+            box-shadow: none;
+            border: none;
+            color: #c0c0c0;
+            margin: 4px;
+
+            .material-icons {
+                font-size: 35px;
+            }
         }
     }
 }
