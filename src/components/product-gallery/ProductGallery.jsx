@@ -4,7 +4,7 @@ import './ProductGallery.scss';
 const ProductGallery = ({ image, toggleExpanded }) => {
     const [zoom, setZoom] = useState(0);
     const zoomIn = () => {
-        if (zoom < 10) {
+        if (zoom < 6) {
             setZoom(zoom + 1);
         }
     }
