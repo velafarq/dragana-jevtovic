@@ -18,6 +18,7 @@ function ProductDetails(props) {
     const [primary_image, setPrimaryImage] = useState(null);
     const [expandedImage, setExpandedImage] = useState(null);
     const [showExpanded, setShowExpanded] = useState(false);
+    const [expandedIndex, setExpandedIndex] = useState(null);
     const findProduct = (items, id) => {
         if (Array.isArray(items)) { 
             return items.find(p => p.id === id);
@@ -35,7 +36,6 @@ function ProductDetails(props) {
     }
 
     const expandImage = (image) => {
-        console.log('in here');
         setExpandedImage(image);
         toggleExpanded();
     }
@@ -50,11 +50,17 @@ function ProductDetails(props) {
 
     function handleSecondaryImages(images) {
         const store = [];
-        images.forEach(img => {
-            if (!img.primary) {
-                store.push(img);
+        images.forEach((img, i) => {
+            if (img.url) {
+                if (!img.primary) {
+                    store.push(img);
+                }
+                if (img.primary) {
+                    store.unshift(img);
+                    setExpandedIndex(i);
+                }
             }
-        })
+        });
         setSecondaryImages(store)
     }
 
@@ -67,19 +73,15 @@ function ProductDetails(props) {
    
     function displayImages(imagesArr) {
         return imagesArr.map((img, i) => (
-            <div key={i} className="mini-images__img">
+            <div key={i} className={expandedIndex === i ? 'selected mini-images__img' : 'mini-images__img'}>
                 <img src={img.url} alt={img.alt} onClick={() => handleSmallImgClick(img, i)} />
             </div>
         ))
     }
 
     function handleSmallImgClick(img, i) {
-        const updated = [...secondary_images];
-        updated.splice(i, 1);
-        updated.push(primary_image);
-
         setPrimaryImage(img);
-        setSecondaryImages(updated)
+        setExpandedIndex(i);
     }
     
     return (
