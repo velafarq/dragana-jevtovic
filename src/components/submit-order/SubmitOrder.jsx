@@ -17,7 +17,7 @@ const SubmitOrder = ({ submitOrder }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const payload = {
-            firstName, lastName, email, phone, country, message
+            firstName, lastName, email, phone, postalCode, state, country, message
         }
         submitOrder(payload, 'submitted' );
         setSubmitted(true);

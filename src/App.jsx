@@ -59,7 +59,7 @@ function App(props) {
                         <Route exact path='/admin/products' component={AdminProducts} />
                         <Route exact path='/admin/orders' component={AdminOrders} />
                         {/* <Route exact path='/admin/messages' component={AdminMessages} /> */}
-                        <Route path='admin/orders/:orderId' component={AdminOrder} />
+                        <Route path='/admin/orders/:orderId' component={AdminOrder} />
                         <Route exact path='/admin/customize' component={AdminCustomize} />
 
 
