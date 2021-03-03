@@ -74,7 +74,6 @@ const AdminProducts = (props) => {
             <section className='products'>
                 <AdminNav />
                 <div className="header">
-                    <h2 className="page-title">Products</h2>
                     <button className='admin-button create-new' onClick={toggleDrawer}>Create new product</button>
                 </div>
                 <ProductFilter allProducts={allProducts} setDisplayProducts={setDisplayProducts} />

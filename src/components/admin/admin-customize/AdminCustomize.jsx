@@ -5,9 +5,6 @@ const AdminCustomize = () => {
     return (
         <section className="admin-customize">
             <AdminNav />
-            <div className="header">
-                <h2 className="page-title">Customize</h2>
-            </div>
         </section>
     )
 }

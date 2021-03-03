@@ -38,9 +38,6 @@ const AdminOrders = () => {
             { displayOrders &&
                 <section className="admin-orders">
                 <AdminNav />
-                <div className="header">
-                    <h2 className="page-title">Orders</h2>
-                </div>
                 <div className='table'>
                         <div className="box title">Created At</div>
                         <div className="box title">Name</div>
