@@ -13,14 +13,18 @@ const AdminOrders = () => {
     const [displayOrders, setDisplayOrders] = useState([]);
 
     useEffect(() => {
+
         setDisplayOrders(allOrders);
     }, [allOrders]);
 
-    console.log(allOrders)
+    const handleDate = (date_obj) => {
+        console.log(date_obj.valueOf())
+        return date_obj.toDate();
+    }
 
     const row = (order) => (
         <Fragment key={order.id}>
-            <Link to={`/admin/orders/${order.id}`} className='box 1'>{order.created_at.toDate().toDateString()}</Link>
+            <Link to={`/admin/orders/${order.id}`} className='box 1'>{handleDate(order.created_at).toDateString()}</Link>
             <Link to={`/admin/orders/${order.id}`} className='box 2'>{order.firstName} {order.lastName}</Link>
             <Link to={`/admin/orders/${order.id}`} className='box 3'>{order.email}</Link>
             <Link to={`/admin/orders/${order.id}`} className='box 4'>{order.phone}</Link>
@@ -30,7 +34,14 @@ const AdminOrders = () => {
     
 
     const generateTable = (orders) => {
-        return orders.map((order) => row(order));
+        const newOrders = [...orders];
+        const sorted = newOrders.sort((a, b) => {
+            console.log(a.created_at.toDate().toISOString());
+
+           return new Date(a.created_at.toDate().toISOString()) > new Date(b.created_at.toDate().toISOString())
+        });
+        console.log(sorted)
+        return sorted.map((order) => row(order));
     }
 
     return (

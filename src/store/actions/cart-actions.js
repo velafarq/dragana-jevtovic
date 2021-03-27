@@ -10,7 +10,7 @@ export const submitOrder = (data) => {
         const payload = {
             ...data, 
             items: state.cart.items,
-            created_at: new Date()
+            created_at: new Date().toISOString()
         }
         const firestore = getFirestore();
         firestore.collection('orders').add(payload).then(() => {
