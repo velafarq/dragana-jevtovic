@@ -25,7 +25,8 @@ export const TYPE_NAMES = {
     'mugs': 'Mugs',
     'large_servers': 'Large Servers',
     'condiments': 'Condiments',
-    'jugs': 'Jugs'
+    'jugs': 'Jugs',
+    'sets': 'Place Settings & Sets'
 }
 
 export const designOptions = [
@@ -72,7 +73,8 @@ export const typeOptions = [
     { value:'mugs', label: 'Mugs'},
     { value:'large_servers', label: 'Large Servers'},
     { value:'condiments', label: 'Condiments'},
-    { value:'jugs', label: 'Jugs'}
+    { value:'jugs', label: 'Jugs'},
+    { value: 'sets', label: 'Place Settings & Sets' }
 ];
 
 export const adminTypeOptions = [
@@ -84,7 +86,8 @@ export const adminTypeOptions = [
     { value:'mugs', label: 'Mugs'},
     { value:'large_servers', label: 'Large Servers'},
     { value:'condiments', label: 'Condiments'},
-    { value:'jugs', label: 'Jugs'}
+    { value:'jugs', label: 'Jugs'},
+    { value: 'sets', label: 'Place Settings & Sets' }
 ];
 
 export const hiddenOptions = [
