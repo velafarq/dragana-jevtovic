@@ -47,9 +47,10 @@ const ProductText = ({ product, addItem, currency }) => {
                 {product.volume && <li>Volume: <span>{product.volume}</span></li>}
                 {product.weight && <li>Weight: <span>{product.weight}</span></li>}
 
-                <li>Microwave & dishwasher safe</li>
+                <li className="bold">Microwave & dishwasher safe</li>
                 <li className="bold">This item can be decorated in any style.</li>
                 <li className="bold">Contact us for custom orders.</li>
+                <li className="bold">Priced per item.</li>
             </ul>
         </div>
     </div>
