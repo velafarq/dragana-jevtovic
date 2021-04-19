@@ -26,8 +26,9 @@ const AdminOrder = (props) => {
             {order && 
                 <Fragment>
                     <section className="heading">
-                        <div className="name">Order Summary</div>
+                        <div className="name">Order Summary for {order.firstName } {order.lastName}</div>
                     </section>
+                    <AdminOrderProductList items={order.items} />
                     <div className="customer-details">
                         <div className="address">
                             <h4>Contact Details</h4>
@@ -40,10 +41,7 @@ const AdminOrder = (props) => {
                             </address>
                         </div>
                     </div>
-                    <AdminOrderProductList items={order.items} />
-
                 </Fragment>
-                
             }
             
         </section>
