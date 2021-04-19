@@ -2,7 +2,7 @@ import React, { useEffect, useState, Fragment } from 'react';
 import './AdminOrder.scss';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
-
+import AdminOrderProductList from '../admin-order-product-list/AdminOrderProductList';
 
 const AdminOrder = (props) => {
     useFirestoreConnect([
@@ -38,11 +38,9 @@ const AdminOrder = (props) => {
                                 <div>{order.phone}</div>
                                 <div>{order.email}</div>
                             </address>
-
                         </div>
-
-
                     </div>
+                    <AdminOrderProductList items={order.items} />
 
                 </Fragment>
                 

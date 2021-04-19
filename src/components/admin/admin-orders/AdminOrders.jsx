@@ -29,7 +29,6 @@ const AdminOrders = () => {
             <Link to={`/admin/orders/${order.id}`} className='box 5 table-actions'></Link>
         </Fragment>
     );
-    
 
     const generateTable = (orders) => {
         const newOrders = [...orders];
