@@ -56,7 +56,7 @@ const AdminOrderProductList = ({ items }) => {
             {items && items.length ? 
                 <React.Fragment>
                     <div className="table">
-                        <div className="box title"></div>
+                        <div className="box title">Product Name</div>
                         <div className="box title"></div>
                         <div className="box title">Price</div>
                         <div className="box title">Qty</div>
