@@ -13,12 +13,10 @@ const AdminOrders = () => {
     const [displayOrders, setDisplayOrders] = useState([]);
 
     useEffect(() => {
-
         setDisplayOrders(allOrders);
     }, [allOrders]);
 
     const handleDate = (date_obj) => {
-        console.log(date_obj.valueOf())
         return date_obj.toDate();
     }
 
@@ -36,11 +34,8 @@ const AdminOrders = () => {
     const generateTable = (orders) => {
         const newOrders = [...orders];
         const sorted = newOrders.sort((a, b) => {
-            console.log(a.created_at.toDate().toISOString());
-
-           return new Date(a.created_at.toDate().toISOString()) > new Date(b.created_at.toDate().toISOString())
+           return new Date(a.created_at.toDate().toISOString()) - new Date(b.created_at.toDate().toISOString());
         });
-        console.log(sorted)
         return sorted.map((order) => row(order));
     }
 
