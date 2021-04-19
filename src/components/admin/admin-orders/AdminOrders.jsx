@@ -34,7 +34,7 @@ const AdminOrders = () => {
     const generateTable = (orders) => {
         const newOrders = [...orders];
         const sorted = newOrders.sort((a, b) => {
-           return new Date(a.created_at.toDate().toISOString()) - new Date(b.created_at.toDate().toISOString());
+           return new Date(b.created_at.toDate().toISOString()) - new Date(a.created_at.toDate().toISOString());
         });
         return sorted.map((order) => row(order));
     }
