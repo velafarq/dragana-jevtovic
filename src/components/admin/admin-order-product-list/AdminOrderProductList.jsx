@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import './AdminOrderProductList.scss';
 import { DESIGN_NAMES, handlePrice } from '../../../helpers';
+import { Link } from 'react-router-dom';
 
 const AdminOrderProductList = ({ items }) => {
     const currency = 'usd';
@@ -40,6 +41,9 @@ const AdminOrderProductList = ({ items }) => {
                 <div className='box'>{handlePrice(item.price, currency)}</div>
                 <div className="box qty">{quantity}</div>
                 <div className="box">{calculateTotal(item.price[currency], quantity)}</div>
+                <div className="box table-actions">
+                    <Link className="view-listing" to={'/products/' + item.id} target="_blank">View</Link>
+                </div>
             </Fragment>);
     }
 
@@ -57,6 +61,7 @@ const AdminOrderProductList = ({ items }) => {
                         <div className="box title">Price</div>
                         <div className="box title">Qty</div>
                         <div className="box title">Total</div>
+                        <div className="box title"></div>
                         {generateTable(items)}
                     </div>
                     <div className="total">Total: {calculateGrandTotal()}</div>
