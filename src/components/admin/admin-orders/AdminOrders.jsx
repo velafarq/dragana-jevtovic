@@ -1,9 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import './AdminOrders.scss';
-
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
-import { connect } from 'react-redux';
 import AdminNav from '../admin-nav/AdminNav';
 const AdminOrders = () => {
     useFirestoreConnect([
@@ -11,47 +10,32 @@ const AdminOrders = () => {
     ]);
 
     const allOrders = useSelector(state => state.firestore.ordered.orders);
-
     const [displayOrders, setDisplayOrders] = useState([]);
-    const [editable, setEditable] = useState(null);
-    const [drawer, setDrawer] = useState(false);
 
     useEffect(() => {
         setDisplayOrders(allOrders);
     }, [allOrders]);
 
-    console.log(allOrders)
+    const handleDate = (date_obj) => {
+        return date_obj.toDate();
+    }
 
     const row = (order) => (
         <Fragment key={order.id}>
-            <div className='box'>{order.created_at.toDate().toDateString()}</div>
-            <div className='box'>{order.firstName} {order.lastName}</div>
-            <div className='box'>{order.email}</div>
-            <div className='box'>{order.phone}</div>
-            <div className='box table-actions'>
-                <i className="material-icons edit" onClick={() => viewOrder(order)}>edit</i>
-                <i className="material-icons delete" onClick={() => deleteOrder(order.id)}>delete_forever</i>
-            </div>
+            <Link to={`/admin/orders/${order.id}`} className='box 1'>{handleDate(order.created_at).toDateString()}</Link>
+            <Link to={`/admin/orders/${order.id}`} className='box 2'>{order.firstName} {order.lastName}</Link>
+            <Link to={`/admin/orders/${order.id}`} className='box 3'>{order.email}</Link>
+            <Link to={`/admin/orders/${order.id}`} className='box 4'>{order.phone}</Link>
+            <Link to={`/admin/orders/${order.id}`} className='box 5 table-actions'></Link>
         </Fragment>
     );
-    
-    const toggleDrawer = () => {
-        if (drawer) {
-            setEditable(null);
-        }
-        setDrawer(!drawer);
-     }
-
-    const viewOrder = (order) => {
-
-    }
-
-    const deleteOrder = (order_id) => {
-
-    }
 
     const generateTable = (orders) => {
-        return orders.map((order) => row(order));
+        const newOrders = [...orders];
+        const sorted = newOrders.sort((a, b) => {
+           return new Date(b.created_at.toDate().toISOString()) - new Date(a.created_at.toDate().toISOString());
+        });
+        return sorted.map((order) => row(order));
     }
 
     return (
@@ -59,9 +43,6 @@ const AdminOrders = () => {
             { displayOrders &&
                 <section className="admin-orders">
                 <AdminNav />
-                <div className="header">
-                    <h2 className="page-title">Orders</h2>
-                </div>
                 <div className='table'>
                         <div className="box title">Created At</div>
                         <div className="box title">Name</div>
@@ -69,8 +50,6 @@ const AdminOrders = () => {
                         <div className="box title">Phone</div>
                         <div className="box title"></div>
                         {generateTable(displayOrders)}
-                    </div>
-                    <div className={drawer ? 'drawer active' : 'drawer'}>
                     </div>
                 </section>
             }

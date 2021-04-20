@@ -21,6 +21,7 @@ import AdminOrders from './components/admin/admin-orders/AdminOrders';
 // import AdminMessages from './components/admin/admin-messages/AdminMessages';
 import SubmitOrder from './components/submit-order/SubmitOrder';
 import AdminCustomize from './components/admin/admin-customize/AdminCustomize';
+import AdminOrder from './components/admin/admin-order/AdminOrder';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
@@ -58,6 +59,7 @@ function App(props) {
                         <Route exact path='/admin/products' component={AdminProducts} />
                         <Route exact path='/admin/orders' component={AdminOrders} />
                         {/* <Route exact path='/admin/messages' component={AdminMessages} /> */}
+                        <Route path='/admin/orders/:orderId' component={AdminOrder} />
                         <Route exact path='/admin/customize' component={AdminCustomize} />
 
 
