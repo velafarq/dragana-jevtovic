@@ -1,6 +1,16 @@
 .order-page {
     padding: 129px 50px 50px;
 
+    .back {
+        display: flex;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+
+    .back:hover {
+        color: #0101bf;
+    }
+
     .heading {
         padding-bottom: 20px;
         font-size: 25px;

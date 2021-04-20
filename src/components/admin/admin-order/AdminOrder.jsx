@@ -3,6 +3,7 @@ import './AdminOrder.scss';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
 import AdminOrderProductList from '../admin-order-product-list/AdminOrderProductList';
+import { Link } from 'react-router-dom';
 
 const AdminOrder = (props) => {
     useFirestoreConnect([
@@ -25,6 +26,10 @@ const AdminOrder = (props) => {
         <section className="order-page">
             {order && 
                 <Fragment>
+                    <Link to={'/admin/orders'} className="back">
+                        <i class="material-icons">keyboard_arrow_left</i>
+                        <span>Back to Orders</span>
+                    </Link>
                     <section className="heading">
                         <div className="name">Order Summary for {order.firstName } {order.lastName}</div>
                     </section>
