@@ -67,6 +67,12 @@ class HeroSlider extends Component {
         return items;
     }
 
+    goToBeginning(pageIndex, items_length) {
+        if (pageIndex + 1 === items_length) {
+            this.carousel.goTo(0);
+        }
+    }
+
     render() {
         const items = this.buildItems();
         return (
@@ -78,7 +84,8 @@ class HeroSlider extends Component {
                     showArrows={false}
                     enableAutoPlay={true}
                     autoPlaySpeed={5000}
-                    transitionMs={1000}>
+                    transitionMs={1000}
+                    onChange={(currentItem, pageIndex) => this.goToBeginning(pageIndex, items.length)}>
                     {items.map((item, i) => 
                     <div className='slide' 
                         style={{backgroundImage: `url('${item.url}')`}} 

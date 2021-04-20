@@ -7,12 +7,11 @@ import SignedOutLinks from '../SignedOutLinks';
 import {changeCurrency} from '../../../store/actions/currency-actions';
 
 const Header = (props) => {
-    const { auth, isAdmin, cartItems, updateCurrency, currency } = props;
+    const { auth, isAdmin, cartItems} = props;
     
-    const handleCurrencyChange = (e) => {
-        updateCurrency(e.target.value)
-
-    }
+    // const handleCurrencyChange = (e) => {
+    //     updateCurrency(e.target.value)
+    // }
 
     return (
         <Fragment>
@@ -29,11 +28,11 @@ const Header = (props) => {
                         <i className="material-icons">shopping_cart</i>
                         {cartItems && cartItems.length ? <div className="cart-number">{cartItems.length}</div> : null}
                     </NavLink>
-                    <select name="currency" className="currency" value={currency} onChange={(event) => handleCurrencyChange(event)}>
+                    {/* <select name="currency" className="currency" value={currency} onChange={(event) => handleCurrencyChange(event)}>
                         <option value="usd">USD</option>
                         <option value="gbp">GBP</option>
                         <option value="zar">ZAR</option>
-                    </select>
+                    </select> */}
                     {isAdmin && 
                         <React.Fragment>
                             { auth.uid ? <SignedInLinks/> : <SignedOutLinks /> }
