@@ -35,9 +35,11 @@ const ProductListing = ({ product, currency }) => {
                     'Product image coming soon!'
                 }
             </div>
-            <div className="product-listing__design box-padding">{handleCategoryLabels(product.categories)}</div>
-            <div className="product-listing__title box-padding">{product.name}</div>
-            <div className="product-listing__price box-padding">{handlePrice(product.price, currency)}</div>
+            <div className="flex-bottom">
+                <div className="product-listing__design box-padding">{handleCategoryLabels(product.categories)}</div>
+                <div className="product-listing__title box-padding">{product.name}</div>
+                <div className="product-listing__price box-padding">{handlePrice(product.price, currency)}</div>
+            </div>
         </article>
     )
 }

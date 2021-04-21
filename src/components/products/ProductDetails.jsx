@@ -4,7 +4,6 @@ import { useFirestoreConnect } from 'react-redux-firebase';
 import { useSelector } from 'react-redux';
 import ProductText from './ProductText';
 import { Link } from 'react-router-dom';
-import {DESIGN_NAMES} from '../../helpers';
 import RelatedProducts from '../related-products/RelatedProducts';
 import ProductGallery from '../product-gallery/ProductGallery';
 
@@ -14,11 +13,10 @@ function ProductDetails(props) {
     ]);
     const products = useSelector(state => state.firestore.ordered.products);
     const product_id = props.match.params.id;
-    const [secondary_images, setSecondaryImages] = useState([]);
-    const [primary_image, setPrimaryImage] = useState(null);
     const [expandedImage, setExpandedImage] = useState(null);
     const [showExpanded, setShowExpanded] = useState(false);
-    const [expandedIndex, setExpandedIndex] = useState(null);
+    const [img_index, setImgIndex] = useState(null);
+    const [product_images, setProductImages] = useState([]);
     const findProduct = (items, id) => {
         if (Array.isArray(items)) { 
             return items.find(p => p.id === id);
@@ -42,46 +40,46 @@ function ProductDetails(props) {
 
     useEffect(() => {
         if (product && product.images) {
-            handleSecondaryImages(product.images);
+            setProductImages(product.images);
             handlePrimaryImage(product.images);
         }
 
     }, [product]);
 
-    function handleSecondaryImages(images) {
-        const store = [];
-        images.forEach((img, i) => {
-            if (img.url) {
-                if (!img.primary) {
-                    store.push(img);
-                }
-                if (img.primary) {
-                    store.unshift(img);
-                    setExpandedIndex(i);
-                }
-            }
-        });
-        setSecondaryImages(store)
-    }
 
     function handlePrimaryImage(images) {
-        const found = images.find(img => img.primary);
-        if (found !== undefined) {
-            setPrimaryImage(found);
+        const idx = images.findIndex(img => img.primary);
+        if (idx !== -1) {
+            setImgIndex(idx);
+        } else {
+            setImgIndex(0);
         }
     }
    
     function displayImages(imagesArr) {
         return imagesArr.map((img, i) => (
-            <div key={i} className={expandedIndex === i ? 'selected mini-images__img' : 'mini-images__img'}>
-                <img src={img.url} alt={img.alt} onClick={() => handleSmallImgClick(img, i)} />
+            <div key={i} className={img_index === i ? 'selected mini-images__img' : 'mini-images__img'}>
+                <img src={img.url} alt={img.alt} onClick={() => setImgIndex(i)} />
             </div>
         ))
     }
 
-    function handleSmallImgClick(img, i) {
-        setPrimaryImage(img);
-        setExpandedIndex(i);
+    function next(e) {
+        e.stopPropagation()
+        if (img_index === product_images.length - 1) {
+            setImgIndex(0);
+        } else {
+            setImgIndex(img_index + 1);
+        }
+    }
+
+    function previous(e) {
+        e.stopPropagation();
+        if (img_index === 0) {
+            setImgIndex(product_images.length - 1);
+        } else {
+            setImgIndex(img_index - 1);
+        }
     }
     
     return (
@@ -93,18 +91,28 @@ function ProductDetails(props) {
                         // <React.Fragment> / <Link className="link" to={'/designs/' + product.design}>{DESIGN_NAMES[product.design]}</Link> / <span className="active-link">{product.name}</span></React.Fragment> }
                         <React.Fragment> / <span className="active-link">{product.name}</span></React.Fragment> }
                 </div>
-                {product ? 
+                {product ? <React.Fragment>
                     <div className="product-content"> 
-                        <div className="mini-images">
-                            { displayImages(secondary_images)}
-                        </div>
-                        <div className="main-image" onClick={() => expandImage(primary_image)}>
-                            {primary_image && <img src={primary_image.url} alt={primary_image.alt} />}
+                        <div className="main-image" onClick={() => expandImage(product_images[img_index])}>
+                            {product_images.length > 1 && 
+                                <button className="prev-btn" onClick={(e) => previous(e)}>
+                                    <i className="material-icons">keyboard_arrow_left</i>
+                                </button>} 
+                            {product_images[img_index] && <img src={product_images[img_index].url} alt={product_images[img_index].alt} />}
+                            {product_images.length > 1 && 
+                                <button className="next-btn" onClick={(e) => next(e)}>
+                                    <i className="material-icons">keyboard_arrow_right</i>
+                                </button>}
                         </div>
                         <div className="product-info">
                             <ProductText product={product} />
                         </div>
-                    </div> : 
+                    </div> 
+                    <div className="mini-images">
+                        { displayImages(product_images)}
+                    </div>
+                </React.Fragment>
+                   : 
                     'Product does not exist!'
                 }
                 <section className="related-products">
