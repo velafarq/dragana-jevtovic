@@ -27,3 +27,14 @@
         line-height: 1.2;
     }
 }
+
+@media only screen and (max-width: 1000px) {
+    .footer-container {
+        height: 80px;
+
+        .heading-text {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    }
+}

@@ -553,6 +553,10 @@ a {
         margin-right: 10px;
         margin-left: 10px;
     }
+
+    .contact-love .heading-text {
+        font-size: 30px;
+    }
 }
 
 @keyframes fadein {
@@ -593,4 +597,10 @@ a {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .center-content {
+        margin: 0 10px;
+    }
 }
