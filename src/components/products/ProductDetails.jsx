@@ -40,8 +40,9 @@ function ProductDetails(props) {
 
     useEffect(() => {
         if (product && product.images) {
-            setProductImages(product.images);
-            handlePrimaryImage(product.images);
+            const filtered = product.images.filter(img => img.url);
+            setProductImages(filtered);
+            handlePrimaryImage(filtered);
         }
 
     }, [product]);

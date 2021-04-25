@@ -52,7 +52,7 @@
 
     .sub {
         font-size: 24px;
-        line-height: 1.2l
+        line-height: 1.2;
     }
 
     .main {
@@ -69,3 +69,20 @@
 
 }
 
+@media only screen and (max-width: 1000px) {
+    .product-text {
+        max-width: 100%;
+
+        .sub {
+            font-size: 20px;
+        }
+
+        .main {
+            font-size: 25px;
+        }
+
+        .details ul li {
+            font-size: 12px;
+        }
+    }
+}
