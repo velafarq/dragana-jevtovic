@@ -22,6 +22,7 @@ import AdminOrders from './components/admin/admin-orders/AdminOrders';
 import SubmitOrder from './components/submit-order/SubmitOrder';
 import AdminCustomize from './components/admin/admin-customize/AdminCustomize';
 import AdminOrder from './components/admin/admin-order/AdminOrder';
+import Gallery from './components/gallery/Gallery';
 
 function App(props) {
     const { fbAuth, isAdmin, localAuth } = props;
@@ -53,7 +54,7 @@ function App(props) {
                         <Route path='/designs/:design' component={DesignDashboard} />
                         <Route exact path='/about' component={About} />
                         <Route exact path='/contact' component={Contact} />
-
+                        <Route exact path='/gallery' component={Gallery}/>
                         {/* admin routes */}
                         <Route exact path='/admin' component={AdminDashboard} />
                         <Route exact path='/admin/products' component={AdminProducts} />
