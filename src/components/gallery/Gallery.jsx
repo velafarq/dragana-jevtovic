@@ -5,7 +5,7 @@ import {useSelector} from 'react-redux';
 import {useState} from 'react';
 import {useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import {Fragment} from 'react';
+import Spinner from '../spinner/Spinner';
 
 const Gallery = () => {
     const [productGallery, setProductGallery] = useState([]);
@@ -59,8 +59,7 @@ const Gallery = () => {
 
     return (
         <section className="main-gallery">
-            {productGallery && productGallery.length ? productGallery.map((product, i) => renderGalleryItem(product, i)) : <Fragment>
-                <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></Fragment>}
+            {productGallery && productGallery.length ? productGallery.map((product, i) => renderGalleryItem(product, i)) : <Spinner />}
         </section>
     )
 }
