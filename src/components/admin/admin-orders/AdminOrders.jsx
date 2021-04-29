@@ -17,7 +17,7 @@ const AdminOrders = () => {
     }, [allOrders]);
 
     const handleDate = (date_obj) => {
-        return date_obj.toDate();
+        return new Date(date_obj);
     }
 
     const row = (order) => (
@@ -33,7 +33,7 @@ const AdminOrders = () => {
     const generateTable = (orders) => {
         const newOrders = [...orders];
         const sorted = newOrders.sort((a, b) => {
-           return new Date(b.created_at.toDate().toISOString()) - new Date(a.created_at.toDate().toISOString());
+           return new Date(new Date(b.created_at) - new Date(a.created_at));
         });
         return sorted.map((order) => row(order));
     }
