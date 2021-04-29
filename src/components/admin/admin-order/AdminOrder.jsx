@@ -45,6 +45,10 @@ const AdminOrder = (props) => {
                             </address>
                         </div>
                     </div>
+                    <div className="customer-message">
+                        <h4>Customer Message</h4>
+                        <p>{order.message}</p>
+                    </div>
                 </Fragment>
             }
             
