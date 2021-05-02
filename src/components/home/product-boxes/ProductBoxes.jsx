@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import {useFirestoreConnect} from 'react-redux-firebase';
 import {DESIGN_NAMES} from '../../../helpers';
 import {useSelector} from 'react-redux';
+import Spinner from '../../spinner/Spinner';
 
 const ProductBoxes = ({ layout }) => {
     const [ loading, setLoading ] = useState(true);
@@ -28,7 +29,7 @@ const ProductBoxes = ({ layout }) => {
                 all_box_config[key] = config;
             });
             setBoxes(all_box_config);
-            // setLoading(false);
+            setLoading(false);
         }
     }, [boxes_config])
 
@@ -90,9 +91,14 @@ const ProductBoxes = ({ layout }) => {
     }
 
     return (
-       <React.Fragment>
-           { layout === 'col' ? colView() : combinedView() } 
-       </React.Fragment>
+        <React.Fragment>
+            { !loading ?
+                <React.Fragment>{ layout === 'col' ? colView() : combinedView() }</React.Fragment> :
+                <div className="product-boxes-spinner">
+                    <Spinner />
+                </div>
+            }
+        </React.Fragment>
     )
    
 }
