@@ -49,6 +49,8 @@ const rrfProps = {
     createFirestoreInstance
 }
 
+const analytics = firebase.analytics();
+
 
 ReactDOM.render(
     <React.StrictMode>
