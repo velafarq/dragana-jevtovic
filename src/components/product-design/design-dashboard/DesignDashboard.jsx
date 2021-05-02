@@ -32,7 +32,6 @@ export const DesignDashboard = (props) => {
         }
 
         if (header_config) {
-            console.log(header_config)
             const header = header_config[designName] || null;
             setHeaderUrl(header);
         }
