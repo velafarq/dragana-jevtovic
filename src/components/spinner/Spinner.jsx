@@ -3,9 +3,11 @@ import './Spinner.scss';
 
 const Spinner = () => {
     return (
-        <div className="lds-spinner">
-            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-        </div>
+        <section className="spinner">
+            <div className="lds-spinner">
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            </div>
+        </section>
     );
 }
 
