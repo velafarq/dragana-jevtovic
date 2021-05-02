@@ -29,7 +29,7 @@ const ProductListing = ({ product, currency }) => {
 
     return (
         <article className="product-listing">
-            <div className="product-listing__img">
+            <div className="product-listing__img fade-in">
                 { image && image.url ?
                     <img src={image && image.url} alt={image && image.alt} /> :
                     'Product image coming soon!'

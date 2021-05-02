@@ -47,7 +47,7 @@ const Gallery = () => {
     const renderGalleryItem = (item, i) => {
         return (
             <Link key={i} className="gallery-item" to={'/products/' + item.id} target="_blank">
-                <img className="gallery-img" src={item.url} alt="" key={i} />
+                <img className="gallery-img fade-in" src={item.url} alt="" key={i} />
                 <div className="overlay">
                 <span class="material-icons">
                     open_in_new

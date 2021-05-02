@@ -87,7 +87,7 @@ class HeroSlider extends Component {
                     transitionMs={1000}
                     onChange={(currentItem, pageIndex) => this.goToBeginning(pageIndex, items.length)}>
                     {items.map((item, i) => 
-                    <div className='slide' 
+                    <div className='slide fade-in' 
                         style={{backgroundImage: `url('${item.url}')`}} 
                         key={i}>
                         <div className="gradient"></div>
