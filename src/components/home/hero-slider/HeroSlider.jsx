@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import Spinner from '../../spinner/Spinner';
 import {DESIGN_NAMES} from '../../../helpers';
+
 class HeroSlider extends Component {
     constructor() {
         super();
@@ -36,7 +37,6 @@ class HeroSlider extends Component {
     getLongestArrLength(obj) {
         let max = 0;
         Object.values(obj).forEach(val => {
-            console.log(val)
             if (val && val.length && val.length > max) {
                 max = val.length;
             }
