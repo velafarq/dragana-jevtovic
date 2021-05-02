@@ -2,67 +2,61 @@ import React, { Component } from 'react';
 import './HeroSlider.scss';
 import Carousel from 'react-elastic-carousel';
 import { Link } from 'react-router-dom';
-import {AFRICAN_ELEPHANT_SLIDES, BLUE_GUINEA_SLIDES, AFRICAN_VELVET_SLIDES, OCEANS_FEATHER_SLIDES, ROYAL_AFRICAN_SLIDES, NEW_CREATIONS_SLIDES} from '../../../helpers';
-
+import firebase from 'firebase';
+import Spinner from '../../spinner/Spinner';
+import {DESIGN_NAMES} from '../../../helpers';
 class HeroSlider extends Component {
-    buildItems() {
+    constructor() {
+        super();
+        this.state = {
+            loading: true,
+            items: []
+        }
+    }
+
+    componentDidMount() {
+        const db = firebase.firestore();
+        const doc_ref = db.collection("configurations").doc("home_config");
+        doc_ref.get().then(doc => {
+            if (doc.exists) {
+                const config = doc.data();
+                const items = this.buildSlider(config.header_slides);
+                this.setState({ items, loading: false });
+            }
+        });
+    }
+
+    getLength(arr) {
+        if (Array.isArray(arr)) {
+            return arr.length;
+        }
+        return 0;
+    }
+
+    getLongestArrLength(obj) {
+        let max = 0;
+        Object.values(obj).forEach(val => {
+            console.log(val)
+            if (val && val.length && val.length > max) {
+                max = val.length;
+            }
+        });
+        return max;
+    }
+
+    buildSlider(slides) {
         const items = [];
-        const longest = Math.max(BLUE_GUINEA_SLIDES.length, AFRICAN_VELVET_SLIDES.length, ROYAL_AFRICAN_SLIDES.length, AFRICAN_ELEPHANT_SLIDES.length, OCEANS_FEATHER_SLIDES.length, NEW_CREATIONS_SLIDES.length);
+        const longest = this.getLongestArrLength(slides);
         for (let i = 0; i < longest; i++) {
-            if (NEW_CREATIONS_SLIDES[i]) {
-                items.push(
-                    {
-                        title: 'New Creations',
-                        design: 'new_creations',
-                        url: NEW_CREATIONS_SLIDES[i]
-                    }
-                )
-            }
-            if (BLUE_GUINEA_SLIDES[i]) {
-                items.push(
-                    {
-                        title: 'Blue Guinea Fowl',
-                        design: 'blue_guinea',
-                        url: BLUE_GUINEA_SLIDES[i]
-                    }
-                )
-            }
-            if (ROYAL_AFRICAN_SLIDES[i]) {
-                items.push(
-                    {
-                        title: "Royal African",
-                        design: 'royal_african',
-                        url: ROYAL_AFRICAN_SLIDES[i]
-                    }
-                )
-            }
-            if (AFRICAN_ELEPHANT_SLIDES[i]) {
-                items.push(
-                    {
-                        title: "African Elephant",
-                        design: 'african_elephant',
-                        url: AFRICAN_ELEPHANT_SLIDES[i]
-                    },
-                )
-            }
-            if (AFRICAN_VELVET_SLIDES[i]) {
-                items.push(
-                    {
-                        title: 'African Velvet',
-                        design: 'african_velvet',
-                        url: AFRICAN_VELVET_SLIDES[i]
-                    }
-                )
-            }
-            if (OCEANS_FEATHER_SLIDES[i]) {
-                items.push(
-                    {
-                        title: "Two Oceans' Feathers",
-                        design: 'oceans_feather',
-                        url: OCEANS_FEATHER_SLIDES[i]
-                    },
-                )
-            }
+            Object.keys(slides).forEach(key => {
+                if (slides[key][i]) {
+                    items.push({
+                        title: DESIGN_NAMES[key],
+                        design: key,
+                        url: slides[key][i]
+                    });
+                }
+            });
         }
         return items;
     }
@@ -74,8 +68,9 @@ class HeroSlider extends Component {
     }
 
     render() {
-        const items = this.buildItems();
+        const { items, loading } = this.state;
         return (
+            !loading ? 
             <div className='hero-container'>
                 <Carousel className='slider' 
                     itemsToShow={1}
@@ -101,7 +96,8 @@ class HeroSlider extends Component {
                         </div>
                     </div>)}
                 </Carousel>
-            </div>
+            </div> :
+            <div className="spinner"><Spinner /></div>
         )
     }
 }

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import ProductListing from '../../products/ProductListing';
 import { Link } from 'react-router-dom';
-import { typeOptions, DESIGN_NAMES, DESIGN_HERO_IMAGES } from '../../../helpers';
+import { typeOptions, DESIGN_NAMES } from '../../../helpers';
 import Spinner from '../../spinner/Spinner';
 
 export const DesignDashboard = (props) => {
