@@ -21,7 +21,7 @@ class HeroSlider extends Component {
         doc_ref.get().then(doc => {
             if (doc.exists) {
                 const config = doc.data();
-                const items = this.buildSlider(config.header_slides);
+                const items = this.buildSlider(config);
                 this.setState({ items, loading: false });
             }
         });
