@@ -48,8 +48,8 @@ const ProductBoxes = ({ layout }) => {
 
     const home_top = [blue_guinea, royal_african];
     const home_bottom = [african_velvet, african_elephant, oceans_feather];
-    const products_top = [new_creations, blue_guinea, gifts];
-    const products_bottom = [royal_african, african_elephant, oceans_feather, african_velvet]
+    const products_top = [royal_african, blue_guinea, african_velvet];
+    const products_bottom = [african_elephant, new_creations, gifts, oceans_feather]
     const box = (box, layout, i) => {
         return <Link to={`designs/${box.design}`} key={i}>
             <Box url={box.url} title={box.title} layout={layout}></Box>
