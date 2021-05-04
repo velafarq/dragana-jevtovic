@@ -58,7 +58,7 @@ const ProductDashboard = (props) => {
             });
 
             products.forEach(product => {
-                if (product.design === 'custom') {
+                if (product.categories.includes('custom')) {
                     custom.push(product);
                 }
             });
