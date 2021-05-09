@@ -23,7 +23,15 @@
 
     .heading-text {
         margin-top: 20px;
-        font-size: 24px;
+        font-size: 16px;
         line-height: 1.2;
+        font-family: inherit;
+        letter-spacing: 0.05rem;
+    }
+
+    .vela {
+        font-size: 14px;
+        line-height: 2;
+        font-weight: 600;
     }
 }
