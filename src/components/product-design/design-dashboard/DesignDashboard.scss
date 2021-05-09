@@ -18,9 +18,13 @@
 
     &__breadcrumbs {
         font-weight: 500;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 1.4;
-        padding-top: 10px;
+        padding-top: 16px;
+
+        .active-link {
+            font-weight: 700;
+        }
     }
 
     .heading-text {
