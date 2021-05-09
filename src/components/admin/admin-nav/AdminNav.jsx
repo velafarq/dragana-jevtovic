@@ -7,6 +7,7 @@ const AdminNav = () => {
         <section className="admin-nav">
             <NavLink exact to={'/admin/products'} activeClassName='selected'>Products</NavLink>
             <NavLink exact to={'/admin/orders'} activeClassName='selected'>Orders</NavLink>
+            <NavLink exact to={'/admin/messages'} activeClassName='selected'>Messages</NavLink>
             <NavLink exact to={'/admin/customize'} activeClassName='selected'>Customize</NavLink>
         </section>
     )

@@ -12,6 +12,7 @@ const Contact = (props) => {
     const [country, setCountry] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,6 +20,11 @@ const Contact = (props) => {
             firstName, lastName, email, phone, country, subject, message
         }
         props.submit(payload);
+        setShowSuccess(true);
+
+        setTimeout(() => {
+            setShowSuccess(false);
+        }, 3000)
         clearForm();
     }
 
@@ -121,6 +127,7 @@ const Contact = (props) => {
                         required />
                 </label>
                 <button className='heading-text contact__form__submit'>Send Message</button>
+                {showSuccess && <div className="success">Sent!</div>}
             </form>
         </div>
     )
