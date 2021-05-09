@@ -16,7 +16,6 @@ const AdminOrder = (props) => {
         if (orders && orders.length) {
             const found = orders.find(o => o.id === props.match.params.orderId);
             if (found !== undefined) {
-                console.log(found)
                 setOrder(found);
             }
         }
@@ -27,7 +26,7 @@ const AdminOrder = (props) => {
             {order && 
                 <Fragment>
                     <Link to={'/admin/orders'} className="back">
-                        <i class="material-icons">keyboard_arrow_left</i>
+                        <i className="material-icons">keyboard_arrow_left</i>
                         <span>Back to Orders</span>
                     </Link>
                     <section className="heading">
@@ -45,6 +44,10 @@ const AdminOrder = (props) => {
                                 <div>{order.email}</div>
                             </address>
                         </div>
+                    </div>
+                    <div className="customer-message">
+                        <h4>Customer Message</h4>
+                        <p>{order.message}</p>
                     </div>
                 </Fragment>
             }

@@ -13,6 +13,7 @@ const ProductDashboard = (props) => {
     const [teapots, setTeapots] = useState([]);
     const [plates, setPlates] = useState([]);
     const [bowls, setBowls] = useState([]);
+    const [sets, setSets] = useState([]);
 
     useFirestoreConnect([
         { collection: 'products' }
@@ -27,6 +28,7 @@ const ProductDashboard = (props) => {
             const plates = [];
             const bowls = [];
             const custom = [];
+            const sets = [];
 
             products.forEach(product => {
                 switch (product.type) {
@@ -47,6 +49,9 @@ const ProductDashboard = (props) => {
                     case 'bowls':
                         bowls.push(product);
                         break;
+                    case 'sets':
+                        sets.push(product);
+                        break;
                     default:
                         break;
                 }
@@ -64,6 +69,7 @@ const ProductDashboard = (props) => {
             setLargeServers(largeServers);
             setCustom(custom);
             setTeapots(teapots);
+            setSets(sets);
         }
     }, [products]);
 
@@ -73,7 +79,7 @@ const ProductDashboard = (props) => {
                 <div className="product-dashboard__category-title heading-text">
                     {title}
                 </div>
-                <div className="product-dashboard__products-carousel">{products.map((product, i) => 
+                <div className="product-dashboard__products-carousel no-margin">{products.map((product, i) => 
                         <Link to={`/products/${product.id}`} key={product.id} className="product-dashboard__products-carousel__product">
                             <ProductListing product={product} />
                         </Link>
@@ -87,6 +93,7 @@ const ProductDashboard = (props) => {
         <div className="product-dashboard container">
             <h1 className="heading-text product-dashboard__title">Choose a Style</h1>
             <ProductBoxes layout='col' />
+            {sets.length > 0 && renderProductRow(sets, "Place Settings & Sets")}
             {custom.length > 0 && renderProductRow(custom, 'Exclusive Pieces')}
             {mugs.length > 0 && renderProductRow(mugs, 'Mugs, Cups & Saucers and Jugs')}
             {bowls.length > 0 && renderProductRow(bowls, 'Bowls')}

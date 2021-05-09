@@ -32,4 +32,18 @@
             font-style: normal;
         }
     }
+
+    .customer-message {
+        font-size: 20px;
+        line-height: 1.3;
+        margin-top: 30px;
+
+        h4 {
+            margin: 0 0 10px;
+        }
+
+        p {
+            margin-top: 5px;
+        }
+    }
 }

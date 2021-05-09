@@ -40,7 +40,7 @@ const RelatedProducts = ({ categories, currentProductId }) => {
 
     return <React.Fragment>
         { relatedProducts.length ?
-        <div>
+        <div className="related-products">
             <h4>RELATED PRODUCTS</h4>
             <div className="product-dashboard__products-carousel">{relatedProducts.map((product, i) => 
                 <Link to={`/products/${product.id}`} key={product.id} className="product-dashboard__products-carousel__product">

@@ -1,7 +1,6 @@
 .product-dashboard {
     padding: 100px 16px;
-    max-width: 1257px;
-    margin: auto;
+    margin: 0 40px;
     
     &__title {
         font-size: 64px;
@@ -21,9 +20,9 @@
         overflow-x: auto;
         overflow-y: hidden;
 
-        &__product {
-            margin-right: 35px;
+        &.no-margin {
+            margin: 0 -56px;
         }
-
     }
+
 }
