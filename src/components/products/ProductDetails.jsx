@@ -6,6 +6,7 @@ import ProductText from './ProductText';
 import { Link } from 'react-router-dom';
 import RelatedProducts from '../related-products/RelatedProducts';
 import ProductGallery from '../product-gallery/ProductGallery';
+import { handleCategoryLabels } from '../../helpers';
 
 function ProductDetails(props) {
     useFirestoreConnect([
@@ -59,9 +60,13 @@ function ProductDetails(props) {
     function displayImages(imagesArr) {
         return imagesArr.map((img, i) => (
             <div key={i} className={img_index === i ? 'selected mini-images__img' : 'mini-images__img'}>
-                <img src={img.url} alt={img.alt} onClick={() => setImgIndex(i)} />
+                <img src={img.url} alt={altText()} onClick={() => setImgIndex(i)} />
             </div>
         ))
+    }
+
+    const altText = () => {
+        return `Dragana Jevtovic Ceramics Cape Town South Africa Pottery Crockery ${product.name} ${handleCategoryLabels(product.categories)}`
     }
 
     function next(e) {
@@ -98,7 +103,7 @@ function ProductDetails(props) {
                                 <button className="prev-btn" onClick={(e) => previous(e)}>
                                     <i className="material-icons">keyboard_arrow_left</i>
                                 </button>} 
-                            {product_images[img_index] && <img src={product_images[img_index].url} alt={product_images[img_index].alt} />}
+                            {product_images[img_index] && <img src={product_images[img_index].url} alt={altText()} />}
                             {product_images.length > 1 && 
                                 <button className="next-btn" onClick={(e) => next(e)}>
                                     <i className="material-icons">keyboard_arrow_right</i>
