@@ -1,5 +1,10 @@
-form {
+.box-editor-form {
     padding: 30px;
+
+    .form-input {
+        padding: 10px;
+        border: 1px solid black;
+    }
 
     .add-img {
         margin-top: 10px;
@@ -16,5 +21,15 @@ form {
             justify-content: space-between;
             align-items: center;
         }
+    }
+
+    img {
+        max-height: 160px;
+        margin-top: 20px;
+    }
+
+    label {
+        font-size: 1.2rem;
+        font-weight: 600;
     }
 }
