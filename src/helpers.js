@@ -121,6 +121,9 @@ export const handlePrice = (prices, currency) => {
         } else {
             price = prices;
         }
+        if (!+price) {
+            return 'Please ask for pricing';
+        }
         const fixed = Number(price).toFixed(2);
         return `${symbol}${fixed}`;
     }

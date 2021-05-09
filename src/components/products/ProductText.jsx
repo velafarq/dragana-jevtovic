@@ -31,7 +31,7 @@ const ProductText = ({ product, addItem, currency }) => {
     return <div className="product-text">
         <div className="sub heading-text">{handleCategoryLabels(product.categories)}</div>
         <div className="main heading-text">{product.name}</div>
-        <div className="main heading-text">{handlePrice(product.price, currency)}</div>
+        <div className="main heading-text price">{handlePrice(product.price, currency)}</div>
 
         <div className="divider"></div>
         <div className="row">
