@@ -31,7 +31,7 @@ const ProductListing = ({ product, currency }) => {
         <article className="product-listing">
             <div className="product-listing__img fade-in">
                 { image && image.url ?
-                    <img src={image && image.url} alt={image && image.alt} /> :
+                    <img src={image && image.url} alt={`Dragana Jevtovic Ceramics Cape Town South Africa Pottery Crockery ${product.name} ${handleCategoryLabels(product.categories)}`} /> :
                     'Product image coming soon!'
                 }
             </div>

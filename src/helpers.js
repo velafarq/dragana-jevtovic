@@ -132,3 +132,12 @@ export const currencyLabels = {
     gbp: '£',
     zar: 'R'
 }
+
+export const handleCategoryLabels = (categories) => {
+    const labels = [];
+    categories.forEach(cat => {
+        labels.push(DESIGN_NAMES[cat]);
+    });
+
+    return labels.join(', ');
+}
