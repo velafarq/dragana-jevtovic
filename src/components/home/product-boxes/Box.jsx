@@ -12,7 +12,7 @@ const Box = (props) => {
         <div className={'product-box ' + layout}>
             <div className="side fade-in" 
                 style={{backgroundImage: `url('${url}')`}} ></div>
-            <div className="side">
+            <div className="side short">
                 <h2 className="heading-text">{title}</h2>
                 <button className="client-button side__btn">VIEW STYLE</button>
             </div>

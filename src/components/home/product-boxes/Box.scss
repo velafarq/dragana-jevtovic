@@ -52,6 +52,10 @@
         height: 391px;
         width: 345px;
         flex-direction: column;
+
+        .short {
+            height: 60%;
+        }
     }
 }
 
