@@ -40,16 +40,19 @@ const AdminCustomize = (props) => {
     return (
         <section className="admin-customize">
             <AdminNav />
-            <button className="admin-button" onClick={() => toggleDrawer('box-editor')}>Edit Boxes</button>
-            <button className="admin-button" onClick={() => toggleDrawer('design-header-editor')}>Edit Design Headers</button>
-            <button className="admin-button" onClick={() => openDesignSlider('blue_guinea')}>Edit Blue Guinea Fowl Slides</button>
-            <button className="admin-button" onClick={() => openDesignSlider('royal_african')}>Edit Royal African Slides</button>
-            <button className="admin-button" onClick={() => openDesignSlider('african_elephant')}>Edit African Elephant Slides</button>
-            <button className="admin-button" onClick={() => openDesignSlider('african_velvet')}>Edit African Velvet Slides</button>
-            <button className="admin-button" onClick={() => openDesignSlider('oceans_feather')}>Edit Oceans' Feather Slides</button>
-            <button className="admin-button" onClick={() => openDesignSlider('gifts')}>Edit Gifts Slides</button>
-            <button className="admin-button" onClick={() => openDesignSlider('custom')}>Edit Custom Slides</button>
-
+            <section className="buttons">
+                <button className="admin-button" onClick={() => toggleDrawer('box-editor')}>Boxes</button>
+                <div className="divider"></div>
+                <button className="admin-button" onClick={() => toggleDrawer('design-header-editor')}>Design Headers</button>
+                <div className="divider"></div>
+                <button className="admin-button" onClick={() => openDesignSlider('blue_guinea')}>Blue Guinea Fowl Slides</button>
+                <button className="admin-button" onClick={() => openDesignSlider('royal_african')}>Royal African Slides</button>
+                <button className="admin-button" onClick={() => openDesignSlider('african_elephant')}>African Elephant Slides</button>
+                <button className="admin-button" onClick={() => openDesignSlider('african_velvet')}>African Velvet Slides</button>
+                <button className="admin-button" onClick={() => openDesignSlider('oceans_feather')}>Oceans' Feather Slides</button>
+                <button className="admin-button" onClick={() => openDesignSlider('gifts')}>Gifts Slides</button>
+                <button className="admin-button" onClick={() => openDesignSlider('custom')}>Custom Slides</button>
+            </section>
             { drawer === 'box-editor' &&
                 <div className="drawer active">
                     <BoxEditor toggleDrawer={toggleDrawer} editable={boxes_config} />

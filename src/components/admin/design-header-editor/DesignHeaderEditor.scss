@@ -6,8 +6,13 @@
         border: 1px solid black;
     }
 
-    img {
-        max-height: 160px;
+    .header-img {
+        background-size: cover;
+        background-position: 50%;
+        position: relative;
+        height: 160px;
+        max-width: 100%;
+        width: auto;
         margin-top: 20px;
     }
 

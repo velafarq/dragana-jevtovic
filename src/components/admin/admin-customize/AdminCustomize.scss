@@ -1,6 +1,19 @@
 .admin-customize {
     padding: 104px 50px 50px 50px;
 
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        
+        .divider {
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin-bottom: 10px;
+        }
+    }
     .page-title {
         font-weight: 800;
         font-size: 2rem;
