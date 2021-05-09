@@ -11,7 +11,6 @@ const DesignHeaderEditor = (props) => {
 
     useEffect(() => {
         setHeaders({...editable});
-        console.log(editable)
     }, [editable]);
 
     const cancel = (event) => { 
