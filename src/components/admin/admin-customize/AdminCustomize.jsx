@@ -6,6 +6,7 @@ import {connect, useSelector} from 'react-redux';
 import {useFirestoreConnect} from 'react-redux-firebase';
 import { typeOptions, DisplayOptions, categoryOptions, DESIGN_NAMES, handlePrice } from '../../../helpers';
 import BoxEditor from '../box-editor/BoxEditor';
+import DesignHeaderEditor from '../design-header-editor/DesignHeaderEditor';
 
 const AdminCustomize = (props) => {
     const [drawer, setDrawer ] = useState(null);
@@ -34,9 +35,16 @@ const AdminCustomize = (props) => {
         <section className="admin-customize">
             <AdminNav />
             <button className="admin-button" onClick={() => toggleDrawer('box-editor')}>Edit Boxes</button>
+            <button className="admin-button" onClick={() => toggleDrawer('design-header-editor')}>Edit Design Headers</button>
+
             { drawer === 'box-editor' &&
                 <div className="drawer active">
                     <BoxEditor toggleDrawer={toggleDrawer} editable={boxes_config} />
+                </div>
+            }
+            { drawer === 'design-header-editor' &&
+                <div className="drawer active">
+                    <DesignHeaderEditor toggleDrawer={toggleDrawer} editable={design_header_config} />
                 </div>
             }
         </section>
