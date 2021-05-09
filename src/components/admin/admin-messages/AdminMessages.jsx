@@ -13,7 +13,6 @@ const AdminMessages = () => {
     const [displayMessages, setDisplayMessages] = useState([]);
 
     useEffect(() => {
-        console.log(allMessages)
         setDisplayMessages(allMessages);
     }, [allMessages]);
 
@@ -24,11 +23,11 @@ const AdminMessages = () => {
     const row = (msg) => (
         <Fragment key={msg.id}>
             <Link to={`/admin/messages/${msg.id}`} className='box 1'>{handleDate(msg.created_at).toDateString()}</Link>
-            <Link to={`/admin/orders/${msg.id}`} className='box 2'>{msg.firstName} {msg.lastName}</Link>
-            <Link to={`/admin/orders/${msg.id}`} className='box 3'>{msg.subject}</Link>
-            <Link to={`/admin/orders/${msg.id}`} className='box 3'>{msg.email}</Link>
-            <Link to={`/admin/orders/${msg.id}`} className='box 4'>{msg.phone}</Link>
-            <Link to={`/admin/orders/${msg.id}`} className='box 5 table-actions'></Link>
+            <Link to={`/admin/messages/${msg.id}`} className='box 2'>{msg.firstName} {msg.lastName}</Link>
+            <Link to={`/admin/messages/${msg.id}`} className='box 3'>{msg.subject}</Link>
+            <Link to={`/admin/messages/${msg.id}`} className='box 3'>{msg.email}</Link>
+            <Link to={`/admin/messages/${msg.id}`} className='box 4'>{msg.phone}</Link>
+            <Link to={`/admin/messages/${msg.id}`} className='box 5 table-actions'></Link>
         </Fragment>
     );
 
