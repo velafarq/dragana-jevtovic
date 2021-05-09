@@ -1,0 +1,20 @@
+form {
+    padding: 30px;
+
+    .add-img {
+        margin-top: 10px;
+    }
+
+    .image-inputs {
+        border: 2px solid black;
+        margin: 25px 0;
+        padding: 0 15px 20px;
+
+        .image-inputs-header {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
