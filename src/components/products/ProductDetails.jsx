@@ -98,7 +98,7 @@ function ProductDetails(props) {
                 </div>
                 {product ? <React.Fragment>
                     <div className="product-content"> 
-                        <div className="main-image" onClick={() => expandImage(product_images[img_index])}>
+                        <div className="main-image fade-in" onClick={() => expandImage(product_images[img_index])}>
                             {product_images.length > 1 && 
                                 <button className="prev-btn" onClick={(e) => previous(e)}>
                                     <i className="material-icons">keyboard_arrow_left</i>
