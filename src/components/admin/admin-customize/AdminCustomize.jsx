@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './AdminCustomize.scss';
 import AdminNav from '../admin-nav/AdminNav'
 import {updateBox, updateDesignHeader, updateHeroSlider} from '../../../store/actions/admin-actions';
 import {connect, useSelector} from 'react-redux';
 import {useFirestoreConnect} from 'react-redux-firebase';
-import { typeOptions, DisplayOptions, categoryOptions, DESIGN_NAMES, handlePrice } from '../../../helpers';
 import BoxEditor from '../box-editor/BoxEditor';
 import DesignHeaderEditor from '../design-header-editor/DesignHeaderEditor';
+import DesignSliderEditor from '../design-slider-editor/DesignSliderEditor';
 
 const AdminCustomize = (props) => {
     const [drawer, setDrawer ] = useState(null);
+    const [design, setDesign ] = useState(null);
 
     useFirestoreConnect([
         { collection: 'configurations', doc: 'boxes'},
@@ -31,11 +32,23 @@ const AdminCustomize = (props) => {
         setDrawer(type);
     }
 
+    const openDesignSlider = (design) => {
+        setDesign(design);
+        setDrawer('design-slider-editor');
+    }
+
     return (
         <section className="admin-customize">
             <AdminNav />
             <button className="admin-button" onClick={() => toggleDrawer('box-editor')}>Edit Boxes</button>
             <button className="admin-button" onClick={() => toggleDrawer('design-header-editor')}>Edit Design Headers</button>
+            <button className="admin-button" onClick={() => openDesignSlider('blue_guinea')}>Edit Blue Guinea Fowl Slides</button>
+            <button className="admin-button" onClick={() => openDesignSlider('royal_african')}>Edit Royal African Slides</button>
+            <button className="admin-button" onClick={() => openDesignSlider('african_elephant')}>Edit African Elephant Slides</button>
+            <button className="admin-button" onClick={() => openDesignSlider('african_velvet')}>Edit African Velvet Slides</button>
+            <button className="admin-button" onClick={() => openDesignSlider('oceans_feather')}>Edit Oceans' Feather Slides</button>
+            <button className="admin-button" onClick={() => openDesignSlider('gifts')}>Edit Gifts Slides</button>
+            <button className="admin-button" onClick={() => openDesignSlider('custom')}>Edit Custom Slides</button>
 
             { drawer === 'box-editor' &&
                 <div className="drawer active">
@@ -45,6 +58,11 @@ const AdminCustomize = (props) => {
             { drawer === 'design-header-editor' &&
                 <div className="drawer active">
                     <DesignHeaderEditor toggleDrawer={toggleDrawer} editable={design_header_config} />
+                </div>
+            }
+            { drawer === 'design-slider-editor' &&
+                <div className="drawer active">
+                    <DesignSliderEditor toggleDrawer={toggleDrawer} design={design} editable={home_config}/>
                 </div>
             }
         </section>

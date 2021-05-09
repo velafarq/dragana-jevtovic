@@ -1,18 +1,28 @@
-.design-header-editor-form {
+.design-slider-editor-form {
     padding: 30px;
 
     .form-input {
         padding: 10px;
         border: 1px solid black;
+
+        .material-icons {
+            text-align: right;
+        }
     }
 
-    img {
-        max-height: 160px;
+    .header-img {
+        background-size: cover;
+        background-position: 50%;
+        position: relative;
+        height: 250px;
+        max-width: 100%;
+        width: auto;
         margin-top: 20px;
     }
 
     .add-img {
         margin-top: 10px;
+        width: 100%;
     }
 
     .image-inputs {
