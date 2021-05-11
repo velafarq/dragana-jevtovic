@@ -22,12 +22,12 @@ const AdminMessages = () => {
 
     const row = (msg) => (
         <Fragment key={msg.id}>
-            <Link to={`/admin/messages/${msg.id}`} className='box 1'>{handleDate(msg.created_at).toDateString()}</Link>
-            <Link to={`/admin/messages/${msg.id}`} className='box 2'>{msg.firstName} {msg.lastName}</Link>
-            <Link to={`/admin/messages/${msg.id}`} className='box 3'>{msg.subject}</Link>
-            <Link to={`/admin/messages/${msg.id}`} className='box 3'>{msg.email}</Link>
-            <Link to={`/admin/messages/${msg.id}`} className='box 4'>{msg.phone}</Link>
-            <Link to={`/admin/messages/${msg.id}`} className='box 5 table-actions'></Link>
+            <Link to={`/admin/messages/${msg.id}`} className={ msg.read ? 'box' : 'box unread' }>{handleDate(msg.created_at).toDateString()}</Link>
+            <Link to={`/admin/messages/${msg.id}`} className={ msg.read ? 'box' : 'box unread' }>{msg.firstName} {msg.lastName}</Link>
+            <Link to={`/admin/messages/${msg.id}`} className={ msg.read ? 'box' : 'box unread' }>{msg.subject}</Link>
+            <Link to={`/admin/messages/${msg.id}`} className={ msg.read ? 'box' : 'box unread' }>{msg.email}</Link>
+            <Link to={`/admin/messages/${msg.id}`} className={ msg.read ? 'box' : 'box unread' }>{msg.phone}</Link>
+            {/* <Link to={`/admin/messages/${msg.id}`} className='box 5 table-actions'></Link> */}
         </Fragment>
     );
 
@@ -48,7 +48,7 @@ const AdminMessages = () => {
                     <div className="box title">Subject</div>
                     <div className="box title">Email</div>
                     <div className="box title">Phone</div>
-                    <div className="box title"></div>
+                    {/* <div className="box title"></div> */}
                     {generateTable(displayMessages)}
                 </div>
             </section>
