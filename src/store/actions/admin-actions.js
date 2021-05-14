@@ -81,3 +81,16 @@ export const updateHeroSlider = payload => {
             });
     }
 }
+
+export const markMessageAsRead = payload => {
+    return (dispatch, getState, { getFirestore }) => {
+        const firestore = getFirestore();
+        firestore.collection('contactForms').doc(payload.id).set(payload)
+            .then(() => {
+                dispatch({ type: 'MESSAGE_READ_SUCCESS'})
+            }).catch((error) => {
+                dispatch({ type: 'MESSAGE_READ_FAILED', error});
+            });
+
+    }
+}

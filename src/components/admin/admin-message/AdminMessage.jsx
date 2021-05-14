@@ -2,9 +2,11 @@ import './AdminMessage.scss';
 import React, { useEffect, useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { useFirestoreConnect } from 'react-redux-firebase';
-import { useSelector } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
+import {markMessageAsRead} from '../../../store/actions/admin-actions';
 
 const AdminMessage = (props) => {
+    const { markAsRead } = props;
     useFirestoreConnect([
         { collection: 'contactForms' }
     ]);
@@ -16,9 +18,12 @@ const AdminMessage = (props) => {
             const found = messages.find(o => o.id === props.match.params.messageId);
             if (found !== undefined) {
                 setMessage(found);
+                if (!found.read) {
+                    markAsRead({...found, read: true});
+                }
             }
         }
-    }, [messages, props.match.params.messageId]);
+    }, [messages, props.match.params.messageId, markAsRead]);
 
     const handleDate = (date_obj) => {
         return date_obj.toDate();
@@ -57,4 +62,9 @@ const AdminMessage = (props) => {
     )
 }
 
-export default AdminMessage;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        markAsRead: payload => dispatch(markMessageAsRead(payload))
+    }
+}
+export default connect(null, mapDispatchToProps)(AdminMessage);

@@ -26,6 +26,7 @@ export const submitContactForm = (data) => {
         const firestore = getFirestore();
         firestore.collection('contactForms').add({ 
             ...data,
+            read: false,
             created_at: new Date()
         }).catch((error) => {
             console.error(error);
