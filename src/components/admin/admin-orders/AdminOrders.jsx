@@ -22,11 +22,11 @@ const AdminOrders = () => {
 
     const row = (order) => (
         <Fragment key={order.id}>
-            <Link to={`/admin/orders/${order.id}`} className='box 1'>{handleDate(order.created_at).toDateString()}</Link>
-            <Link to={`/admin/orders/${order.id}`} className='box 2'>{order.firstName} {order.lastName}</Link>
-            <Link to={`/admin/orders/${order.id}`} className='box 3'>{order.email}</Link>
-            <Link to={`/admin/orders/${order.id}`} className='box 4'>{order.phone}</Link>
-            <Link to={`/admin/orders/${order.id}`} className='box 5 table-actions'></Link>
+            <Link to={`/admin/orders/${order.id}`} className={ order.read ? 'box' : 'box unread' }>{handleDate(order.created_at).toDateString()}</Link>
+            <Link to={`/admin/orders/${order.id}`} className={ order.read ? 'box' : 'box unread' }>{order.firstName} {order.lastName}</Link>
+            <Link to={`/admin/orders/${order.id}`} className={ order.read ? 'box' : 'box unread' }>{order.email}</Link>
+            <Link to={`/admin/orders/${order.id}`} className={ order.read ? 'box' : 'box unread' }>{order.phone}</Link>
+            {/* <Link to={`/admin/orders/${order.id}`} className='box 5 table-actions'></Link> */}
         </Fragment>
     );
 
@@ -48,7 +48,7 @@ const AdminOrders = () => {
                         <div className="box title">Name</div>
                         <div className="box title">Email</div>
                         <div className="box title">Phone</div>
-                        <div className="box title"></div>
+                        {/* <div className="box title"></div> */}
                         {generateTable(displayOrders)}
                     </div>
                 </section>
