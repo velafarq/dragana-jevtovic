@@ -1,11 +1,13 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import './AdminOrder.scss';
 import { useFirestoreConnect } from 'react-redux-firebase';
-import { useSelector } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import AdminOrderProductList from '../admin-order-product-list/AdminOrderProductList';
 import { Link } from 'react-router-dom';
+import {markOrderAsRead} from '../../../store/actions/admin-actions';
 
 const AdminOrder = (props) => {
+    const { markAsRead } = props;
     useFirestoreConnect([
         { collection: 'orders' }
     ]);
@@ -17,9 +19,12 @@ const AdminOrder = (props) => {
             const found = orders.find(o => o.id === props.match.params.orderId);
             if (found !== undefined) {
                 setOrder(found);
+                if (!found.read) {
+                    markAsRead({...found, read: true});
+                }
             }
         }
-    }, [orders, props.match.params.orderId]);
+    }, [orders, props.match.params.orderId, markAsRead]);
 
     return (
         <section className="order-page">
@@ -56,4 +61,9 @@ const AdminOrder = (props) => {
     )
 }
 
-export default AdminOrder;
+const mapDispatchToProps = dispatch => {
+    return {
+        markAsRead: payload => dispatch(markOrderAsRead(payload))
+    }
+}
+export default connect(null, mapDispatchToProps)(AdminOrder);

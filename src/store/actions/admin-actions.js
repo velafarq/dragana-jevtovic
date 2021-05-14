@@ -91,6 +91,17 @@ export const markMessageAsRead = payload => {
             }).catch((error) => {
                 dispatch({ type: 'MESSAGE_READ_FAILED', error});
             });
+    }
+}
 
+export const markOrderAsRead = payload => {
+    return (dispatch, getState, { getFirestore }) => {
+        const firestore = getFirestore();
+        firestore.collection('orders').doc(payload.id).set(payload)
+            .then(() => {
+                dispatch({ type: 'ORDER_READ_SUCCESS'})
+            }).catch((error) => {
+                dispatch({ type: 'ORDER_READ_FAILED', error});
+            });
     }
 }
