@@ -1,17 +1,28 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import './Header.scss';
-import { connect } from 'react-redux';
+import { connect, useSelector} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import SignedInLinks from '../SignedInLinks';
 import SignedOutLinks from '../SignedOutLinks';
 import {changeCurrency} from '../../../store/actions/currency-actions';
+import {useFirestoreConnect} from 'react-redux-firebase';
 
 const Header = (props) => {
     const { auth, isAdmin, cartItems} = props;
-    
+    useFirestoreConnect([
+        { collection: 'contactForms' }
+    ]);
+    const messages  = useSelector(state => state.firestore.ordered.contactForms);
+    const [unreadCount, setUnreadCount] = useState(null);
     // const handleCurrencyChange = (e) => {
     //     updateCurrency(e.target.value)
     // }
+    useEffect(() => {
+        if (isAdmin && messages) {
+            const unread = messages.filter(m => !m.read);
+            setUnreadCount(unread.length);
+        }
+    }, [messages, unreadCount, isAdmin])
 
     return (
         <Fragment>
@@ -36,8 +47,15 @@ const Header = (props) => {
                     </select> */}
                     {isAdmin && 
                         <React.Fragment>
-                            { auth.uid ? <SignedInLinks/> : <SignedOutLinks /> }
-                            <NavLink activeClassName="selected" className="dashboard" exact to='/admin'>Admin Dashboard</NavLink>
+                            {/* { auth.uid ? <SignedInLinks/> : <SignedOutLinks /> } */}
+                           
+                            <NavLink exact to="/admin/messages" className="item cart">
+                                <i className="material-icons">email</i>
+                                {unreadCount ? <div className="cart-number">{unreadCount}</div> : null}
+                            </NavLink>
+                            <NavLink activeClassName="selected" className="dashboard" exact to='/admin'>
+                                <i className="material-icons">settings</i>
+                            </NavLink>
                         </React.Fragment>}
                 </div>
             </div>
