@@ -8,9 +8,7 @@ const ArtistBio = () => {
     const d = 'Every piece is uniquely decorated by free hand, and often includes African motives - birds, feathers and elephants.  Shunning ready-made commercial products, she mixes her own cobalt blue and tawny underglaze colours. Her sought-after Blue Guinea Fowl design in cobalt blue is inspired by the long Dutch and Chinese ceramic tradition and interpreted with an vision which owes much to her European heritage.';
     const e = "Her slip cast ceramics are stoneware fired to 1200'C and glazed with lead-free, transparent glaze, making her products oven proof and microwave and dishwasher safe.";
     const f = 'Dragana was born in Belgrade, Yugoslavia where she studied Art and Philosophy at the University of Belgrade, and Music at the Belgrade Faculty of Music Arts, obtaining the B A Mus (Honours).  She moved to Cape Town, South Africa, in 1993.';
-    const g = 'When she is not working in the studio, Dragana is kept busy by her other passion – music. A trained operatic singer, she has performed in concerts in Europe, the United States and South Africa. She compiles and presents live classical, jazz and world music programmes for Fine Music Radio of Cape Town, which can be heard world-wide on the internet - www.fmr.co.za';
-    const h = 'Besides having a special love for ceramics and music, Dragana paints in oils and loves cooking, her five dogs and a cat.';
-    const paragraphs = [a, b, c, d, e, f, g, h];
+    const paragraphs = [a, b, c, d, e, f];
     return (
         <div className='artist-bio-container'>
             <h2 className="heading-text">The Artist</h2>
@@ -20,6 +18,8 @@ const ArtistBio = () => {
                 </figure>
                 <div className="bio__blurb">
                     {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+                    <p>When she is not working in the studio, Dragana is kept busy by her other passion – music. A trained operatic singer, she has performed in concerts in Europe, the United States and South Africa. She compiles and presents live classical, jazz and world music programmes for Fine Music Radio of Cape Town, which can be heard world-wide on the internet - <a href="https://fmr.co.za" rel="noopener noreferrer" target="_blank">www.fmr.co.za</a></p>
+                    <p>Besides having a special love for ceramics and music, Dragana paints in oils and loves cooking, her five dogs and a cat.</p>
                 </div>
             </div>
         </div>
