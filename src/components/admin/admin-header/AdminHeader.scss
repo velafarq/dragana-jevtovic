@@ -1,0 +1,22 @@
+
+.admin-icon {
+    position: relative;
+    display: flex;
+
+    .icon-number {
+        position: absolute;
+        top: -6px;
+        right: 3px;
+        background-color: red;
+        border-radius: 8px;
+        height: 12px;
+        min-width: 12px;
+        font-size: 10px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2px;
+    }
+}

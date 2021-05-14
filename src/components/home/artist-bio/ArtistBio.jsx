@@ -19,7 +19,7 @@ const ArtistBio = () => {
                     <img className="bio__img" src="https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/home%2Fdragana%2Fdragana-green-jacket-tiny.jpg?alt=media&token=16d589b3-97b3-44dd-ad2a-d599efa7f6c2" alt="Dragana Jevtovic Ceramics Cape Town South Africa"/>
                 </figure>
                 <div className="bio__blurb">
-                    {paragraphs.map(p => <p>{p}</p>)}
+                    {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
                 </div>
             </div>
         </div>

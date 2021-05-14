@@ -11,7 +11,7 @@ const Workshop = () => {
     return (
         <div className="workshop-container">
             <h2 className="heading-text">The Workshop</h2>
-            {paragraphs.map(p => <p className="workshop-description">{p}</p>)}
+            {paragraphs.map((p, i) => <p key={i} className="workshop-description">{p}</p>)}
             <WorkshopSlider />
 
         </div>

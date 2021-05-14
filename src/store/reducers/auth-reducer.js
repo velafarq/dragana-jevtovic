@@ -34,7 +34,6 @@ const auth_reducer = (state = initState, action) => {
                 authError: action.error.message
             }
         case 'IS_ADMIN':
-            console.log('is admin');
             return {
                 ...state,
                 isAdmin: action.payload
