@@ -14,9 +14,9 @@
 
     .bio {
         display: flex;
-        max-width: 1096px;
+        max-width: 1500px;
         margin: auto;
-        justify-content: space-between;
+        justify-content: space-evenly;
 
         figure {
             width: 40%;
@@ -30,8 +30,8 @@
 
         .bio__blurb {
             width: 40%;
-            color: white;
-            font-size: 24px;
+            color: #d3d3d3;
+            font-size: 16px;
             line-height: 1.5;
 
             .client-button {
@@ -45,7 +45,7 @@
 
             p {
                 margin: 0;
-                max-width: 457px;
+                // max-width: 457px;
                 padding-bottom: 15px;
             }
         }

@@ -4,14 +4,14 @@ import WorkshopSlider from './WorkshopSlider';
 
 const Workshop = () => {
 
-    const workshop_description = 'Twelve women, mostly single mothers without specific education or work experience, work in the studio of designer Dragana Jevtovic in Cape Town. They are trained and guided by Dragana, who knows from experience how important independence is for a single mother. Good working conditions are therefore central to the studio. Their jobs enable women to support their families and provide their children with a good future. Every item you buy directly has a positive impact on the lives of 75 South Africans.';
+    const a = "Thirteen women from previously disadvantaged backgrounds work with Dragana Jevtovic in her Studio in Cape Town. Most have not had the opportunity of completing their schooling and are the bread winners of their extended families. For many this was their first chance of employment.";
+    const b = "Empowered through the skills that they have learnt in the Studio, they have taken charge of and bettered their and their children’s lives. Each uniquely hand-decorated item from the studio represents the joys and struggles of these wonderful women and touches the lives of at least seventy people in South Africa.";
 
+    const paragraphs = [a, b];
     return (
         <div className="workshop-container">
             <h2 className="heading-text">The Workshop</h2>
-            <p className="workshop-description">
-                {workshop_description}
-            </p>
+            {paragraphs.map(p => <p className="workshop-description">{p}</p>)}
             <WorkshopSlider />
 
         </div>
