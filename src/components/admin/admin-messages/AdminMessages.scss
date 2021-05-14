@@ -28,7 +28,7 @@
     }
     
     .box {
-        background-color: #fff;
+        background-color: #f4f7f7;
         color: rgb(12, 12, 12);
         border-bottom: 1px solid #c9c9c9;
         padding: 10px;
@@ -51,9 +51,9 @@
         }
 
         &.unread {
-            background-color: $primary_blue;
-            color: white;
-            font-weight: 500;
+            background-color: #ffffff;
+            color: rgb(12, 12, 12);
+            font-weight: 600;
         }
     }
 
