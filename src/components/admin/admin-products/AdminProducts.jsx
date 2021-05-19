@@ -1,7 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import './AdminProducts.scss';
-import { useSelector } from 'react-redux';
-import { useFirestoreConnect } from 'react-redux-firebase';
 import ProductCreator from '../product-creator/ProductCreator';
 import ProductFilter from '../product-filter/ProductFilter';
 import { connect } from 'react-redux';
@@ -11,14 +9,8 @@ import AdminNav from '../admin-nav/AdminNav';
 import {DESIGN_NAMES, TYPE_NAMES} from '../../../helpers';
 
 const AdminProducts = (props) => {
-    useFirestoreConnect([
-        { collection: 'products' }
-    ]);
-
-    const allProducts = useSelector(state => state.firestore.ordered.products);
     const [displayProducts, setDisplayProducts] = useState([]);
     const [editable, setEditable] = useState(null);
-
     const [drawer, setDrawer] = useState(false);
 
    const toggleDrawer = () => {
@@ -27,10 +19,6 @@ const AdminProducts = (props) => {
         }
         setDrawer(!drawer);
     }
-
-    useEffect(() => {
-        setDisplayProducts(allProducts);
-    }, [allProducts]);
 
     const handleCategoryLabels = (categories) => {
         const labels = [];
@@ -70,28 +58,28 @@ const AdminProducts = (props) => {
 
     return (
         <Fragment>
-        { displayProducts &&
             <section className='products'>
                 <AdminNav />
                 <div className="header">
                     <button className='admin-button create-new' onClick={toggleDrawer}>Create new product</button>
                 </div>
-                <ProductFilter allProducts={allProducts} setDisplayProducts={setDisplayProducts} />
-                <div className='table'>
-                    <div className="box title">Name</div>
-                    <div className="box title">Type</div>
-                    <div className="box title">Category</div>
-                    <div className="box title">Hidden</div>
-                    <div className="box title"></div>
-                    {generateTable(displayProducts)}
-                </div>
+                <ProductFilter setDisplayProducts={setDisplayProducts} />
+                { displayProducts && 
+                    <div className='table'>
+                        <div className="box title">Name</div>
+                        <div className="box title">Type</div>
+                        <div className="box title">Category</div>
+                        <div className="box title">Hidden</div>
+                        <div className="box title"></div>
+                        {generateTable(displayProducts)}
+                    </div>
+                }
                 { drawer && 
                     <div className='drawer active'>
                         <ProductCreator toggleDrawer={toggleDrawer} editable={editable} />
                     </div>
                 }
             </section>
-        }
         </Fragment>
     )
 }

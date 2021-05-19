@@ -1,34 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import './ProductFilter.scss';
 import { adminTypeOptions, filterCategoryOptions, DisplayOptions, hiddenOptions, setStringToBool} from '../../../helpers';
+import { useSelector } from 'react-redux';
+import { useFirestoreConnect } from 'react-redux-firebase';
 
 const ProductFilter = (props) => {
-    const { allProducts, setDisplayProducts } = props;
+    useFirestoreConnect([
+        { collection: 'products' }
+    ]);
+    const { setDisplayProducts } = props;
 
     const [typeFilter, setTypeFilter] = useState('');
     const [categoryFilter, setCategoryFilter] = useState('');
     const [searchWord, setSearchWord] = useState('');
     const [hiddenFilter, setHiddenFilter] = useState('all');
 
+    const allProducts = useSelector(state => state.firestore.ordered.products);
+
     useEffect(() => {
-        const refreshFilters = (filtered) => {
-            if (typeFilter) {
-                filtered = filterDropdown(filtered, typeFilter, 'type');
+        if (allProducts) {
+            const refreshFilters = (filtered) => {
+                if (typeFilter) {
+                    filtered = filterDropdown(filtered, typeFilter, 'type');
+                }
+                if (searchWord) {
+                    filtered = filterString(filtered, searchWord);
+                }
+                if (hiddenFilter !== 'all') {
+                    filtered = filterDropdown(filtered, hiddenFilter, 'hidden');
+                }
+                if (categoryFilter) {
+                    filtered = filterDropdown(filtered, categoryFilter, 'category');
+                }
+
+                return filtered;
             }
-            if (searchWord) {
-                filtered = filterString(filtered, searchWord);
-            }
-            if (hiddenFilter !== 'all') {
-                filtered = filterDropdown(filtered, hiddenFilter, 'hidden');
-            }
-            if (categoryFilter) {
-                filtered = filterDropdown(filtered, categoryFilter, 'category');
-            }
-            
-            return filtered;
+            const refreshed = refreshFilters(allProducts);
+            setDisplayProducts(refreshed)
         }
-        const refreshed = refreshFilters(allProducts);
-        setDisplayProducts(refreshed)
     }, [allProducts, categoryFilter, typeFilter, searchWord, hiddenFilter, setDisplayProducts]);
 
     const handleFilters = (filtered, omit) => {
