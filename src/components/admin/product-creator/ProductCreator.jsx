@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createProduct, updateProduct } from '../../../store/actions/admin-actions';
 import './ProductCreator.scss';
-import { typeOptions, DisplayOptions, categoryOptions, DESIGN_NAMES, handlePrice } from '../../../helpers';
+import { DisplayOptions, categoryOptions, DESIGN_NAMES, createTypeOptions } from '../../../helpers';
 import { Multiselect } from 'multiselect-react-dropdown';
 
 const ProductCreator = (props) => {
@@ -84,8 +84,7 @@ const ProductCreator = (props) => {
         event.preventDefault();
         const defaultImg = {
             url: '',
-            primary: false,
-            alt: ''
+            primary: false
         };
         setImages([...images, defaultImg])
     }
@@ -113,8 +112,7 @@ const ProductCreator = (props) => {
         setProduct({...baseProduct});
         setImages([{
             url: '',
-            primary: true,
-            alt: ''
+            primary: true
         }]);
         setPrice({ 
             usd: 0,
@@ -167,7 +165,7 @@ const ProductCreator = (props) => {
             <div className="form-input">
                 <label htmlFor="type">Type</label>
                 <select id="type" value={product.type} onChange={(event) => handleChange(event, 'type')} >
-                    <DisplayOptions options={typeOptions} />
+                    <DisplayOptions options={createTypeOptions} />
                 </select>
             </div>
 
@@ -211,10 +209,6 @@ const ProductCreator = (props) => {
                         <label htmlFor={'image-url' + idx}>Image URL</label>
                         <input type="text" value={image.url} onChange={(event) => handleImageChange(event, 'url', idx)} id={'image-url' + idx} />
                     </div>
-                    <div className="form-input">
-                        <label htmlFor={'image-alt' + idx}>Image alt text</label>
-                        <input type="text" value={image.alt} onChange={(event) => handleImageChange(event, 'alt', idx)} id={'image-alt' + idx} />
-                    </div>
                     <div className="form-input check">
                         <label htmlFor={'image-primary' + idx}>Is primary</label>
                         <input type="checkbox" checked={image.primary} value={image.primary} onChange={(event) => handlePrimaryImageChange(event, idx)} id={'image-primary' + idx} />
@@ -226,14 +220,14 @@ const ProductCreator = (props) => {
                 <label htmlFor="usd">Price - USD</label>
                 <input type="number" value={price.usd} onChange={(event) => handlePriceChange(event, 'usd')} id='usd' />
             </div>
-            <div className="form-input">
+            {/* <div className="form-input">
                 <label htmlFor="gbp">Price - GBP</label>
                 <input type="number" value={price.gbp} onChange={(event) => handlePriceChange(event, 'gbp')} id='gbp' />
             </div>
             <div className="form-input">
                 <label htmlFor="zar">Price - ZAR</label>
                 <input type="number" value={price.zar} onChange={(event) => handlePriceChange(event, 'zar')} id='zar' />
-            </div>
+            </div> */}
             <div className="form-input check">
                 <label htmlFor='hidden'>Hidden</label>
                 <input type="checkbox" checked={product.hidden} value={product.hidden} onChange={(event) => handleChange(event, 'hidden')} id='hidden' />

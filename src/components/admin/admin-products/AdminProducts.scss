@@ -48,7 +48,7 @@
         display: flex;
         justify-content: flex-end;
         i {
-            padding: 0 10px;
+            margin: 0 10px;
             cursor: pointer;
     
             &.delete {
@@ -56,6 +56,7 @@
             }
             &.edit {
                 color: rgb(1, 1, 191);
+                margin: 0 25px 0 10px;
             }
         }
     }
