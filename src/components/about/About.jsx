@@ -7,14 +7,22 @@ const About = () => {
         <div className="about">
             <h1 className="about__title heading-text">How to Purchase</h1>
             <p>To receive a quote add the items you would like to purchase to your “Quote Cart”, fill in your details and then check out.</p>
+            <p>Within 24 hours we will get back to you by email with a quote, including shipping, in US$.</p>
             <p>
-                Within 24 hours we will get back to you by email with a quote, including shipping, in
-                either ZAR, US$, GB£ or € (depending on which part of the world you reside in).
-                If you wish to continue with the order, reply to our email with your acceptance
-                including the delivery address and a contact telephone number and we will send you
-                a PayPal invoice for payment. You may also modify your order at this stage.
-                It is probable that your items will be made especially for you as we do not have a
-                warehouse full of stock.
+                If you wish to continue with the order, reply to our email with your
+                acceptance including the delivery address with the zip/ postal code and a
+                contact telephone number. We will send you a PayPal invoice for payment.
+                It is not necessary for you to have a PayPal account. The PayPal Invoice
+                will take you through the steps of paying by credit card.
+            </p>
+            <p>
+                You may also modify your order at this stage. It is probable that your items
+                will be made especially for you as we do not have a warehouse full of
+                stock.
+            </p>
+            <p>
+                For larger orders payment via interbank transfer can be arranged. Please
+                speak to us should you wish to use this form of payment.
             </p>
             <p>
                 We are a small studio and deal personally with each order. We are happy to
