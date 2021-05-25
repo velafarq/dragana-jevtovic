@@ -50,6 +50,7 @@ const AdminCustomize = (props) => {
                 <button className="admin-button" onClick={() => openDesignSlider('african_elephant')}>African Elephant Slides</button>
                 <button className="admin-button" onClick={() => openDesignSlider('african_velvet')}>African Velvet Slides</button>
                 <button className="admin-button" onClick={() => openDesignSlider('oceans_feather')}>Oceans' Feather Slides</button>
+                <button className="admin-button" onClick={() => openDesignSlider('new_creations')}>New Creations Slides</button>
                 <button className="admin-button" onClick={() => openDesignSlider('gifts')}>Gifts Slides</button>
                 <button className="admin-button" onClick={() => openDesignSlider('custom')}>Custom Slides</button>
             </section>
