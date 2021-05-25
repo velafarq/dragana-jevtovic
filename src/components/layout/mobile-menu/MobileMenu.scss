@@ -16,4 +16,15 @@
         align-items: center;
         justify-content: space-between;
     }
+
+    .expanded-menu {
+        background-color: #fafafa;
+
+        .sub-menu-item {
+            padding: 10px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
 }

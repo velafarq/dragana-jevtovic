@@ -56,11 +56,11 @@ export const filterCategoryOptions = [
 export const categoryOptions = [
     { value:'blue_guinea', label: 'Blue Guinea Fowl'},
     { value:'royal_african', label: 'Royal African'},
-    { value:'oceans_feather', label: "Two Oceans' Feathers"},
     { value: 'african_elephant', label: 'African Elephant'},
+    { value:'african_velvet', label: 'African Velvet'},
+    { value:'oceans_feather', label: "Two Oceans' Feathers"},
     { value:'custom', label: 'Custom'},
     { value:'new_creations', label: 'New Creations'},
-    { value:'african_velvet', label: 'African Velvet'},
     { value:'gifts', label: 'Gifts'}
 ];
 
