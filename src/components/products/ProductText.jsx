@@ -43,6 +43,8 @@ const ProductText = ({ product, addItem, currency }) => {
             <div className="details__description">{product.description}</div>
             <ul>
                 {product.height && <li>Height: <span>{product.height}</span></li>}
+                {product.width && <li>Width: <span>{product.width}</span></li>}
+                {product.length && <li>Length: <span>{product.length}</span></li>}
                 {product.diameter && <li>Diameter: <span>{product.diameter}</span></li>}
                 {product.volume && <li>Volume: <span>{product.volume}</span></li>}
                 {product.weight && <li>Weight: <span>{product.weight}</span></li>}
