@@ -12,7 +12,7 @@ const Workshop = () => {
         <div className="workshop-container">
             <h2 className="heading-text">Dragana Jevtovic Ceramics Studio Staff</h2>
             {paragraphs.map((p, i) => <p key={i} className="workshop-description">{p}</p>)}
-            <WorkshopSlider />
+            {/* <WorkshopSlider /> */}
 
         </div>
     )

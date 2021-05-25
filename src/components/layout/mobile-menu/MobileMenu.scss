@@ -1,0 +1,19 @@
+.full-page-menu {
+    position: fixed;
+    top: 104px;
+    left: 0;
+    height: calc(100vh - 104px);
+    width: 100vw;
+    background-color: #34353a;
+    display: flex;
+    flex-direction: column;
+
+    .menu-item {
+        padding: 20px 15px;
+        border-bottom: 2px solid #fafafa;
+        color: #fafafa;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
