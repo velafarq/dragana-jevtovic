@@ -9,6 +9,7 @@
         font-size: 64px;
         line-height: 1.1;
         font-weight: normal;
+        text-align: center;
     }
 
     .bio {
@@ -44,15 +45,16 @@
 
             p {
                 margin: 0;
-                // max-width: 457px;
+                text-align: justify;
                 padding-bottom: 15px;
             }
         }
     }
 }
 
-@media only screen and (max-width: 1010px) {
+@media only screen and (max-width: 1200px) {
     .artist-bio-container {
+        margin-top: 0;
 
         .heading-text {
             font-size: 40px;
@@ -65,15 +67,21 @@
     
             .bio__blurb {
                 width: 100%;
-                text-align: center;
     
                 p {
                     max-width: 90%;
                     margin: auto;
-                    text-align: center;
-                    margin-top: 15px;
-                    font-size: 18px;
+                    text-align: justify;
+                    font-size: 15px;
                 }
+                
+                p:first-child {
+                    padding-top: 15px;
+                }
+            }
+
+            figure {
+                width: 80%;
             }
         }
 
