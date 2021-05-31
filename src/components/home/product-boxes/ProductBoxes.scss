@@ -11,11 +11,15 @@
 }
 
 @media only screen and (max-width: 1010px) {
-    .product-boxes .boxes-row {
-        flex-direction: column;
-        margin: 0;
+    .product-boxes {
+        flex-direction: row;
+        overflow: scroll;
+
+        .boxes-row {
+            margin-left: 15px;
+        }
+
     }
-    
 }
 
 .product-boxes.small {
