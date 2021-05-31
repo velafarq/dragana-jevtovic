@@ -15,25 +15,35 @@ const Header = (props) => {
     return (
         <Fragment>
             <div className="header-container">
-            <i onClick={() => setMenuOpen(!menuOpen)} className="material-icons">menu</i>
-            { menuOpen && <MobileMenu closeMenu={setMenuOpen} /> }
-                
-                {/* <img className='logo' src='https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/logo%2Flogo.png?alt=media&token=24d2acb4-4fd9-4590-a5fe-164dd2169f9c' alt=""/>
-                <nav className="nav-items">
-                    <NavLink className='item' exact to='/' activeClassName='selected'>Home</NavLink>
-                    <NavLink className='item' strict to='/products' activeClassName='selected'>Products</NavLink>
-                    <NavLink className='item' exact to='/about' activeClassName='selected'>How to Purchase</NavLink>
-                    <NavLink className='item' exact to='/gallery' activeClassName='selected'>Gallery</NavLink>
-                    <NavLink className='item' exact to='/contact' activeClassName='selected'>Contact</NavLink>
-                </nav>
-                <div className="side-icons">
+                <div className="mobile-header">
+                    <i onClick={() => setMenuOpen(!menuOpen)} className="material-icons">menu</i>
+                    <img className='logo' src='https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/logo%2Flogo.png?alt=media&token=24d2acb4-4fd9-4590-a5fe-164dd2169f9c' alt=""/>
                     <NavLink exact to='/checkout' className="item cart">
                         <i className="material-icons">shopping_cart</i>
                         {cartItems && cartItems.length ? <div className="cart-number">{cartItems.length}</div> : null}
                     </NavLink>
-          
-                    { isAdmin && <AdminHeader /> }
-                </div> */}
+                </div>
+           
+                <div className="desktop-header">
+                    <img className='logo' src='https://firebasestorage.googleapis.com/v0/b/dragana-jevtovic.appspot.com/o/logo%2Flogo.png?alt=media&token=24d2acb4-4fd9-4590-a5fe-164dd2169f9c' alt=""/>
+                    <nav className="nav-items">
+                        <NavLink className='item' exact to='/' activeClassName='selected'>Home</NavLink>
+                        <NavLink className='item' strict to='/products' activeClassName='selected'>Products</NavLink>
+                        <NavLink className='item' exact to='/about' activeClassName='selected'>How to Purchase</NavLink>
+                        <NavLink className='item' exact to='/gallery' activeClassName='selected'>Gallery</NavLink>
+                        <NavLink className='item' exact to='/contact' activeClassName='selected'>Contact</NavLink>
+                    </nav>
+                    <div className="side-icons">
+                        <NavLink exact to='/checkout' className="item cart">
+                            <i className="material-icons">shopping_cart</i>
+                            {cartItems && cartItems.length ? <div className="cart-number">{cartItems.length}</div> : null}
+                        </NavLink>
+            
+                        { isAdmin && <AdminHeader /> }
+                    </div>
+                </div>
+
+                { menuOpen && <MobileMenu closeMenu={setMenuOpen} /> }
             </div>
         </Fragment>
     )

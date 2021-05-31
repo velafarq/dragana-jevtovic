@@ -1,7 +1,7 @@
 .header-container {
     width: 100%;
     min-height: 104px;
-    background-color: rgba(33, 72, 117, 0.95);;
+    background-color: rgb(33, 72, 117);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,6 @@
     .mobile-header {
         display: none;
         width: 100%;
-        display: flex;
         justify-content: space-around;
         align-items: center;
     }
@@ -151,7 +150,7 @@
 @media only screen and (max-width: 1200px) {
     .header-container {
         .mobile-header {
-            display: block;
+            display: flex;
         }
 
         .desktop-header {
