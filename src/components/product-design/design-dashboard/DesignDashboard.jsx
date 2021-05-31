@@ -64,7 +64,7 @@ export const DesignDashboard = (props) => {
             {!loading ?
             <Fragment>
                 { products && products.length > 0  ? 
-                <div className="design">
+                <div className="design header-padding">
                     <header className="design__header fade-in" style={{backgroundImage: "url(" + headerUrl + ")"}}></header>
                     <div className="design__breadcrumbs center-content">
                             <Link className="link" to={'/'}>Home</Link> / <Link className="link" to={'/products'}>Products</Link> / <span className="active-link">{DESIGN_NAMES[designName]}</span>
@@ -93,7 +93,7 @@ export const DesignDashboard = (props) => {
                     <div>Check back later for more products!</div>
                     <Link to={'/products'} className="empty-message-link">Go Back</Link>
                 </div> }
-            </Fragment> : <div className="spinner"><Spinner /></div>
+            </Fragment> : <div className="spinner header-padding"><Spinner /></div>
         }
         </Fragment>
         

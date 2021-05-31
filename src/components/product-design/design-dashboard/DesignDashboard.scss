@@ -10,7 +10,7 @@
 }
 
 .design {
-    padding: 104px 0 150px 0;
+    padding: inherit 0 150px 0;
     position: relative;
     overflow-x: hidden;
     min-height: calc(100vh - 140px);
@@ -123,5 +123,11 @@
             }
         }
 
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .design__header {
+        height: 100px;
     }
 }

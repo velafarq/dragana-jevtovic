@@ -105,6 +105,7 @@
         .logo {
             position: relative;
             left: 0;
+            max-width: 160px;
         }
 
         .item {
@@ -149,6 +150,8 @@
 
 @media only screen and (max-width: 1200px) {
     .header-container {
+        min-height: 60px;
+
         .mobile-header {
             display: flex;
         }

@@ -90,7 +90,7 @@ const ProductDashboard = (props) => {
     }
 
     return (
-        <div className="product-dashboard container">
+        <div className="product-dashboard container header-padding">
             <h1 className="heading-text product-dashboard__title">Choose a Style</h1>
             <ProductBoxes layout='col' />
             {sets.length > 0 && renderProductRow(sets, "Place Settings & Sets")}

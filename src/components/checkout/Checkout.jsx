@@ -70,7 +70,7 @@ const Checkout = ({ items, currency, updateQuantity, removeItemFromCart }) => {
     }
 
     return (
-        <div className="checkout">
+        <div className="checkout header-padding">
             <h1 className="heading-text checkout__title">Quote Request</h1>
             {items && items.length ? 
                 <React.Fragment>

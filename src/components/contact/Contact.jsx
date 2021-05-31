@@ -39,7 +39,7 @@ const Contact = (props) => {
     }
 
     return (
-        <div className="contact">
+        <div className="contact header-padding">
             <h1 className="contact__title heading-text">Contact</h1>
             <section>
                 <div className="contact-top">

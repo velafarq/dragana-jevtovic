@@ -89,7 +89,7 @@ function ProductDetails(props) {
     
     return (
        <React.Fragment>
-            <div className="product-details-container section">
+            <div className="product-details-container section header-padding">
                  <div className="breadcrumbs center-content">
                     <Link className="link" to={'/'}>Home</Link> / <Link className="link" to={'/products'}>Products</Link> 
                     { product && 
