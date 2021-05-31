@@ -621,6 +621,10 @@ a {
     min-height: calc(100vh - 104px) !important;
 }
 
+.footer-full-height {
+    min-height: calc(100vh - 140px) !important;
+}
+
 
 @media only screen and (max-width: 1200px) {
     .header-padding {
@@ -635,5 +639,9 @@ a {
         text-align: center;
         font-size: 40px;
         margin-top: 45px;
+    }
+
+    .footer-full-height {
+        min-height: calc(100vh - 90px) !important;
     }
 }

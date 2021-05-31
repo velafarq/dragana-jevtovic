@@ -111,7 +111,7 @@ const SubmitOrder = ({ submitOrder }) => {
 
     return (
         <React.Fragment>{!submitted ? form() : 
-        <div className="submitted-message">
+        <div className="submitted-message footer-full-height">
             Thank you! We'll be in touch soon.
         </div>
         }
