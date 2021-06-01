@@ -10,7 +10,7 @@ const ArtistBio = () => {
     const f = 'Dragana was born in Belgrade, Yugoslavia where she studied Art and Philosophy at the University of Belgrade, and Music at the Belgrade Faculty of Music Arts, obtaining the B A Mus (Honours).  She moved to Cape Town, South Africa, in 1993.';
     const paragraphs = [a, b, c, d, e, f];
     return (
-        <div className='artist-bio-container'>
+        <div className='artist-bio-container header-full-height'>
             <h2 className="heading-text">The Artist</h2>
             <div className="bio">
                 <figure>

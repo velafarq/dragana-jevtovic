@@ -12,19 +12,20 @@ const Contact = (props) => {
     const [country, setCountry] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+    const [postalCode, setPostalCode] = useState('');
     const [showSuccess, setShowSuccess] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const payload = {
-            firstName, lastName, email, phone, country, subject, message
+            firstName, lastName, email, phone, country, postalCode, subject, message
         }
         props.submit(payload);
         setShowSuccess(true);
 
         setTimeout(() => {
             setShowSuccess(false);
-        }, 3000)
+        }, 8000)
         clearForm();
     }
 
@@ -36,11 +37,88 @@ const Contact = (props) => {
         setCountry('');
         setSubject('');
         setMessage('');
+        setPostalCode('');
     }
 
     return (
-        <div className="contact">
+        <div className="contact header-padding">
             <h1 className="contact__title heading-text">Contact</h1>
+            <h4>Have a question? We’d love to hear from you. Please send a message and we’ll respond as soon as possible.</h4>
+           
+            <form onSubmit={handleSubmit} className="contact__form">
+                <div className="row">
+                    <label>First Name*
+                        <input 
+                            type="text" 
+                            name="firstName"
+                            value={firstName}
+                            onChange={e => setFirstName(e.target.value)}
+                            required />
+                    </label>
+                    <label>Last Name*
+                        <input 
+                            type="text" 
+                            name="lastName"
+                            value={lastName}
+                            onChange={e => setLastName(e.target.value)}
+                            required />
+                    </label>
+                </div>
+                <div className="row">
+                    <label>Email*
+                        <input 
+                            type="email" 
+                            name="email"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                            required />
+                    </label>
+                    <label>Phone
+                        <input 
+                            type="text" 
+                            name="phone"
+                            value={phone}
+                            onChange={e => setPhone(e.target.value)} />
+                    </label>
+                </div>
+                <div className="row">
+                    <label>Country*
+                        <input 
+                            type="text" 
+                            name="country"
+                            value={country}
+                            onChange={e => setCountry(e.target.value)}
+                            required />
+                    </label>
+
+                    <label>Postal Code
+                        <input 
+                            type="text" 
+                            name="postalCode"
+                            value={postalCode}
+                            onChange={e => setPostalCode(e.target.value)} />
+                    </label>
+                </div>
+               
+                <label>Subject*
+                    <input 
+                        type="text" 
+                        name="subject"
+                        value={subject}
+                        onChange={e => setSubject(e.target.value)}
+                        required />
+                </label>
+                <label>Message*
+                    <textarea 
+                        type="text" 
+                        name="message"
+                        value={message}
+                        onChange={e => setMessage(e.target.value)}
+                        required />
+                </label>
+                <button className='heading-text contact__form__submit'>Send</button>
+                {showSuccess && <div className="success">Sent. Thank you!</div>}
+            </form>
             <section>
                 <div className="contact-top">
                     <div className="address">
@@ -68,67 +146,7 @@ const Contact = (props) => {
                 </div>
             </section>
             
-            <h4>Have a question? We’d love to hear from you. Please send a message and we’ll respond as soon as possible.</h4>
-           
-            <form onSubmit={handleSubmit} className="contact__form">
-                <label>First Name*
-                    <input 
-                        type="text" 
-                        name="firstName"
-                        value={firstName}
-                        onChange={e => setFirstName(e.target.value)}
-                        required />
-                </label>
-                <label>Last Name*
-                    <input 
-                        type="text" 
-                        name="lastName"
-                        value={lastName}
-                        onChange={e => setLastName(e.target.value)}
-                        required />
-                </label>
-                <label>Email*
-                    <input 
-                        type="email" 
-                        name="email"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                        required />
-                </label>
-                <label>Phone
-                    <input 
-                        type="text" 
-                        name="phone"
-                        value={phone}
-                        onChange={e => setPhone(e.target.value)} />
-                </label>
-                <label>Country*
-                    <input 
-                        type="text" 
-                        name="country"
-                        value={country}
-                        onChange={e => setCountry(e.target.value)}
-                        required />
-                </label>
-                <label>Subject*
-                    <input 
-                        type="text" 
-                        name="subject"
-                        value={subject}
-                        onChange={e => setSubject(e.target.value)}
-                        required />
-                </label>
-                <label>Message*
-                    <textarea 
-                        type="text" 
-                        name="message"
-                        value={message}
-                        onChange={e => setMessage(e.target.value)}
-                        required />
-                </label>
-                <button className='heading-text contact__form__submit'>Send Message</button>
-                {showSuccess && <div className="success">Sent!</div>}
-            </form>
+            
         </div>
     )
 }

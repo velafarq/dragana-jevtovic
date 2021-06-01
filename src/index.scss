@@ -409,7 +409,7 @@ select {
     border-radius: 5px;
     padding: 10px;
     min-height: 25px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .form-input {
@@ -606,10 +606,46 @@ a {
 }
 
 .spinner {
-    padding-top: 104px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     min-height: calc(100vh - 244px);
+}
+
+.header-padding {
+    padding-top: 104px !important;
+}
+
+.header-full-height {
+    min-height: calc(100vh - 104px) !important;
+}
+
+.footer-full-height {
+    min-height: calc(100vh - 140px) !important;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .header-padding {
+        padding-top: 60px !important;
+    }
+
+    .header-full-height {
+        min-height: calc(100vh - 60px) !important;
+    }
+
+    .contact-love .heading-text {
+        text-align: center;
+        font-size: 40px;
+        margin-top: 45px;
+    }
+
+    .footer-full-height {
+        min-height: calc(100vh - 90px) !important;
+    }
+
+    .center-content {
+        margin: 0 5px;
+    }
 }

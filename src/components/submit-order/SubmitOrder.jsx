@@ -36,7 +36,7 @@ const SubmitOrder = ({ submitOrder }) => {
     }
 
     const form = () => {
-        return <div className="contact">
+        return <div className="contact header-padding">
             <h1 className="contact__title heading-text">About you...</h1>
             <p>Before you checkout, tell us a bit about yourself so that we know how to contact you.</p>
             <form onSubmit={handleSubmit} className="contact__form">
@@ -101,17 +101,16 @@ const SubmitOrder = ({ submitOrder }) => {
                         type="text" 
                         name="message"
                         value={message}
-                        onChange={e => setMessage(e.target.value)}
-                        required />
+                        onChange={e => setMessage(e.target.value)} />
                 </label>
-                <button className='heading-text contact__form__submit'>Submit Quote Request</button>
+                <button className='heading-text contact__form__submit'>Submit</button>
             </form>
         </div>
     }
 
     return (
         <React.Fragment>{!submitted ? form() : 
-        <div className="submitted-message">
+        <div className="submitted-message footer-full-height">
             Thank you! We'll be in touch soon.
         </div>
         }

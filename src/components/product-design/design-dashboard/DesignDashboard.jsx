@@ -13,6 +13,8 @@ export const DesignDashboard = (props) => {
     const [ selected, setSelected ] = useState('all');
     const [ headerUrl, setHeaderUrl ] = useState('');
     const [ loading, setLoading ] = useState(true);
+    const [ expandFilter, setExpandFilter ] = useState(false);
+
     useFirestoreConnect([
         { collection: 'products' },
         { collection: 'configurations', doc: 'design_header'}
@@ -50,7 +52,10 @@ export const DesignDashboard = (props) => {
             setSelected(category);
             setFilteredProducts(filtered);
         }
-        
+
+        if (expandFilter) {
+            setExpandFilter(false);
+        }
     }
 
     const renderListItem = (type, i) => {
@@ -64,39 +69,42 @@ export const DesignDashboard = (props) => {
             {!loading ?
             <Fragment>
                 { products && products.length > 0  ? 
-                <div className="design">
+                <div className="design header-padding footer-full-height">
                     <header className="design__header fade-in" style={{backgroundImage: "url(" + headerUrl + ")"}}></header>
                     <div className="design__breadcrumbs center-content">
                             <Link className="link" to={'/'}>Home</Link> / <Link className="link" to={'/products'}>Products</Link> / <span className="active-link">{DESIGN_NAMES[designName]}</span>
                         </div>
                     <div className="heading-text center-content">{DESIGN_NAMES[designName]}</div>
-        
+                    <div className="design__content__filter" onClick={() => setExpandFilter(!expandFilter)}>
+                        <span>Filter</span>
+                        <i className="material-icons">{expandFilter ? 'expand_less' : 'expand_more'}</i>
+                    </div>
+                    <div className="design__content__filter-items" style={{height: expandFilter ? '255px' : '0'}}>
+                        <ul>
+                            { typeOptions && typeOptions.map((type, i) => renderListItem(type, i))}
+                        </ul>
+                    </div>
                     <section className="design__content center-content">
-        
                         <div className="design__content__nav-box">
                             <ul>
                                 { typeOptions && typeOptions.map((type, i) => renderListItem(type, i))}
-        
                             </ul>
                         </div>
-        
                         <div className="design__content__listings">{filteredProducts.map((product, i) => 
                             <Link to={`/products/${product.id}`} key={product.id} className="design__content__listings__listing">
                                 <ProductListing product={product} />
                             </Link>
                         )}
                         </div>
-        
                     </section>
                 </div> : 
                 <div className="empty-message">
                     <div>Check back later for more products!</div>
                     <Link to={'/products'} className="empty-message-link">Go Back</Link>
                 </div> }
-            </Fragment> : <div className="spinner"><Spinner /></div>
+            </Fragment> : <div className="spinner header-padding"><Spinner /></div>
         }
         </Fragment>
-        
     )
 }
 

@@ -19,6 +19,8 @@
 
 @media only screen and (max-width: 1010px) {
     .workshop-container {
+        margin-top: 0;
+        max-width: 100%;
         .heading-text {
             font-size: 40px;
         }
@@ -26,8 +28,8 @@
         .workshop-description {
             max-width: 90%;
             margin: auto;
-            text-align: center;
-            font-size: 18px;
+            text-align: justify;
+            font-size: 15px;
         }
     }
 }

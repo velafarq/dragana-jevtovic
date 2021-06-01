@@ -30,9 +30,11 @@
     }
 }
 
-@media only screen and (max-width: 550px) {
-    .workshop-slider-container .workshop-slider .workshop-slide {
-        width: 100px;
-        height: 100px;
+@media only screen and (max-width: 1200px) {
+    .workshop-slider-container {
+        margin: 50px 5px 0 5px;
+
+    } .workshop-slider {
+        max-width: 100%;
     }
 }

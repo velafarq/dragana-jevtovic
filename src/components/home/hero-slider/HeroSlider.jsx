@@ -71,7 +71,7 @@ class HeroSlider extends Component {
         const { items, loading } = this.state;
         return (
             !loading ? 
-            <div className='hero-container'>
+            <div className='hero-container header-padding'>
                 <Carousel className='slider' 
                     itemsToShow={1}
                     pagination={false}
@@ -97,7 +97,7 @@ class HeroSlider extends Component {
                     </div>)}
                 </Carousel>
             </div> :
-            <div className="spinner"><Spinner /></div>
+            <div className="spinner header-padding"><Spinner /></div>
         )
     }
 }

@@ -58,7 +58,7 @@ const Gallery = () => {
     }
 
     return (
-        <section className="main-gallery">
+        <section className="main-gallery header-padding">
             {productGallery && productGallery.length ? productGallery.map((product, i) => renderGalleryItem(product, i)) : <Spinner />}
         </section>
     )
