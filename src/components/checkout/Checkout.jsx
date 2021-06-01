@@ -64,7 +64,23 @@ const Checkout = ({ items, currency, updateQuantity, removeItemFromCart }) => {
 
     }
 
+    const mobileItem = (itemDetails, index) => {
+        const { item, quantity } = itemDetails;
 
+        return (
+            <div className="mobile-item" key={item.id}>
+                <div className="item-img"><img src={getPrimaryImage(item)} alt="" /></div>
+                <div className="item-description">
+                    <div className="item-title">{item.name}</div>
+                    <div className="item-price">{handlePrice(item.price, currency)}</div>
+                    <div className="item-quantity">
+                        <input type="number" value={quantity} onChange={(e) => changeQuantity(e, index)} min="1" />
+                    </div>
+                    <button className="remove" onClick={() => remove(index)}>Remove</button>
+                </div>
+            </div>
+        )
+    }
     const generateTable = (products) => {
         return products.map((product, i) => row(product, i));
     }
@@ -83,6 +99,7 @@ const Checkout = ({ items, currency, updateQuantity, removeItemFromCart }) => {
                         <div className="box title"></div>
                         {generateTable(items)}
                     </div>
+                    <section className="mobile-items">{items.map((item, i) => mobileItem(item, i))}</section>
                     <div className="total">Total: {calculateGrandTotal()}</div>
                     <div className="checkout-btn">
                         <Link className='link heading-text contact__form__submit' to={'/checkout/submit'}>Checkout</Link>
