@@ -21,13 +21,6 @@
         z-index: 2;
     }
 
-    .mobile-header {
-        display: none;
-        width: 100%;
-        justify-content: space-around;
-        align-items: center;
-    }
-
     .item {
         margin: 0 16px;
         font-weight: 300;
@@ -59,6 +52,18 @@
                 text-align: center;
                 padding: 2px;
             }
+        }
+    }
+
+    .mobile-header {
+        display: none;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+
+        .cart .cart-number {
+            color: white;
+            left: 10px;
         }
     }
 
