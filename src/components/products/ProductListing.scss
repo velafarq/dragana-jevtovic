@@ -21,7 +21,7 @@
         width: 100%;
         max-width: 100%;
         text-align: center;
-        max-height: 80%;
+        max-height: 70%;
 
         img {
             max-width: 100%;
@@ -40,6 +40,9 @@
         font-weight: 500;
         line-height: 1.4;
         font-size: 12px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     &__price {
@@ -54,8 +57,13 @@
 
 @media only screen and (max-width: 1200px) {
     .product-listing {
-        height: 270px;
-        width: 250px;
+        height: 200px;
+        width: 170px;
+        font-size: 12px;
+
+        &__title {
+            font-size: 10px;
+        }
 
         .box-padding {
             padding: 0 5px;
