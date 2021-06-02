@@ -10,7 +10,9 @@ import Spinner from '../spinner/Spinner';
 const Gallery = () => {
     const [productGallery, setProductGallery] = useState([]);
 
-    useFirestoreConnect([{ collection: 'products' }]);
+    useFirestoreConnect([
+        { collection: 'products', where: ['hidden', '==', false] }
+    ]);
     const products = useSelector(state => state.firestore.ordered.products);
 
     useEffect(() => {

@@ -16,7 +16,7 @@ export const DesignDashboard = (props) => {
     const [ expandFilter, setExpandFilter ] = useState(false);
 
     useFirestoreConnect([
-        { collection: 'products' },
+        { collection: 'products', where: ['hidden', '==', false] },
         { collection: 'configurations', doc: 'design_header'}
     ]);
 

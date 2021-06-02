@@ -9,7 +9,7 @@ const RelatedProducts = ({ categories, currentProductId }) => {
     const [ relatedProducts, setRelatedProducts ] = useState([]);
 
     useFirestoreConnect([
-        { collection: 'products' }
+        { collection: 'products', where: ['hidden', '==', false] }
     ]);
     
     const allProducts = useSelector(state => state.firestore.ordered.products);

@@ -16,7 +16,7 @@ const ProductDashboard = (props) => {
     const [sets, setSets] = useState([]);
 
     useFirestoreConnect([
-        { collection: 'products' }
+        { collection: 'products', where: ['hidden', '==', false] }
     ]);
     
     const products = useSelector(state => state.firestore.ordered.products);

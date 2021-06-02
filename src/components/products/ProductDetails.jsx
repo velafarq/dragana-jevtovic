@@ -10,7 +10,7 @@ import { DESIGN_NAMES, handleCategoryLabels } from '../../helpers';
 
 function ProductDetails(props) {
     useFirestoreConnect([
-        { collection: 'products' }
+        { collection: 'products', where: ['hidden', '==', false] }
     ]);
     const products = useSelector(state => state.firestore.ordered.products);
     const product_id = props.match.params.id;
