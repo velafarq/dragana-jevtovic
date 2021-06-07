@@ -5,6 +5,7 @@ import './ProductDashboard.scss';
 import ProductBoxes from '../home/product-boxes/ProductBoxes';
 import ProductListing from '../products/ProductListing';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const ProductDashboard = (props) => {
     const [custom, setCustom] = useState([]);
@@ -91,6 +92,11 @@ const ProductDashboard = (props) => {
 
     return (
         <div className="product-dashboard container header-padding">
+            <Helmet>
+                <title>Products | Dragana Jevtovic Ceramics</title>
+                <meta name="description" content="Brwowse a wide variety of African inspired ceramics by Dragana Jevtovic" />
+            </Helmet>
+
             <h1 className="heading-text product-dashboard__title">Choose a Style</h1>
             <ProductBoxes layout='col' />
             {sets.length > 0 && renderProductRow(sets, "Place Settings & Sets")}

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import RelatedProducts from '../related-products/RelatedProducts';
 import ProductGallery from '../product-gallery/ProductGallery';
 import { DESIGN_NAMES, handleCategoryLabels } from '../../helpers';
+import { Helmet } from 'react-helmet';
 
 function ProductDetails(props) {
     useFirestoreConnect([
@@ -90,6 +91,12 @@ function ProductDetails(props) {
     return (
        <React.Fragment>
             <div className="product-details-container section header-padding">
+                { product && 
+                    <Helmet>
+                        <title>{DESIGN_NAMES[product.categories[0]] + ' ' + product.name} | Dragana Jevtovic Ceramics</title>
+                        <meta name="description" content={`Iconic ${DESIGN_NAMES[product.categories[0]] + ' ' + product.name} hand made and designed by Dragana Jevtovic in Cape Town, South Africa.`} />
+                    </Helmet>
+                }
                  <div className="breadcrumbs center-content">
                     <Link className="link" to={'/'}>Home</Link> / <Link className="link" to={'/products'}>Products</Link> 
                     { product && 

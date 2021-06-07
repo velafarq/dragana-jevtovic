@@ -1,10 +1,16 @@
 import React from 'react';
 import './About.scss';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const About = () => {
     return (
         <div className="about header-padding">
+            <Helmet>
+                <title>About | Dragana Jevtovic Ceramics</title>
+                <meta name="description" content="We ship all over the world. Arrange an appointment with Dragana on WhatsApp for a
+                    video tour of the studio shop or contact us for more details" />
+                </Helmet>
             <h1 className="about__title heading-text">How to Purchase</h1>
             <p>To receive a quote add the items you would like to purchase to your “Quote Cart”, fill in your details and then check out.</p>
             <p>Within 24 hours we will get back to you by email with a quote, including shipping, in US$.</p>

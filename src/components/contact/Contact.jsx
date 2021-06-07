@@ -3,6 +3,7 @@ import './contact.scss';
 import { submitContactForm } from '../../store/actions/cart-actions';
 import { connect } from 'react-redux';
 import Pdf from '../../assets/dragana-jevtovic-ceramics-directions-to-studio.pdf';
+import { Helmet } from 'react-helmet';
 
 const Contact = (props) => {
     const [firstName, setFirstName] = useState('');
@@ -42,6 +43,8 @@ const Contact = (props) => {
 
     return (
         <div className="contact header-padding">
+            <Helmet><title>Contact | Dragana Jevtovic Ceramics</title></Helmet>
+            <meta name="description" content="Have a question? We’d love to hear from you. Please send a message and we’ll respond as soon as possible." />
             <h1 className="contact__title heading-text">Contact</h1>
             <h4>Have a question? We’d love to hear from you. Please send a message and we’ll respond as soon as possible.</h4>
            

@@ -6,6 +6,7 @@ import ProductListing from '../../products/ProductListing';
 import { Link } from 'react-router-dom';
 import { typeOptions, DESIGN_NAMES } from '../../../helpers';
 import Spinner from '../../spinner/Spinner';
+import { Helmet } from 'react-helmet';
 
 export const DesignDashboard = (props) => {
     const [ products, setProducts ] = useState([]);
@@ -66,6 +67,10 @@ export const DesignDashboard = (props) => {
 
     return (
         <Fragment>
+            <Helmet>
+                <title>{DESIGN_NAMES[designName]} | Dragana Jevtovic Ceramics</title>
+                <meta name="description" content={`Iconic ${DESIGN_NAMES[designName]} design by Dragana Jevtovic. Made in Cape Town, South Africa/`} />
+            </Helmet>
             {!loading ?
             <Fragment>
                 { products && products.length > 0  ? 

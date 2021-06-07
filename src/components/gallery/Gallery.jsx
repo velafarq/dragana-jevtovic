@@ -6,6 +6,7 @@ import {useState} from 'react';
 import {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Spinner from '../spinner/Spinner';
+import { Helmet } from 'react-helmet';
 
 const Gallery = () => {
     const [productGallery, setProductGallery] = useState([]);
@@ -61,6 +62,10 @@ const Gallery = () => {
 
     return (
         <section className="main-gallery header-padding">
+            <Helmet>
+                <title>Gallery | Dragana Jevtovic Ceramics</title>
+                <meta name="description" content="Plates, Bowls, Teapots, Mugs, Servers and Place Settings made by Dragana Jevtovic in Cape Town, South Africa" />
+            </Helmet>
             {productGallery && productGallery.length ? productGallery.map((product, i) => renderGalleryItem(product, i)) : <Spinner />}
         </section>
     )
