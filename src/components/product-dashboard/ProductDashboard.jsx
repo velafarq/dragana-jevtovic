@@ -94,7 +94,7 @@ const ProductDashboard = (props) => {
         <div className="product-dashboard container header-padding">
             <Helmet>
                 <title>Products | Dragana Jevtovic Ceramics</title>
-                <meta name="description" content="Brwowse a wide variety of African inspired ceramics by Dragana Jevtovic" />
+                <meta name="description" content="Browse a wide variety of African inspired ceramics by Dragana Jevtovic" />
             </Helmet>
 
             <h1 className="heading-text product-dashboard__title">Choose a Style</h1>
