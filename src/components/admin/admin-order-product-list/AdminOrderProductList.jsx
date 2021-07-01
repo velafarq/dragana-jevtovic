@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import './AdminOrderProductList.scss';
-import { DESIGN_NAMES, handlePrice } from '../../../helpers';
+import { DESIGN_NAMES, handlePrice, hyphenateText } from '../../../helpers';
 import { Link } from 'react-router-dom';
 
 const AdminOrderProductList = ({ items }) => {
@@ -42,7 +42,7 @@ const AdminOrderProductList = ({ items }) => {
                 <div className="box qty">{quantity}</div>
                 <div className="box">{calculateTotal(item.price[currency], quantity)}</div>
                 <div className="box table-actions">
-                    <Link className="view-listing" to={'/products/' + item.id} target="_blank">View</Link>
+                    <Link className="view-listing" to={`/products/${hyphenateText(item.name)}/${item.id}`} target="_blank">View</Link>
                 </div>
             </Fragment>);
     }

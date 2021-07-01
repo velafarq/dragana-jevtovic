@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { deleteProduct, updateProduct } from '../../../store/actions/admin-actions';
 import { Link } from 'react-router-dom';
 import AdminNav from '../admin-nav/AdminNav';
-import {DESIGN_NAMES, TYPE_NAMES} from '../../../helpers';
+import {DESIGN_NAMES, hyphenateText, TYPE_NAMES} from '../../../helpers';
 
 const AdminProducts = (props) => {
     const [displayProducts, setDisplayProducts] = useState([]);
@@ -36,7 +36,7 @@ const AdminProducts = (props) => {
             <div className='box'>{handleCategoryLabels(product.categories)}</div>
             <div className="box">{product.hidden ? <i className="material-icons hidden">check_circle_outline</i> : ''}</div>
             <div className='box table-actions'>
-                <Link className="view-listing" to={'/products/' + product.id} target="_blank">View</Link>
+                <Link className="view-listing" to={`/products/${hyphenateText(product.name)}/${product.id}`} target="_blank">View</Link>
                 <i className="material-icons edit" onClick={() => editProduct(product)}>edit</i>
                 <i className="material-icons delete" onClick={() => deleteProduct(product.id)}>delete_forever</i>
             </div>
