@@ -6,7 +6,7 @@ import ProductText from './ProductText';
 import { Link } from 'react-router-dom';
 import RelatedProducts from '../related-products/RelatedProducts';
 import ProductGallery from '../product-gallery/ProductGallery';
-import { DESIGN_NAMES, handleCategoryLabels } from '../../helpers';
+import { DESIGN_NAMES, handleCategoryLabels, hyphenateText } from '../../helpers';
 import { Helmet } from 'react-helmet';
 
 function ProductDetails(props) {
@@ -95,6 +95,7 @@ function ProductDetails(props) {
                     <Helmet>
                         <title>{DESIGN_NAMES[product.categories[0]] + ' ' + product.name} | Dragana Jevtovic Ceramics</title>
                         <meta name="description" content={`Iconic ${DESIGN_NAMES[product.categories[0]] + ' ' + product.name} hand made and designed by Dragana Jevtovic in Cape Town, South Africa.`} />
+                        <link rel="canonical" href={`https://draganajevtovic.com/products/${hyphenateText(product.name)}/${product.id}`} />
                     </Helmet>
                 }
                  <div className="breadcrumbs center-content">

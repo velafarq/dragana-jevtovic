@@ -64,7 +64,8 @@ const Gallery = () => {
         <section className="main-gallery header-padding">
             <Helmet>
                 <title>Gallery | Dragana Jevtovic Ceramics</title>
-                <meta name="description" content="Plates, Bowls, Teapots, Mugs, Servers and Place Settings made by Dragana Jevtovic in Cape Town, South Africa" />
+                <meta name="description" content="Browse plates, bowls, teapots, mugs, servers and place settings made by Dragana Jevtovic in Cape Town, South Africa" />
+                <link rel="canonical" href="https://draganajevtovic.com/gallery" />
             </Helmet>
             {productGallery && productGallery.length ? productGallery.map((product, i) => renderGalleryItem(product, i)) : <Spinner />}
         </section>

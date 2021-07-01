@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import ProductListing from '../../products/ProductListing';
 import { Link } from 'react-router-dom';
-import { typeOptions, DESIGN_NAMES } from '../../../helpers';
+import { typeOptions, DESIGN_NAMES, hyphenateText } from '../../../helpers';
 import Spinner from '../../spinner/Spinner';
 import { Helmet } from 'react-helmet';
 
@@ -70,6 +70,7 @@ export const DesignDashboard = (props) => {
             <Helmet>
                 <title>{DESIGN_NAMES[designName]} | Dragana Jevtovic Ceramics</title>
                 <meta name="description" content={`Iconic ${DESIGN_NAMES[designName]} design by Dragana Jevtovic. Made in Cape Town, South Africa/`} />
+                <link rel="canonical" href={`https://draganajevtovic.com/designs/${designName}`} />
             </Helmet>
             {!loading ?
             <Fragment>
@@ -96,7 +97,7 @@ export const DesignDashboard = (props) => {
                             </ul>
                         </div>
                         <div className="design__content__listings">{filteredProducts.map((product, i) => 
-                            <Link to={`/products/${product.id}`} key={product.id} className="design__content__listings__listing">
+                            <Link to={`/products/${hyphenateText(product.name)}/${product.id}`}  key={product.id} className="design__content__listings__listing">
                                 <ProductListing product={product} />
                             </Link>
                         )}

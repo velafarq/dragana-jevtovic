@@ -43,8 +43,11 @@ const Contact = (props) => {
 
     return (
         <div className="contact header-padding">
-            <Helmet><title>Contact | Dragana Jevtovic Ceramics</title></Helmet>
-            <meta name="description" content="Have a question? We’d love to hear from you. Please send a message and we’ll respond as soon as possible." />
+            <Helmet>
+                <title>Contact | Dragana Jevtovic Ceramics</title>
+                <meta name="description" content="Have a question? We’d love to hear from you. Please send a message and we’ll respond as soon as possible." />
+                <link rel="canonical" href="https://draganajevtovic.com/contact" />
+            </Helmet>
             <h1 className="contact__title heading-text">Contact</h1>
             <h4>Have a question? We’d love to hear from you. Please send a message and we’ll respond as soon as possible.</h4>
            

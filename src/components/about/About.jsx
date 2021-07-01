@@ -10,7 +10,8 @@ const About = () => {
                 <title>About | Dragana Jevtovic Ceramics</title>
                 <meta name="description" content="We ship all over the world. Arrange an appointment with Dragana on WhatsApp for a
                     video tour of the studio shop or contact us for more details" />
-                </Helmet>
+                <link rel="canonical" href="https://draganajevtovic.com/about" />
+            </Helmet>
             <h1 className="about__title heading-text">How to Purchase</h1>
             <p>To receive a quote add the items you would like to purchase to your “Quote Cart”, fill in your details and then check out.</p>
             <p>Within 24 hours we will get back to you by email with a quote, including shipping, in US$.</p>

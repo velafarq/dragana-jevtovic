@@ -2,6 +2,7 @@ import React from 'react';
 import { addItem } from '../../store/actions/cart-actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {hyphenateText} from '../../helpers';
 
 const ProductSummary = (props) => {
     const {
@@ -14,7 +15,7 @@ const ProductSummary = (props) => {
     }
 
     return (
-        <Link to={`/products/${product.id}`}>
+        <Link to={`/products/${hyphenateText(product.name)}/${product.id}`}>
             <div className="card z-depth-0 product-summary">
                 <div className="card-content grey-text text-darker-3">
                     <span className="card-title">{product.name}</span>

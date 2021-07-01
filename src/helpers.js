@@ -157,3 +157,7 @@ export const handleCategoryLabels = (categories) => {
 
     return labels.join(', ');
 }
+
+export const hyphenateText = (text) => {
+    return text.toLowerCase().replace(/ +/g, '-');
+}

@@ -6,6 +6,7 @@ import ProductBoxes from '../home/product-boxes/ProductBoxes';
 import ProductListing from '../products/ProductListing';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import {hyphenateText} from '../../helpers';
 
 const ProductDashboard = (props) => {
     const [custom, setCustom] = useState([]);
@@ -81,7 +82,7 @@ const ProductDashboard = (props) => {
                     {title}
                 </div>
                 <div className="product-dashboard__products-carousel no-margin">{products.map((product, i) => 
-                        <Link to={`/products/${product.id}`} key={product.id} className="product-dashboard__products-carousel__product">
+                        <Link to={`/products/${hyphenateText(product.name)}/${product.id}`} key={product.id} className="product-dashboard__products-carousel__product">
                             <ProductListing product={product} />
                         </Link>
                     )}
@@ -95,8 +96,8 @@ const ProductDashboard = (props) => {
             <Helmet>
                 <title>Products | Dragana Jevtovic Ceramics</title>
                 <meta name="description" content="Browse a wide variety of African inspired ceramics by Dragana Jevtovic" />
+                <link rel="canonical" href="https://draganajevtovic.com/products" />
             </Helmet>
-
             <h1 className="heading-text product-dashboard__title">Choose a Style</h1>
             <ProductBoxes layout='col' />
             {sets.length > 0 && renderProductRow(sets, "Place Settings & Sets")}

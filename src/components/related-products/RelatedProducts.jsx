@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import { Link } from 'react-router-dom';
 import ProductListing from '../products/ProductListing';
+import {hyphenateText} from '../../helpers';
 
 const RelatedProducts = ({ categories, currentProductId }) => {
     const [ relatedProducts, setRelatedProducts ] = useState([]);
@@ -43,7 +44,7 @@ const RelatedProducts = ({ categories, currentProductId }) => {
         <div className="related-products">
             <h4>RELATED PRODUCTS</h4>
             <div className="product-dashboard__products-carousel">{relatedProducts.map((product, i) => 
-                <Link to={`/products/${product.id}`} key={product.id} className="product-dashboard__products-carousel__product">
+                <Link to={`/products/${hyphenateText(product.name)}/${product.id}`} key={product.id} className="product-dashboard__products-carousel__product">
                     <ProductListing product={product} />
                 </Link>
             )}</div>

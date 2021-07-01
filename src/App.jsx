@@ -46,7 +46,7 @@ function App(props) {
                     <Switch>
                         <Route exact path='/' component={HomeCore} />
                         <Route exact path='/products' component={ProductDashboard} />
-                        <Route path='/products/:id' component={ProductDetails} />
+                        <Route path='/products/:name/:id/' component={ProductDetails} />
                         <Route path='/signin' component={SignIn} />
                         <Route path='/signup' component={SignUp} />
                         <Route exact path='/checkout' component={Checkout} />
