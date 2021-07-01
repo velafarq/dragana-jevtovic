@@ -7,6 +7,7 @@ import {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Spinner from '../spinner/Spinner';
 import { Helmet } from 'react-helmet';
+import {hyphenateText} from '../../helpers';
 
 const Gallery = () => {
     const [productGallery, setProductGallery] = useState([]);
@@ -32,7 +33,7 @@ const Gallery = () => {
                     products.forEach(product => {
                         const separated = product.images.reduce((acc, img) => {
                             if (img.url) {
-                                acc.push({ id: product.id, url: img.url });
+                                acc.push({ id: product.id, url: img.url, name: product.name });
                                 // const preloaded = new Image();
                                 // preloaded.src = img.url;
                             }
@@ -49,7 +50,7 @@ const Gallery = () => {
 
     const renderGalleryItem = (item, i) => {
         return (
-            <Link key={i} className="gallery-item" to={'/products/' + item.id} target="_blank">
+            <Link key={i} className="gallery-item" to={`/products/${hyphenateText(item.name)}/${item.id}`} target="_blank">
                 <img className="gallery-img fade-in" src={item.url} alt="" key={i} />
                 <div className="overlay">
                 <span class="material-icons">
